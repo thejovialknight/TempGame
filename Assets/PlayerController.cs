@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
             IInteractable interactable = collider.GetComponent<IInteractable>();
             if(interactable != null)
             {
-                DebugInfoUI.interactInfo = interactable.GetInteractInfo();
+                //DebugInfoUI.interactInfo = interactable.GetInteractInfo();
                 if(Input.GetButtonDown("Interact"))
                 {
                     interactable.InteractWith(transform);

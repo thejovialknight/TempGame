@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DaleController : MonoBehaviour
+public class DaleController : MonoBehaviour, IInteractable
 {
     DialogueManager dialogueManager;
+
+    public void InteractWith(Transform interactor) {
+        MessageEventManager.RaiseOnReceiveMessage("DALE_OPEN");
+    }
+
+    public string GetInteractInfo() {
+        return "Dale (Front Counter)";
+    }
 
     void OnEnable()
     {
@@ -20,13 +28,31 @@ public class DaleController : MonoBehaviour
     {
         switch(id)
         {
-            case "WAT001" :
-                dialogueManager.Say("In what sense do you mean?");
-                dialogueManager.AddOption(new DialogueOption("WAT002", "I don't get it."));
+            case "DALE_OPEN" :
+                dialogueManager.Say("Hey.");
+                dialogueManager.AddOption(new DialogueOption("DALE_HOWGOESIT", "Hi! How are you?"));
+                dialogueManager.AddOption(new DialogueOption("DALE_INQUIREJOB", "What do you do here?"));
                 break;
-            case "WAT002":
-                dialogueManager.Say("Well, I understand that.");
-                dialogueManager.AddOption(new DialogueOption("WAT001", "Hello, there, what?"));
+            case "DALE_HOWGOESIT" :
+                dialogueManager.Say("Oh, you know.");
+                dialogueManager.AddOption(new DialogueOption("DALE_OPEN", "Sure."));
+                dialogueManager.AddOption(new DialogueOption("DALE_INQUIREOKAY", "You sure?"));
+                break;
+            case "DALE_INQUIREOKAY" :
+                dialogueManager.Say("Not necessarily.");
+                dialogueManager.AddOption(new DialogueOption("DALE_DEADEND", "Well, alright..."));
+                break;
+            case "DALE_INQUIREJOB":
+                dialogueManager.Say("I'm front counter. It's fine, I guess.");
+                dialogueManager.AddOption(new DialogueOption("DALE_INQUIREFINE", "Fine?"));
+                break;
+            case "DALE_INQUIREFINE":
+                dialogueManager.Say("Yeah, it's fine. I get paid.");
+                dialogueManager.AddOption(new DialogueOption("DALE_DEADEND", "Well, alright..."));
+                break;
+            case "DALE_DEADEND":
+                dialogueManager.Say("...");
+                dialogueManager.AddOption(new DialogueOption("DALE_OPEN", "..."));
                 break;
             default :
                 break;
@@ -36,8 +62,5 @@ public class DaleController : MonoBehaviour
     void Start()
     {
         dialogueManager = DialogueManager.instance;
-        dialogueManager.Say("Oi, there!");
-        dialogueManager.AddOption(new DialogueOption("WAT001", "Hello, there, what?"));
-        dialogueManager.AddOption(new DialogueOption("WAT002", "I don't get it."));
     }
 }
