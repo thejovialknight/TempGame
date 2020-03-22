@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 interactOffset;
     public float interactRange = 2.0f;
+    Collider2D[] interactColliders;
 
     void Awake()
     {
@@ -27,7 +28,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
-        Interact();
 
         if(body.velocity.magnitude > 0.2f)
         {
@@ -40,6 +40,10 @@ public class PlayerController : MonoBehaviour
         {
             audioSource.Stop();
         }
+    }
+
+    void FixedUpdate() {
+        Interact();
     }
 
     void Move(Vector2 movementDirection)
@@ -62,8 +66,8 @@ public class PlayerController : MonoBehaviour
     {
         DebugInfoUI.interactInfo = "";
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + (Vector3)interactOffset, interactRange);
-        foreach(Collider2D collider in colliders)
+        interactColliders = Physics2D.OverlapCircleAll(transform.position + (Vector3)interactOffset, interactRange);
+        foreach(Collider2D collider in interactColliders)
         {
             IInteractable interactable = collider.GetComponent<IInteractable>();
             if(interactable != null)

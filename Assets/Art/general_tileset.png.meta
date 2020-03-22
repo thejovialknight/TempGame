@@ -53,8 +53,11 @@ TextureImporter:
   - first:
       213: 85485525513967703
     second: general_tileset_8
+  - first:
+      213: -8928300863701482558
+    second: general_tileset_8
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -93,7 +96,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -108,6 +111,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -319,8 +323,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75892bde1a4bf2100800000000000000
-      internalID: 85485525513967703
+      spriteID: 2c3824b2bad481480800000000000000
+      internalID: -8928300863701482558
       vertices: []
       indices: 
       edges: []

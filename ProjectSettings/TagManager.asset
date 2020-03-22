@@ -41,13 +41,13 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Layer 2
+  - name: Ground
     uniqueID: 1817980507
     locked: 0
-  - name: Layer 3
+  - name: Entities
     uniqueID: 911326899
     locked: 0
-  - name: Layer 4
+  - name: Foreground
     uniqueID: 3642867965
     locked: 0
   - name: Layer 5
