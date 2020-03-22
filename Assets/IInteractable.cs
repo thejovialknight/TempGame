@@ -5,5 +5,6 @@ using UnityEngine;
 public interface IInteractable
 {
     void InteractWith(Transform interactor);
+    string GetInteractName();
     string GetInteractInfo();
 }

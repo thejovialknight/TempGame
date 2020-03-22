@@ -9,26 +9,16 @@ public class SignController : MonoBehaviour, IInteractable
 
     public void InteractWith(Transform interactor)
     {
-        StartCoroutine("SetDialogue");
+        
     }
 
-    public string GetInteractInfo()
+    public string GetInteractName()
     {
         return signName;
     }
 
-    public IEnumerator SetDialogue()
+    public string GetInteractInfo()
     {
-        DebugDialogueUI.dialogue = signText;
-
-        float cooldown = 2.0f;
-        float currentCooldown = 0.0f;
-        while (currentCooldown < cooldown)
-        {
-            currentCooldown += Time.deltaTime;
-            yield return null;
-        }
-
-        DebugDialogueUI.dialogue = "";
+        return signText;
     }
 }

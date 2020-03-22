@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
 
     public float cooldown = 0.1f;
 
+    public Transform panel;
     public Text dialogueText;
     public Text optionsText;
     public AudioClip characterAudio;
@@ -24,10 +25,22 @@ public class DialogueManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        panel.gameObject.SetActive(false);
+    }
+
+    public void Close()
+    {
+        panel.gameObject.SetActive(false);
+        MessageEventManager.RaiseOnResume();
     }
 
     public void Say(string msg)
     {
+        if (!panel.gameObject.activeInHierarchy)
+        {
+            panel.gameObject.SetActive(true);
+            MessageEventManager.RaiseOnPause();
+        }
         characterCount = 0;
         dialogueOptions.Clear();
         dialogue = msg;
@@ -40,6 +53,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
+        // Scroll text one character at a time
         currentCooldown += Time.deltaTime;
         if(currentCooldown >= cooldown) {
             if(dialogueText.text != dialogue) {
@@ -52,11 +66,12 @@ public class DialogueManager : MonoBehaviour
             currentCooldown = 0.0f;
         }
 
+        // Allow player to skip text
         if(Input.GetButtonDown("Skip")) {
             dialogueText.text = dialogue;
-            //AudioSource.PlayClipAtPoint(characterAudio, Camera.main.transform.position);
         }
 
+        // Construct option text
         string text = "";
         int count = 1;
         foreach(DialogueOption option in dialogueOptions)

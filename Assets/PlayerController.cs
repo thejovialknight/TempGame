@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    bool isPaused= false;
+
     public float baseSpeed;
     public float currentSpeed;
 
@@ -16,6 +18,29 @@ public class PlayerController : MonoBehaviour
     public float interactRange = 2.0f;
     Collider2D[] interactColliders;
 
+    void OnEnable()
+    {
+        MessageEventManager.OnPauseEvent += OnPause;
+        MessageEventManager.OnResumeEvent += OnResume;
+    }
+
+    void OnDisable()
+    {
+        MessageEventManager.OnPauseEvent -= OnPause;
+        MessageEventManager.OnResumeEvent -= OnResume;
+    }
+
+    void OnPause()
+    {
+        isPaused = true;
+        Move(new Vector2(0.0f, 0.0f));
+    }
+
+    void OnResume()
+    {
+        isPaused = false;
+    }
+
     void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -27,7 +52,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Move(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+        if (!isPaused)
+        {
+            Move(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+            Interact();
+        }
 
         if(body.velocity.magnitude > 0.2f)
         {
@@ -43,7 +72,10 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate() {
-        Interact();
+        if (!isPaused)
+        {
+            GetInteractColliders();
+        }
     }
 
     void Move(Vector2 movementDirection)
@@ -62,18 +94,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void GetInteractColliders()
+    {
+        interactColliders = Physics2D.OverlapCircleAll(transform.position + (Vector3)interactOffset, interactRange);
+    }
+
     void Interact()
     {
-        DebugInfoUI.interactInfo = "";
-
-        interactColliders = Physics2D.OverlapCircleAll(transform.position + (Vector3)interactOffset, interactRange);
+        MessageEventManager.RaiseOnClearInteractInfo();
         foreach(Collider2D collider in interactColliders)
         {
             IInteractable interactable = collider.GetComponent<IInteractable>();
             if(interactable != null)
             {
-                //DebugInfoUI.interactInfo = interactable.GetInteractInfo();
-                if(Input.GetButtonDown("Interact"))
+                MessageEventManager.RaiseOnSetInteractInfo(interactable.GetInteractName(), interactable.GetInteractInfo());
+                if (Input.GetButtonDown("Interact"))
                 {
                     interactable.InteractWith(transform);
                 }

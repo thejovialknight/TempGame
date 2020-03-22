@@ -10,8 +10,13 @@ public class DaleController : MonoBehaviour, IInteractable
         MessageEventManager.RaiseOnReceiveMessage("DALE_OPEN");
     }
 
-    public string GetInteractInfo() {
+    public string GetInteractName()
+    {
         return "Dale (Front Counter)";
+    }
+
+    public string GetInteractInfo() {
+        return "Press E to talk";
     }
 
     void OnEnable()
@@ -32,6 +37,7 @@ public class DaleController : MonoBehaviour, IInteractable
                 dialogueManager.Say("Hey.");
                 dialogueManager.AddOption(new DialogueOption("DALE_HOWGOESIT", "Hi! How are you?"));
                 dialogueManager.AddOption(new DialogueOption("DALE_INQUIREJOB", "What do you do here?"));
+                dialogueManager.AddOption(new DialogueOption("DALE_BYE", "So long!"));
                 break;
             case "DALE_HOWGOESIT" :
                 dialogueManager.Say("Oh, you know.");
@@ -53,6 +59,13 @@ public class DaleController : MonoBehaviour, IInteractable
             case "DALE_DEADEND":
                 dialogueManager.Say("...");
                 dialogueManager.AddOption(new DialogueOption("DALE_OPEN", "..."));
+                break;
+            case "DALE_BYE":
+                dialogueManager.Say("Bye.");
+                dialogueManager.AddOption(new DialogueOption("DALE_END", "..."));
+                break;
+            case "DALE_END":
+                dialogueManager.Close();
                 break;
             default :
                 break;
