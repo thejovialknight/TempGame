@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     string dialogue = "";
-    string options = "";
 
     int characterCount = 0;
     float currentCooldown = 0.0f;
