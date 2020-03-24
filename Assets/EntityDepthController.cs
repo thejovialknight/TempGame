@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class EntityDepthController : MonoBehaviour
 {
     public float depthPointOffset;

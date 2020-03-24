@@ -1,0 +1,1766 @@
+fileFormatVersion: 2
+guid: 65b01abc719446349b5aa7f8f7660424
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6348723258449430383
+    second: post_office_tileset2_0
+  - first:
+      213: 1526630242085816906
+    second: post_office_tileset2_1
+  - first:
+      213: -2716225359755556724
+    second: post_office_tileset2_2
+  - first:
+      213: 1120213126049767824
+    second: post_office_tileset2_3
+  - first:
+      213: 1834223211566899877
+    second: post_office_tileset2_4
+  - first:
+      213: -4815833794113974045
+    second: post_office_tileset2_5
+  - first:
+      213: -8392630951573950542
+    second: post_office_tileset2_6
+  - first:
+      213: 2036368976664480703
+    second: post_office_tileset2_7
+  - first:
+      213: -5590949863496858565
+    second: post_office_tileset2_8
+  - first:
+      213: -5269389868030620470
+    second: post_office_tileset2_9
+  - first:
+      213: -7623172087447289940
+    second: post_office_tileset2_10
+  - first:
+      213: -7420102297147656957
+    second: post_office_tileset2_11
+  - first:
+      213: -4168663042129493374
+    second: post_office_tileset2_12
+  - first:
+      213: 8158595941800431627
+    second: post_office_tileset2_13
+  - first:
+      213: 6416778679458385723
+    second: post_office_tileset2_14
+  - first:
+      213: 5650716626548159639
+    second: post_office_tileset2_15
+  - first:
+      213: -7945778947268551791
+    second: post_office_tileset2_16
+  - first:
+      213: -4836432254990036627
+    second: post_office_tileset2_17
+  - first:
+      213: 5094818573199822618
+    second: post_office_tileset2_18
+  - first:
+      213: -1771763676864868965
+    second: post_office_tileset2_19
+  - first:
+      213: 6732381058087208015
+    second: post_office_tileset2_20
+  - first:
+      213: -9067581811684138789
+    second: post_office_tileset2_21
+  - first:
+      213: -3673621509201741180
+    second: post_office_tileset2_22
+  - first:
+      213: 1342833124513330897
+    second: post_office_tileset2_23
+  - first:
+      213: -6455847941007485247
+    second: post_office_tileset2_24
+  - first:
+      213: -4546255188448695568
+    second: post_office_tileset2_25
+  - first:
+      213: -247888682364528762
+    second: post_office_tileset2_26
+  - first:
+      213: -9069022909407229379
+    second: post_office_tileset2_27
+  - first:
+      213: -6149246977311009624
+    second: post_office_tileset2_28
+  - first:
+      213: 845361265065858375
+    second: post_office_tileset2_29
+  - first:
+      213: -7394664728108215706
+    second: post_office_tileset2_30
+  - first:
+      213: 6618550535094897162
+    second: post_office_tileset2_31
+  - first:
+      213: -1429290191755724551
+    second: post_office_tileset2_32
+  - first:
+      213: -3537409115554668066
+    second: post_office_tileset2_33
+  - first:
+      213: 3344772295118489462
+    second: post_office_tileset2_34
+  - first:
+      213: 307479473724717422
+    second: post_office_tileset2_35
+  - first:
+      213: 8576475048872000804
+    second: post_office_tileset2_36
+  - first:
+      213: -4395549324825134170
+    second: post_office_tileset2_37
+  - first:
+      213: -4936946969462252065
+    second: post_office_tileset2_38
+  - first:
+      213: -1001263439162858110
+    second: post_office_tileset2_39
+  - first:
+      213: -5196228238397086215
+    second: post_office_tileset2_40
+  - first:
+      213: -604517704320396930
+    second: post_office_tileset2_41
+  - first:
+      213: -6959300009579045409
+    second: post_office_tileset2_42
+  - first:
+      213: 7499216468712471313
+    second: post_office_tileset2_43
+  - first:
+      213: 4803358774103079102
+    second: post_office_tileset2_44
+  - first:
+      213: -3110646179963613891
+    second: post_office_tileset2_45
+  - first:
+      213: -4120773196046698654
+    second: post_office_tileset2_46
+  - first:
+      213: 7819813884482200331
+    second: post_office_tileset2_47
+  - first:
+      213: -8980325667162777604
+    second: post_office_tileset2_48
+  - first:
+      213: 8545902031364300729
+    second: post_office_tileset2_49
+  - first:
+      213: 2089464392396120059
+    second: post_office_tileset2_50
+  - first:
+      213: 139455553504565992
+    second: post_office_tileset2_51
+  - first:
+      213: 3695826603896688437
+    second: post_office_tileset2_52
+  - first:
+      213: 736120493396493458
+    second: post_office_tileset2_53
+  - first:
+      213: 8728467284964443331
+    second: post_office_tileset2_54
+  - first:
+      213: -6075474159028338882
+    second: post_office_tileset2_55
+  - first:
+      213: -4636776093142580687
+    second: post_office_tileset2_56
+  - first:
+      213: -4061700454927494439
+    second: post_office_tileset2_57
+  - first:
+      213: -1901065134175797887
+    second: post_office_tileset2_0
+  - first:
+      213: 349274173926821085
+    second: post_office_tileset2_1
+  - first:
+      213: 2864537033297054184
+    second: post_office_tileset2_2
+  - first:
+      213: 5031020056076125651
+    second: post_office_tileset2_3
+  - first:
+      213: 666195334274888939
+    second: post_office_tileset2_4
+  - first:
+      213: -8637891301088285552
+    second: post_office_tileset2_5
+  - first:
+      213: 324575983513388983
+    second: post_office_tileset2_6
+  - first:
+      213: 6248069689580966913
+    second: post_office_tileset2_7
+  - first:
+      213: -247046103324584531
+    second: post_office_tileset2_8
+  - first:
+      213: -1893444208538458074
+    second: post_office_tileset2_9
+  - first:
+      213: -6704386248287168135
+    second: post_office_tileset2_10
+  - first:
+      213: -1330953318370377323
+    second: post_office_tileset2_11
+  - first:
+      213: -7932107889418974998
+    second: post_office_tileset2_12
+  - first:
+      213: 756676279678876291
+    second: post_office_tileset2_13
+  - first:
+      213: -5899127345594573576
+    second: post_office_tileset2_14
+  - first:
+      213: -5482660957634877270
+    second: post_office_tileset2_15
+  - first:
+      213: -2398075744461758854
+    second: post_office_tileset2_16
+  - first:
+      213: -6457512127598156810
+    second: post_office_tileset2_17
+  - first:
+      213: 4022562479918125459
+    second: post_office_tileset2_18
+  - first:
+      213: 5058966099791059616
+    second: post_office_tileset2_19
+  - first:
+      213: -5087887038372707647
+    second: post_office_tileset2_20
+  - first:
+      213: 504798853114140690
+    second: post_office_tileset2_21
+  - first:
+      213: -4930270205819325392
+    second: post_office_tileset2_22
+  - first:
+      213: 1396256615493121573
+    second: post_office_tileset2_23
+  - first:
+      213: -8949864390060660144
+    second: post_office_tileset2_24
+  - first:
+      213: 3655615734928176042
+    second: post_office_tileset2_25
+  - first:
+      213: -115446583300371974
+    second: post_office_tileset2_26
+  - first:
+      213: 7051729540938544309
+    second: post_office_tileset2_27
+  - first:
+      213: 740213039372917754
+    second: post_office_tileset2_28
+  - first:
+      213: 3314059296003549172
+    second: post_office_tileset2_29
+  - first:
+      213: 1373764498115483992
+    second: post_office_tileset2_30
+  - first:
+      213: -6178948128708261372
+    second: post_office_tileset2_31
+  - first:
+      213: -4090340989507577935
+    second: post_office_tileset2_32
+  - first:
+      213: 3801313426768981310
+    second: post_office_tileset2_33
+  - first:
+      213: 7112451574053153644
+    second: post_office_tileset2_34
+  - first:
+      213: -2919855487031000422
+    second: post_office_tileset2_35
+  - first:
+      213: -4649153220709468222
+    second: post_office_tileset2_36
+  - first:
+      213: 8292693876117710137
+    second: post_office_tileset2_37
+  - first:
+      213: -495660082453303046
+    second: post_office_tileset2_38
+  - first:
+      213: -8692518969473609671
+    second: post_office_tileset2_39
+  - first:
+      213: 2101310456491070605
+    second: post_office_tileset2_40
+  - first:
+      213: -2336511676630509019
+    second: post_office_tileset2_41
+  - first:
+      213: 1977721949793605617
+    second: post_office_tileset2_42
+  - first:
+      213: -1541317879029252474
+    second: post_office_tileset2_43
+  - first:
+      213: -3374111774838080740
+    second: post_office_tileset2_44
+  - first:
+      213: 3582804328071639086
+    second: post_office_tileset2_45
+  - first:
+      213: -5999195188902402070
+    second: post_office_tileset2_46
+  - first:
+      213: -7025853590048795510
+    second: post_office_tileset2_47
+  - first:
+      213: 2445091341479554537
+    second: post_office_tileset2_48
+  - first:
+      213: 556678755769911168
+    second: post_office_tileset2_49
+  - first:
+      213: -2735199883520148560
+    second: post_office_tileset2_50
+  - first:
+      213: -4247274801838150358
+    second: post_office_tileset2_51
+  - first:
+      213: -5635152322647970797
+    second: post_office_tileset2_52
+  - first:
+      213: -731181907726844116
+    second: post_office_tileset2_53
+  - first:
+      213: 5826557763663522317
+    second: post_office_tileset2_54
+  - first:
+      213: -1073421242328352823
+    second: post_office_tileset2_55
+  - first:
+      213: -1416369696081909835
+    second: post_office_tileset2_56
+  - first:
+      213: -6717221754089042242
+    second: post_office_tileset2_57
+  - first:
+      213: 6037004791237532448
+    second: post_office_tileset2_58
+  - first:
+      213: 2344922616853788817
+    second: post_office_tileset2_59
+  - first:
+      213: 725859239427715113
+    second: post_office_tileset2_60
+  - first:
+      213: -2654070063772146801
+    second: post_office_tileset2_61
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: post_office_tileset2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18d329e255f0e95e0800000000000000
+      internalID: -1901065134175797887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddc402ab20fd8d400800000000000000
+      internalID: 349274173926821085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e94f9b3141e0c720800000000000000
+      internalID: 2864537033297054184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d58844e516c1d540800000000000000
+      internalID: 5031020056076125651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be43a7a702dce3900800000000000000
+      internalID: 666195334274888939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09c223e80ab002880800000000000000
+      internalID: -8637891301088285552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b740f72320218400800000000000000
+      internalID: 324575983513388983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 104db5b674a95b650800000000000000
+      internalID: 6248069689580966913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_8
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da59130c0e0529cf0800000000000000
+      internalID: -247046103324584531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6286b04368229b5e0800000000000000
+      internalID: -1893444208538458074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97954d18a3c35f2a0800000000000000
+      internalID: -6704386248287168135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_11
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59108e53201878de0800000000000000
+      internalID: -1330953318370377323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_12
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae8cb1396ed7be190800000000000000
+      internalID: -7932107889418974998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38a393c3111408a00800000000000000
+      internalID: 756676279678876291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_14
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fcda012fe6122ea0800000000000000
+      internalID: -5899127345594573576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_15
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa8254c48eca9e3b0800000000000000
+      internalID: -5482660957634877270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_16
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7e50e2e0d258bed0800000000000000
+      internalID: -2398075744461758854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f32cbdeeee4266a0800000000000000
+      internalID: -6457512127598156810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3919556534303d730800000000000000
+      internalID: 4022562479918125459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_19
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aa1acc3dde053640800000000000000
+      internalID: 5058966099791059616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_20
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c20b7402b13469b0800000000000000
+      internalID: -5087887038372707647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_21
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21894e2e1e7610700800000000000000
+      internalID: 504798853114140690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03472779e59249bb0800000000000000
+      internalID: -4930270205819325392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526b1cd7eff706310800000000000000
+      internalID: 1396256615493121573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_24
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05a248271c1bbc380800000000000000
+      internalID: -8949864390060660144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_25
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa3f8b3842b5bb230800000000000000
+      internalID: 3655615734928176042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af949d3b1f9d56ef0800000000000000
+      internalID: -115446583300371974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_27
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b435c3e7a6ccd160800000000000000
+      internalID: 7051729540938544309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_28
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afb5fe566d3c54a00800000000000000
+      internalID: 740213039372917754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_29
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f76fdefe57edfd20800000000000000
+      internalID: 3314059296003549172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_30
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85957335887901310800000000000000
+      internalID: 1373764498115483992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_31
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40a87c61a67ff3aa0800000000000000
+      internalID: -6178948128708261372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_32
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b75e26aa803c37c0800000000000000
+      internalID: -4090340989507577935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_33
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3dec72eb6af0c430800000000000000
+      internalID: 3801313426768981310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6b2b91f50184b260800000000000000
+      internalID: 7112451574053153644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_35
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92ca0497e69a77d0800000000000000
+      internalID: -2919855487031000422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_36
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c7bf3d27c3ea7fb0800000000000000
+      internalID: -4649153220709468222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_37
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 935ad0dc421951370800000000000000
+      internalID: 8292693876117710137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_38
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af0b708f7cf0f19f0800000000000000
+      internalID: -495660082453303046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_39
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9305e2d5d08fd5780800000000000000
+      internalID: -8692518969473609671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_40
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d84d6f91aba592d10800000000000000
+      internalID: 2101310456491070605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_41
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52ad2ec620b039fd0800000000000000
+      internalID: -2336511676630509019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f7d0f982a7427b10800000000000000
+      internalID: 1977721949793605617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_43
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68eb0862e832c9ae0800000000000000
+      internalID: -1541317879029252474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_44
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1b3054b73fbc21d0800000000000000
+      internalID: -3374111774838080740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_45
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e20317acd8da8b130800000000000000
+      internalID: 3582804328071639086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_46
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae76d33c2c39ebca0800000000000000
+      internalID: -5999195188902402070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_47
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a841d3962672f7e90800000000000000
+      internalID: -7025853590048795510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_48
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eda544de95bee120800000000000000
+      internalID: 2445091341479554537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_49
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0870ca30168b9b700800000000000000
+      internalID: 556678755769911168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bb7719923e9a0ad0800000000000000
+      internalID: -2735199883520148560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_51
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2d28fc1216ae05c0800000000000000
+      internalID: -4247274801838150358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_52
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ca951a1daebc1b0800000000000000
+      internalID: -5635152322647970797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_53
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2fbfbbcde15ad5f0800000000000000
+      internalID: -731181907726844116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_54
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0a65766a671cd050800000000000000
+      internalID: 5826557763663522317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_55
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c7f8ac31117a11f0800000000000000
+      internalID: -1073421242328352823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_56
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b7e862044b085ce0800000000000000
+      internalID: -1416369696081909835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_57
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebe0ffd6762a7c2a0800000000000000
+      internalID: -6717221754089042242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_58
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02b5b094fdfb7c350800000000000000
+      internalID: 6037004791237532448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_59
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 198795332b6da8020800000000000000
+      internalID: 2344922616853788817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_60
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 920360be125c21a00800000000000000
+      internalID: 725859239427715113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_61
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f83ecdfb659da2bd0800000000000000
+      internalID: -2654070063772146801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

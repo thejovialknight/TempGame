@@ -47,9 +47,12 @@ TagManager:
   - name: Entities
     uniqueID: 911326899
     locked: 0
+  - name: Ceiling
+    uniqueID: 1833545301
+    locked: 0
   - name: Foreground
     uniqueID: 3642867965
     locked: 0
-  - name: Layer 5
+  - name: UI
     uniqueID: 3130817285
     locked: 0

@@ -58,7 +58,6 @@ public class SammyController : MonoBehaviour, IInteractable
                 dialogueManager.AddOption(new DialogueOption("SAMMY_DISAGREEDALE", "No way, Dale's the best!"));
                 dialogueManager.AddOption(new DialogueOption("SAMMY_OPEN", "I see..."));
                 break;
-                break;
             case "SAMMY_AGREEDALE" :
                 dialogueManager.Say("I'm glad someone agrees with me!");
                 dialogueManager.AddOption(new DialogueOption("SAMMY_AGREEDALE2", "Agree, yes."));

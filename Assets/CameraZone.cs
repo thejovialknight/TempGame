@@ -9,7 +9,6 @@ public class CameraZone : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other) 
     {
-        Debug.Log("TRIGGER!");
         if(other.CompareTag("Player")) 
         {
             Camera.main.GetComponent<CameraController>().SetZone(this);

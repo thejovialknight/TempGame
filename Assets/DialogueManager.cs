@@ -29,6 +29,9 @@ public class DialogueManager : MonoBehaviour
 
     public void Close()
     {
+        dialogue = "";
+        dialogueText.text = "";
+        dialogueOptions.Clear();
         panel.gameObject.SetActive(false);
         MessageEventManager.RaiseOnResume();
     }

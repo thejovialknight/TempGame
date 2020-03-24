@@ -1,0 +1,644 @@
+fileFormatVersion: 2
+guid: 85270f08a40bc0a468676f9c94e74da9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8463028414924477588
+    second: mailman_0
+  - first:
+      213: -6755063599937655584
+    second: mailman_1
+  - first:
+      213: -6566985748798375050
+    second: mailman_2
+  - first:
+      213: -1944789460610904544
+    second: mailman_3
+  - first:
+      213: 8815995860321347266
+    second: mailman_4
+  - first:
+      213: -8325341695583048689
+    second: mailman_5
+  - first:
+      213: -4023018830317522223
+    second: mailman_6
+  - first:
+      213: 276177505007092004
+    second: mailman_7
+  - first:
+      213: -8246070331399681682
+    second: mailman_8
+  - first:
+      213: -2481134817868817650
+    second: mailman_9
+  - first:
+      213: -95637554684139285
+    second: mailman_10
+  - first:
+      213: 3051040133982217907
+    second: mailman_11
+  - first:
+      213: -7205810773542473446
+    second: mailman_12
+  - first:
+      213: 5026915211691242305
+    second: mailman_13
+  - first:
+      213: 1196062402004742708
+    second: mailman_14
+  - first:
+      213: 5824815922117995376
+    second: mailman_15
+  - first:
+      213: 596441261674099450
+    second: mailman_16
+  - first:
+      213: 4278098325685576953
+    second: mailman_17
+  - first:
+      213: 2093314956130246236
+    second: mailman_18
+  - first:
+      213: 9047291389836075655
+    second: mailman_19
+  - first:
+      213: -20462103329277535
+    second: BlueShirt_0
+  - first:
+      213: -7960295608169901388
+    second: BlueShirt_1
+  - first:
+      213: 5271964289474096411
+    second: BlueShirt_2
+  - first:
+      213: -4113189398030286148
+    second: BlueShirt_3
+  - first:
+      213: 2230899036248897847
+    second: BlueShirt_4
+  - first:
+      213: -4176490622209902568
+    second: BlueShirt_5
+  - first:
+      213: 3997484861364521475
+    second: BlueShirt_6
+  - first:
+      213: -8472010271692257212
+    second: BlueShirt_7
+  - first:
+      213: -4622281748034432769
+    second: BlueShirt_8
+  - first:
+      213: 4323121307008465340
+    second: BlueShirt_9
+  - first:
+      213: 4604822249573656629
+    second: BlueShirt_10
+  - first:
+      213: 2159827715412931335
+    second: BlueShirt_11
+  - first:
+      213: -1351217190501725379
+    second: BlueShirt_12
+  - first:
+      213: -5531631946867828834
+    second: BlueShirt_13
+  - first:
+      213: -6536380923848984767
+    second: BlueShirt_14
+  - first:
+      213: -4705730526421848692
+    second: BlueShirt_15
+  - first:
+      213: 2104056101116340984
+    second: BlueShirt_16
+  - first:
+      213: -6087904013057652187
+    second: BlueShirt_17
+  - first:
+      213: -7312219609697083215
+    second: BlueShirt_18
+  - first:
+      213: 8907147923831663702
+    second: BlueShirt_19
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BlueShirt_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a973bf43dd47bff0800000000000000
+      internalID: -20462103329277535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_1
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 80
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b25eefd159578190800000000000000
+      internalID: -7960295608169901388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_2
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 80
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1de5a6d697c92940800000000000000
+      internalID: 5271964289474096411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_3
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 80
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb2808cf8040be6c0800000000000000
+      internalID: -4113189398030286148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 60
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73970698adeb5fe10800000000000000
+      internalID: 2230899036248897847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_5
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 60
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 818bd6738ef1a06c0800000000000000
+      internalID: -4176490622209902568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_6
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 60
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30a42a44d4be97730800000000000000
+      internalID: 3997484861364521475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_7
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 60
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44882566b8f5d6a80800000000000000
+      internalID: -8472010271692257212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff0d2a47d3b5adfb0800000000000000
+      internalID: -4622281748034432769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_9
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 40
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb979218cefcefb30800000000000000
+      internalID: 4323121307008465340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_10
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 40
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53827a7407d97ef30800000000000000
+      internalID: 4604822249573656629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_11
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 40
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7033b392ddf39fd10800000000000000
+      internalID: 2159827715412931335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 20
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3b4eb1df138f3de0800000000000000
+      internalID: -1351217190501725379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_13
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 20
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e979dba5d02bb33b0800000000000000
+      internalID: -5531631946867828834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_14
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 20
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14777555e2c1a45a0800000000000000
+      internalID: -6536380923848984767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_15
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 20
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8de9eba403e1beb0800000000000000
+      internalID: -4705730526421848692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fa688e40eb133d10800000000000000
+      internalID: 2104056101116340984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_17
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 0
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a06032e8b638ba0800000000000000
+      internalID: -6087904013057652187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_18
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 0
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b02c5cb107c58a90800000000000000
+      internalID: -7312219609697083215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueShirt_19
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 0
+        width: 9
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c28d938db8c9b70800000000000000
+      internalID: 8907147923831663702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
