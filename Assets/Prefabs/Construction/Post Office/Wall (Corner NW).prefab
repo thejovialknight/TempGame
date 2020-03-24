@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 5200305604543704201}
   - component: {fileID: 574210141246415969}
   - component: {fileID: 5630877970049437922}
+  - component: {fileID: -6101433109589540572}
   m_Layer: 0
   m_Name: Wall (Corner NW)
   m_TagString: Untagged
@@ -347,3 +348,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   depthPointOffset: -1.375
+--- !u!114 &-6101433109589540572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3602174372172395497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6452845116e356488bb93016d5d6168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleButton: 0

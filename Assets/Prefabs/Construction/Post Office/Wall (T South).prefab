@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 775982492993117408}
   - component: {fileID: 4978699179739141128}
   - component: {fileID: 921830807747993739}
+  - component: {fileID: 2847065580314927732}
   m_Layer: 0
   m_Name: Wall (T South)
   m_TagString: Untagged
@@ -460,3 +461,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   depthPointOffset: -1.375
+--- !u!114 &2847065580314927732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8291860373956707200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6452845116e356488bb93016d5d6168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleButton: 0

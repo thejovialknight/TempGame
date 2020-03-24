@@ -362,6 +362,18 @@ TextureImporter:
   - first:
       213: -2654070063772146801
     second: post_office_tileset2_61
+  - first:
+      213: 4553071450324201382
+    second: post_office_tileset2_58
+  - first:
+      213: -6845829502009673668
+    second: post_office_tileset2_59
+  - first:
+      213: -1397850001446256459
+    second: post_office_tileset2_62
+  - first:
+      213: 3917420195149677307
+    second: post_office_tileset2_63
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1626,7 +1638,7 @@ TextureImporter:
       name: post_office_tileset2_56
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 80
         width: 16
         height: 16
@@ -1647,7 +1659,7 @@ TextureImporter:
       name: post_office_tileset2_57
       rect:
         serializedVersion: 2
-        x: 80
+        x: 16
         y: 80
         width: 16
         height: 16
@@ -1668,8 +1680,8 @@ TextureImporter:
       name: post_office_tileset2_58
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 32
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -1679,8 +1691,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02b5b094fdfb7c350800000000000000
-      internalID: 6037004791237532448
+      spriteID: 6afeb816c52cf2f30800000000000000
+      internalID: 4553071450324201382
       vertices: []
       indices: 
       edges: []
@@ -1689,8 +1701,8 @@ TextureImporter:
       name: post_office_tileset2_59
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
+        x: 64
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -1700,8 +1712,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 198795332b6da8020800000000000000
-      internalID: 2344922616853788817
+      spriteID: c38f2d3b65abef0a0800000000000000
+      internalID: -6845829502009673668
       vertices: []
       indices: 
       edges: []
@@ -1710,8 +1722,8 @@ TextureImporter:
       name: post_office_tileset2_60
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 80
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -1731,8 +1743,8 @@ TextureImporter:
       name: post_office_tileset2_61
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
+        x: 0
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -1744,6 +1756,48 @@ TextureImporter:
       bones: []
       spriteID: f83ecdfb659da2bd0800000000000000
       internalID: -2654070063772146801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_62
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b0448e64d6d99ce0800000000000000
+      internalID: -1397850001446256459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: post_office_tileset2_63
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf286df79e87d5630800000000000000
+      internalID: 3917420195149677307
       vertices: []
       indices: 
       edges: []

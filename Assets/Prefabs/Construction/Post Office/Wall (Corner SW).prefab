@@ -261,7 +261,7 @@ SpriteRenderer:
   m_SortingLayerID: 911326899
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4636776093142580687, guid: 65b01abc719446349b5aa7f8f7660424,
+  m_Sprite: {fileID: 2344922616853788817, guid: 65b01abc719446349b5aa7f8f7660424,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -365,6 +365,7 @@ GameObject:
   - component: {fileID: 446466826813253864}
   - component: {fileID: 5323562929714667520}
   - component: {fileID: 17448139957032067}
+  - component: {fileID: -1445732662021804667}
   m_Layer: 0
   m_Name: Wall (Corner SW)
   m_TagString: Untagged
@@ -429,3 +430,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   depthPointOffset: -1.375
+--- !u!114 &-1445732662021804667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9215604889452165000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6452845116e356488bb93016d5d6168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSnapped: 1
+  toggleButton: 1

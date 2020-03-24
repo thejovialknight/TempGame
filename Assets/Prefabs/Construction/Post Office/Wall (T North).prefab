@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4021979526176370544}
   - component: {fileID: 8647969427230648216}
   - component: {fileID: 3593633749028344603}
+  - component: {fileID: 8470215783331943774}
   m_Layer: 0
   m_Name: Wall (T North)
   m_TagString: Untagged
@@ -75,6 +76,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   depthPointOffset: -1.375
+--- !u!114 &8470215783331943774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5622390046624051216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6452845116e356488bb93016d5d6168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleButton: 0
 --- !u!1 &7129408552061624187
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +159,7 @@ SpriteRenderer:
   m_SortingLayerID: 911326899
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4395549324825134170, guid: 65b01abc719446349b5aa7f8f7660424,
+  m_Sprite: {fileID: 3344772295118489462, guid: 65b01abc719446349b5aa7f8f7660424,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -309,7 +323,7 @@ SpriteRenderer:
   m_SortingLayerID: 911326899
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8576475048872000804, guid: 65b01abc719446349b5aa7f8f7660424,
+  m_Sprite: {fileID: 3344772295118489462, guid: 65b01abc719446349b5aa7f8f7660424,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

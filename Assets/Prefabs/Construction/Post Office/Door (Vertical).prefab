@@ -556,6 +556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3669324156629424995}
   - component: {fileID: 3811128484797507336}
+  - component: {fileID: 3881384747108411651}
   m_Layer: 0
   m_Name: Door (Vertical)
   m_TagString: Untagged
@@ -598,6 +599,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   depthPointOffset: -1.5
+--- !u!114 &3881384747108411651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5420717693214721027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6452845116e356488bb93016d5d6168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleButton: 0
 --- !u!1 &8035948172100305489
 GameObject:
   m_ObjectHideFlags: 0
