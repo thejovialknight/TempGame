@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4357f90f7044d45ab8b2994b83875d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depthPointOffset: -1.375
+  depthPointOffset: -1.5
 --- !u!114 &-2882965090000320734
 MonoBehaviour:
   m_ObjectHideFlags: 0
