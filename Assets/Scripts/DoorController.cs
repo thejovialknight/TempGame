@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteAlways]
 public class DoorController : MonoBehaviour, IInteractable
 {
-    SpriteRenderer spriteRenderer;
-    BoxCollider2D boxCollider;
+    public SpriteRenderer spriteRenderer;
+    public BoxCollider2D boxCollider;
 
     public Sprite closedSprite;
     public Sprite openSprite;
@@ -23,6 +22,8 @@ public class DoorController : MonoBehaviour, IInteractable
     }
 
     void OnValidate() {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();
         ValidateOpen();
     }
 

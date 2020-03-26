@@ -77,6 +77,10 @@ public class SammyController : MonoBehaviour, IInteractable
                 dialogueManager.Say("Fine, then. Fuck off!");
                 dialogueManager.AddOption(new DialogueOption("SAMMY_END", "Gladly."));
                 break;
+            case "SAMMY_DISAGREEDALE":
+                dialogueManager.Say("Oh, yeah? Go talk to him then and stop bothering me.");
+                dialogueManager.AddOption(new DialogueOption("SAMMY_END", "Okay."));
+                break;
             case "SAMMY_WHOAREYOU" :
                 dialogueManager.Say("The name's Sammy, now fuck off!");
                 dialogueManager.AddOption(new DialogueOption("SAMMY_END", "Okay."));

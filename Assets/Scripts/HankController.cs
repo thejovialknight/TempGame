@@ -6,6 +6,11 @@ public class HankController : MonoBehaviour, IInteractable
 {
     DialogueManager dialogueManager;
 
+    void Start()
+    {
+        dialogueManager = DialogueManager.instance;
+    }
+
     public void InteractWith(Transform interactor)
     {
         MessageEventManager.RaiseOnReceiveMessage("HANK_OPEN");
@@ -45,10 +50,5 @@ public class HankController : MonoBehaviour, IInteractable
             default:
                 break;
         }
-    }
-
-    void Start()
-    {
-        dialogueManager = DialogueManager.instance;
     }
 }

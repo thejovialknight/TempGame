@@ -107,10 +107,20 @@ public class PlayerController : MonoBehaviour
             IInteractable interactable = collider.GetComponent<IInteractable>();
             if(interactable != null)
             {
+                IInteractableHelper[] interactHelpers = collider.GetComponents<IInteractableHelper>();
+                foreach (IInteractableHelper interactHelper in interactHelpers)
+                {
+                    interactHelper.OnEnter();
+                }
+
                 MessageEventManager.RaiseOnSetInteractInfo(interactable.GetInteractName(), interactable.GetInteractInfo());
                 if (Input.GetButtonDown("Interact"))
                 {
                     interactable.InteractWith(transform);
+                    foreach (IInteractableHelper interactHelper in interactHelpers)
+                    {
+                        interactHelper.OnInteract(transform);
+                    }
                 }
             }
         }
