@@ -35,6 +35,17 @@ public class MessageEventManager : MonoBehaviour
         }
     }
 
+    public delegate void SelectEvent(string id, int index);
+
+    public static event SelectEvent OnSelectEvent;
+    public static void RaiseOnSelect(string id, int index)
+    {
+        if (OnSelectEvent != null)
+        {
+            OnSelectEvent(id, index);
+        }
+    }
+
     public delegate void InteractManagerEvent(string name, string info);
 
     public static event InteractManagerEvent OnSetInteractInfoEvent;
