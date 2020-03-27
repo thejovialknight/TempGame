@@ -12,8 +12,6 @@ public class InteractArrow : MonoBehaviour, IInteractableHelper
 
     public void OnEnter()
     {
-        //arrowAnimator.Play("Point", 0, 0);
-
         isEnabled = true;
         if(!isEntered) {
             isEntered = true;
