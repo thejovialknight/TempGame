@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 44305798}
   - component: {fileID: 44305799}
   - component: {fileID: 44305800}
+  - component: {fileID: 828684250}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -51,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f3c2195cd2df9254386122f17b5ee388, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,10 +97,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae5aa7e0b4bc744bb7a043ba8a65b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 44305798}
+  boxCollider: {fileID: 44305800}
   closedSprite: {fileID: 1448534274051404866, guid: c4faddac86d4a4c48bec2a8b97d45614,
     type: 3}
   openSprite: {fileID: 38096840675671151, guid: c4faddac86d4a4c48bec2a8b97d45614,
     type: 3}
+  openSound: {fileID: 8300000, guid: c318cf1ef3b244c40b736f459a5ff350, type: 3}
+  closeSound: {fileID: 8300000, guid: a54697cf5beed104db6598a067130c69, type: 3}
   isOpen: 0
   doorName: Door
 --- !u!61 &44305800
@@ -128,6 +133,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.625, y: 0.125}
   m_EdgeRadius: 0
+--- !u!114 &828684250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44305796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6580aa770678a544f9dbe263915e80a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  outlineSize: 1
 --- !u!1 &4352680448802107221
 GameObject:
   m_ObjectHideFlags: 0

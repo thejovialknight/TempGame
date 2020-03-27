@@ -10029,7 +10029,6 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420030}
   m_Layer: 0
@@ -10039,14 +10038,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10134,7 +10125,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1ad15c37cc868da49b4efa785210a560, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -11746,7 +11737,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721022395}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -12110,6 +12101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowSpriteRenderer: {fileID: 315914457}
+  arrowAnimator: {fileID: 315914456}
+  enterSound: {fileID: 8300000, guid: 7f459db2a2ac2844ea448eae308bcfb3, type: 3}
 --- !u!1 &767537329
 GameObject:
   m_ObjectHideFlags: 0
@@ -12469,10 +12462,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 375846024}
     m_Modifications:
-    - target: {fileID: 44305798, guid: cc4581b3a3cf5374c9746676f14dce9a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f3c2195cd2df9254386122f17b5ee388, type: 2}
     - target: {fileID: 4352680450672475367, guid: cc4581b3a3cf5374c9746676f14dce9a,
         type: 3}
       propertyPath: m_Name
@@ -12533,33 +12522,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4652707085577763012, guid: cc4581b3a3cf5374c9746676f14dce9a,
-        type: 3}
-      propertyPath: toggleButton
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc4581b3a3cf5374c9746676f14dce9a, type: 3}
---- !u!1 &828684249 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 44305796, guid: cc4581b3a3cf5374c9746676f14dce9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 828684248}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &828684250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828684249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6580aa770678a544f9dbe263915e80a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 1, g: 1, b: 1, a: 0.5019608}
-  outlineSize: 1
 --- !u!114 &837549989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12917,6 +12881,7 @@ GameObject:
   - component: {fileID: 884111168}
   - component: {fileID: 884111170}
   - component: {fileID: 884111169}
+  - component: {fileID: 884111171}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -13061,7 +13026,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4f6b623861bd0a143a32f7dc67fa2c00, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -13179,6 +13144,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   depthPointOffset: 0.03125
+--- !u!81 &884111171
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884111162}
+  m_Enabled: 1
 --- !u!1 &895389138
 GameObject:
   m_ObjectHideFlags: 0
@@ -13739,6 +13712,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowSpriteRenderer: {fileID: 104557283}
+  arrowAnimator: {fileID: 104557284}
+  enterSound: {fileID: 8300000, guid: 7f459db2a2ac2844ea448eae308bcfb3, type: 3}
 --- !u!4 &922489744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3383607847107905724, guid: d9204409f558de947a0def28e847dcb7,
@@ -15090,6 +15065,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowSpriteRenderer: {fileID: 879034166}
+  arrowAnimator: {fileID: 879034165}
+  enterSound: {fileID: 8300000, guid: 7f459db2a2ac2844ea448eae308bcfb3, type: 3}
 --- !u!1001 &1093605889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22960,7 +22937,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2c7419adaacec3e4196f440b1c8ab4f0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 0.125
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -23920,6 +23897,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowSpriteRenderer: {fileID: 721022398}
+  arrowAnimator: {fileID: 721022397}
+  enterSound: {fileID: 8300000, guid: 7f459db2a2ac2844ea448eae308bcfb3, type: 3}
 --- !u!4 &2118424098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3383607847107905724, guid: d9204409f558de947a0def28e847dcb7,

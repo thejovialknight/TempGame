@@ -9,6 +9,8 @@ public class DoorController : MonoBehaviour, IInteractable
 
     public Sprite closedSprite;
     public Sprite openSprite;
+    public AudioClip openSound;
+    public AudioClip closeSound;
     public bool isOpen = false;
     public string doorName = "Door";
 
@@ -30,9 +32,11 @@ public class DoorController : MonoBehaviour, IInteractable
     public void InteractWith(Transform interactor) {
         if(isOpen) {
             isOpen = false;
+            AudioSource.PlayClipAtPoint(closeSound, transform.position);
         }
         else 
         {
+            AudioSource.PlayClipAtPoint(openSound, transform.position);
             isOpen = true;
         }
         ValidateOpen();

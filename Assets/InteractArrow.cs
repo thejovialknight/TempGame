@@ -5,17 +5,21 @@ using UnityEngine;
 public class InteractArrow : MonoBehaviour, IInteractableHelper
 {
     public SpriteRenderer arrowSpriteRenderer;
-
-    //public GameObject arrowTransform;
-
-    void Awake()
-    {
-        //spriteRenderer = arrowTransform.GetComponent<SpriteRenderer>();
-    }
+    public Animator arrowAnimator;
+    public AudioClip enterSound;
+    bool isEnabled;
+    bool isEntered = false;
 
     public void OnEnter()
     {
-        arrowSpriteRenderer.enabled = true;
+        //arrowAnimator.Play("Point", 0, 0);
+
+        isEnabled = true;
+        if(!isEntered) {
+            isEntered = true;
+            AudioSource.PlayClipAtPoint(enterSound, transform.position);
+            arrowAnimator.SetTrigger("StartPoint");
+        }
     }
 
     public void OnInteract(Transform interactor)
@@ -23,8 +27,15 @@ public class InteractArrow : MonoBehaviour, IInteractableHelper
 
     }
 
-    void Update()
+    void LateUpdate()
     {
-        arrowSpriteRenderer.enabled = false;
+        if(isEnabled) {
+            arrowSpriteRenderer.enabled = true;
+            isEnabled = false;
+        }
+        else {
+            arrowSpriteRenderer.enabled = false;
+            isEntered = false;
+        }
     }
 }
