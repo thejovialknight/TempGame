@@ -120,22 +120,25 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        IInteractable interactable = interactCollider.GetComponent<IInteractable>();
-        if(interactable != null)
+        if (interactCollider != null)
         {
-            IInteractableHelper[] interactHelpers = interactCollider.GetComponents<IInteractableHelper>();
-            foreach (IInteractableHelper interactHelper in interactHelpers)
+            IInteractable interactable = interactCollider.GetComponent<IInteractable>();
+            if (interactable != null)
             {
-                interactHelper.OnEnter();
-            }
-
-            MessageEventManager.RaiseOnSetInteractInfo(interactable.GetInteractName(), interactable.GetInteractInfo());
-            if (Input.GetButtonDown("Interact"))
-            {
-                interactable.InteractWith(transform);
+                IInteractableHelper[] interactHelpers = interactCollider.GetComponents<IInteractableHelper>();
                 foreach (IInteractableHelper interactHelper in interactHelpers)
                 {
-                    interactHelper.OnInteract(transform);
+                    interactHelper.OnEnter();
+                }
+
+                MessageEventManager.RaiseOnSetInteractInfo(interactable.GetInteractName(), interactable.GetInteractInfo());
+                if (Input.GetButtonDown("Interact"))
+                {
+                    interactable.InteractWith(transform);
+                    foreach (IInteractableHelper interactHelper in interactHelpers)
+                    {
+                        interactHelper.OnInteract(transform);
+                    }
                 }
             }
         }
