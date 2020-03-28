@@ -6,6 +6,8 @@ public class SammyController : MonoBehaviour, IInteractable
 {
     DialogueManager dialogueManager;
 
+    public GameObject mailSortObject;
+
     public void InteractWith(Transform interactor) {
         MessageEventManager.RaiseOnReceiveMessage("SAMMY_OPEN");
     }
@@ -38,6 +40,7 @@ public class SammyController : MonoBehaviour, IInteractable
                 dialogueManager.AddOption(new DialogueOption("SAMMY_UH", "Uh..."));
                 dialogueManager.AddOption(new DialogueOption("SAMMY_WHOAREYOU", "I don't know, who are you?"));
                 dialogueManager.AddOption(new DialogueOption("SAMMY_HOWGOESIT", "How are you?"));
+                dialogueManager.AddOption(new DialogueOption("SAMMY_INQUIREWORK", "Need any help?"));
                 break;
             case "SAMMY_UH" :
                 dialogueManager.Say("Hey, I asked you a question!");
@@ -94,6 +97,15 @@ public class SammyController : MonoBehaviour, IInteractable
                 dialogueManager.Say("Anytime someone like you or Dale are around I am!");
                 dialogueManager.AddOption(new DialogueOption("SAMMY_INQUIREDALE", "You're angry at Dale?"));
                 dialogueManager.AddOption(new DialogueOption("SAMMY_END", "Okay, bye then!"));
+                break;
+            case "SAMMY_INQUIREWORK" :
+                dialogueManager.Say("Sort these packages for me, will ya'?");
+                dialogueManager.AddOption(new DialogueOption("SAMMY_ACCEPTGAME", "Will do! (START MINIGAME)"));
+                dialogueManager.AddOption(new DialogueOption("SAMMY_DISAGREEFRIENDS", "Sorry, can't right now!"));
+                break;
+            case "SAMMY_ACCEPTGAME" :
+                MessageEventManager.RaiseOnReceiveMessage("SAMMY_END");
+                mailSortObject.SetActive(true);
                 break;
             case "SAMMY_END":
                 dialogueManager.Close();

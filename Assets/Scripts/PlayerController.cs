@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D body;
     public Animator animator;
     public AudioSource audioSource;
+    public Collider2D col;
 
     public Vector2 interactOffset;
     public float interactRange = 2.0f;
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        col = GetComponent<Collider2D>();
 
         currentSpeed = baseSpeed;
     }
@@ -102,25 +104,38 @@ public class PlayerController : MonoBehaviour
     void Interact()
     {
         MessageEventManager.RaiseOnClearInteractInfo();
+
+        Collider2D interactCollider = null;
         foreach(Collider2D collider in interactColliders)
         {
-            IInteractable interactable = collider.GetComponent<IInteractable>();
-            if(interactable != null)
+            if(collider.GetComponent<IInteractable>() != null) {
+                if(interactCollider != null) {
+                    if(collider.Distance(col).distance < interactCollider.Distance(col).distance) {
+                        interactCollider = collider;
+                    }
+                }
+                else {
+                    interactCollider = collider;
+                }
+            }
+        }
+
+        IInteractable interactable = interactCollider.GetComponent<IInteractable>();
+        if(interactable != null)
+        {
+            IInteractableHelper[] interactHelpers = interactCollider.GetComponents<IInteractableHelper>();
+            foreach (IInteractableHelper interactHelper in interactHelpers)
             {
-                IInteractableHelper[] interactHelpers = collider.GetComponents<IInteractableHelper>();
+                interactHelper.OnEnter();
+            }
+
+            MessageEventManager.RaiseOnSetInteractInfo(interactable.GetInteractName(), interactable.GetInteractInfo());
+            if (Input.GetButtonDown("Interact"))
+            {
+                interactable.InteractWith(transform);
                 foreach (IInteractableHelper interactHelper in interactHelpers)
                 {
-                    interactHelper.OnEnter();
-                }
-
-                MessageEventManager.RaiseOnSetInteractInfo(interactable.GetInteractName(), interactable.GetInteractInfo());
-                if (Input.GetButtonDown("Interact"))
-                {
-                    interactable.InteractWith(transform);
-                    foreach (IInteractableHelper interactHelper in interactHelpers)
-                    {
-                        interactHelper.OnInteract(transform);
-                    }
+                    interactHelper.OnInteract(transform);
                 }
             }
         }

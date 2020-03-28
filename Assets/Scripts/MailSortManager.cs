@@ -7,7 +7,6 @@ public class MailSortManager : Minigame
 {
     public float maxTimer = 30.0f;
     public float currentTimer;
-    public int score = 0;
     public int targetIndex;
     public List<Sprite> slotSprites = new List<Sprite>();
     public AudioClip correctSound;
@@ -16,7 +15,6 @@ public class MailSortManager : Minigame
     public ConveyorManager conveyorManager;
     public SpriteRenderer conveyorSlot;
     public Text timerText;
-    public Text scoreText;
 
     public override void StartGame()
     {
@@ -38,7 +36,7 @@ public class MailSortManager : Minigame
 
         if(currentTimer <= 0.0f)
         {
-            EndGame();
+            ShowOutro();
         }
     }
 
@@ -50,6 +48,11 @@ public class MailSortManager : Minigame
 
         // implement at end of here otherwise will become inactive
         base.EndGame();
+    }
+
+    public override void SetRating() {
+        rating = Mathf.Clamp(score / 5, 1, 3);
+
     }
 
     void GenerateSlot()
