@@ -7,13 +7,14 @@ public class Minigame : MonoBehaviour
 {
     CameraController cameraController;
 
+    public string id;
     public enum GameState { Intro, InGame, Outro };
     public GameState state;
     public int score = 0;
     public int rating = 0;
     public int bestScore = 0;
     public int bestRating = 0;
-
+    
     public CameraZone zone;
     public GameObject introScreen;
     public Text bestScoreText;
@@ -23,6 +24,16 @@ public class Minigame : MonoBehaviour
     public Text outroRatingText;
     public GameObject gameUI;
     public Text scoreText;
+
+    void Awake()
+    {
+        gameObject.SetActive(false);
+    }
+
+    void Start()
+    {
+        GameManager.manager.RegisterMinigame(this);
+    }
 
     void Update()
     {
