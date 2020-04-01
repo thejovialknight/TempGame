@@ -52,6 +52,10 @@ public class PlayerController : MonoBehaviour
         currentSpeed = baseSpeed;
     }
 
+    void Start() {
+        GetInteractColliders();
+    }
+
     void Update()
     {
         if (!isPaused)

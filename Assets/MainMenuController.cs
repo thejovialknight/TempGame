@@ -9,7 +9,15 @@ public class MainMenuController : MonoBehaviour
     public int index;
     public Text newText;
     public Text loadText;
+    public Color selectedColor;
+    public Color unselectedColor;
     public GameObject loadMenu;
+
+    void Start() {
+        index = 0; 
+        newText.color = selectedColor;
+        loadText.color = unselectedColor;
+    }
 
     void Update()
     {
@@ -18,11 +26,13 @@ public class MainMenuController : MonoBehaviour
             if (index == 0)
             {
                 index = 1;
-            }
-
-            if (index == 1)
+                newText.color = unselectedColor;
+                loadText.color = selectedColor;
+            } else if (index == 1)
             {
                 index = 0;
+                newText.color = selectedColor;
+                loadText.color = unselectedColor;
             }
         }
 
@@ -30,6 +40,7 @@ public class MainMenuController : MonoBehaviour
         {
             if(index == 0)
             {
+                GameManager.filename = "nullfile";
                 SceneManager.LoadSceneAsync("Job_PostOffice");
             }
             else

@@ -7,6 +7,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class GameManager : MonoBehaviour
 {
+    public static string filename = "nullfile";
+    public static bool isLoading = true;
+
     public static GameManager manager;
 
     public GameObject playerObject;
@@ -39,14 +42,23 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetButtonDown("Quickload"))
         {
-            Load();
+            Quickload();
+        }
+
+        if(isLoading) {
+            Load(filename);
+            isLoading = false;
         }
     }
 
     public void Save()
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Path.Combine(Application.persistentDataPath, "saves", "tempsave.dat"));
+        int filenameCount = 0;
+        while(File.Exists(Path.Combine(Application.persistentDataPath, "saves", "tempsave" + filenameCount + ".dat"))) {
+            filenameCount++;
+        }
+        FileStream file = File.Create(Path.Combine(Application.persistentDataPath, "saves", "tempsave" + filenameCount + ".dat"));
         Debug.Log("File created!");
 
         // construct data
@@ -101,12 +113,21 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void Load()
+    public void Quickload() {
+        int filenameCount = 0;
+        while(File.Exists(Path.Combine(Application.persistentDataPath, "saves", "tempsave" + filenameCount + ".dat"))) {
+            filenameCount++;
+        }
+        filenameCount--;
+        Load("tempsave" + filenameCount + ".dat");
+    }
+
+    public void Load(string fName)
     {
-        if(File.Exists(Path.Combine(Application.persistentDataPath, "tempsave.dat")))
+        if(File.Exists(Path.Combine(Application.persistentDataPath, "saves", fName)))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Path.Combine(Application.persistentDataPath, "tempsave.dat"), FileMode.Open);
+            FileStream file = File.Open(Path.Combine(Application.persistentDataPath, "saves", fName), FileMode.Open);
 
             //deserialize
             SaveData saveData = (SaveData)bf.Deserialize(file);
