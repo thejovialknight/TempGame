@@ -104,7 +104,7 @@ public class DialogueManager : MonoBehaviour
 
         if(keyPressed != -1 && dialogueOptions.Count >= keyPressed)
         {
-            MessageEventManager.RaiseOnReceiveMessage(dialogueOptions[keyPressed - 1].id);
+            MessageEventManager.Broadcast(dialogueOptions[keyPressed - 1].id);
         }
     }
 }

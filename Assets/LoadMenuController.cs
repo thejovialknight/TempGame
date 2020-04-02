@@ -20,13 +20,17 @@ public class LoadMenuController : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        List<string> filenames = new List<string>();
-        foreach(string filename in Directory.GetFiles(Path.Combine(Application.persistentDataPath, "saves"))) {
-            Transform loadObj = GameObject.Instantiate(loadFilePrefab, contentParent);
-            loadObj.GetComponent<Text>().text = Path.GetFileName(filename);
-        }
+        if (Directory.Exists(Path.Combine(Application.persistentDataPath, "saves")))
+        {
+            List<string> filenames = new List<string>();
+            foreach (string filename in Directory.GetFiles(Path.Combine(Application.persistentDataPath, "saves")))
+            {
+                Transform loadObj = GameObject.Instantiate(loadFilePrefab, contentParent);
+                loadObj.GetComponent<Text>().text = Path.GetFileName(filename);
+            }
 
-        SetSelection(0);
+            SetSelection(1);
+        }
     }
 
     void SetSelection(int newIndex) {

@@ -8,6 +8,7 @@ public class Sammy : NPC
 
     public override void OnReceiveMessage(string id)
     {
-        
+        //mailSortObject.SetActive(true);
+        //MessageEventManager.RaiseOnReceiveMessage("MAIL_SORT");
     }
 }

@@ -21,7 +21,7 @@ public class TextDecorationController : MonoBehaviour, IInteractable
 
     public void InteractWith(Transform interactor)
     {
-        MessageEventManager.RaiseOnReceiveMessage(decoID + "_OPEN");
+        MessageEventManager.Broadcast(decoID + "_OPEN");
     }
 
     public string GetInteractName()

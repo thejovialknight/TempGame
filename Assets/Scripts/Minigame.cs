@@ -25,14 +25,10 @@ public class Minigame : MonoBehaviour
     public GameObject gameUI;
     public Text scoreText;
 
-    void Awake()
-    {
-        gameObject.SetActive(false);
-    }
-
     void Start()
     {
         GameManager.manager.RegisterMinigame(this);
+        gameObject.SetActive(false);
     }
 
     void Update()
@@ -53,7 +49,20 @@ public class Minigame : MonoBehaviour
 
     void OnEnable ()
     {
-        ShowIntro();
+        MessageEventManager.OnReceiveMessageEvent += OnReceiveMessage;
+    }
+
+    void OnDisable()
+    {
+        MessageEventManager.OnReceiveMessageEvent -= OnReceiveMessage;
+    }
+
+    void OnReceiveMessage(string message)
+    {
+        if(message == id)
+        {
+            ShowIntro();
+        }
     }
 
     public virtual void ShowIntro() {

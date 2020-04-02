@@ -27,11 +27,19 @@ public class MessageEventManager : MonoBehaviour
     public delegate void MessageEvent(string id);
 
     public static event MessageEvent OnReceiveMessageEvent;
-    public static void RaiseOnReceiveMessage(string id)
+    public static void Broadcast(string id)
     {
         if (OnReceiveMessageEvent != null)
         {
             OnReceiveMessageEvent(id);
+        }
+    }
+
+    public static void BroadcastCutscene(string id)
+    {
+        if (OnReceiveMessageEvent != null)
+        {
+            OnReceiveMessageEvent("CUTSCENE_" + id);
         }
     }
 

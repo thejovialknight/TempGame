@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public List<NPC> NPCs = new List<NPC>();
     public List<Minigame> minigames = new List<Minigame>();
 
+    SaveData saveData;
     FlagCollection flagCollection;
 
     void Awake()
@@ -62,7 +63,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("File created!");
 
         // construct data
-        SaveData saveData = new SaveData();
+        saveData = new SaveData();
         Debug.Log("saveData created!");
 
         // construct flags
@@ -124,6 +125,12 @@ public class GameManager : MonoBehaviour
 
     public void Load(string fName)
     {
+        // check if saves folder exists
+        if(!Directory.Exists(Path.Combine(Application.persistentDataPath, "saves")))
+        {
+            Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, "saves"));
+        }
+
         if(File.Exists(Path.Combine(Application.persistentDataPath, "saves", fName)))
         {
             BinaryFormatter bf = new BinaryFormatter();
@@ -195,6 +202,15 @@ class SaveData
     public PlayerData playerData;
     public NPCData[] NPCData;
     public MinigameData[] minigameData;
+}
+
+[Serializable]
+class JobData
+{
+    public NPCData[] npcs;
+    public MinigameData[] minigames;
+    public int day;
+    public int time;
 }
 
 [Serializable]

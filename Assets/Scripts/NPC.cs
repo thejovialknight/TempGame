@@ -32,7 +32,7 @@ public class NPC : MonoBehaviour, IInteractable
 
     public void InteractWith(Transform interactor)
     {
-        MessageEventManager.RaiseOnReceiveMessage(id + "_OPEN");
+        MessageEventManager.Broadcast(id + "_OPEN");
     }
 
     public string GetInteractName()
@@ -48,5 +48,48 @@ public class NPC : MonoBehaviour, IInteractable
     public virtual void OnReceiveMessage(string id)
     {
 
+    }
+
+    public void SetFlag(string flag, bool isOn)
+    {
+        flagCollection.SetFlag(flag, isOn);
+    }
+
+    public bool CheckFlag(string flag)
+    {
+        return flagCollection.CheckFlag(flag);
+    }
+
+    public bool CheckMessage(string message, string node)
+    {
+        if(message == id + "_" + node)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public bool CheckCutsceneMessage(string message, string cutscene)
+    {
+        if (message == "CUTSCENE_" + cutscene)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void Say(string text)
+    {
+        DialogueManager.instance.Say(text);
+    }
+
+    public void AddOption(string text, string node)
+    {
+        DialogueManager.instance.AddOption(new DialogueOption(id + "_" + node, text));
+    }
+
+    public void CloseDialogue()
+    {
+        DialogueManager.instance.Close();
     }
 }

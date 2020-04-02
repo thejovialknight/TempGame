@@ -6,47 +6,63 @@ public class Hank : NPC
 {
     public override void OnReceiveMessage(string message)
     {
-        if(message == id + "_OPEN")
+        #region Dialogue
+
+        if(CheckMessage(message, "OPEN"))
         {
-            if(flagCollection.CheckFlag("ANGRY"))
+            if(CheckFlag("ANGRY"))
             {
-                DialogueManager.instance.Say("I don't really wanna talk to you, man.");
-                DialogueManager.instance.AddOption(new DialogueOption(id + "_ANGRY", "And I don't want to talk to you either!"));
-                DialogueManager.instance.AddOption(new DialogueOption(id + "_FRIENDS", "Sorry, I really didn't mean it."));
+                Say("I don't really wanna talk to you, man.");
+                AddOption("And I don't want to talk to you either!", "ANGRY");
+                AddOption("Sorry, I really didn't mean it.", "FRIENDS");
             }
-            else if(flagCollection.CheckFlag("FRIENDS"))
+            else if(CheckFlag("FRIENDS"))
             {
-                DialogueManager.instance.Say("Hey, buddy. Good to see you again.");
-                DialogueManager.instance.AddOption(new DialogueOption(id + "_ANGRY", "Hey, man. I'm not your buddy"));
-                DialogueManager.instance.AddOption(new DialogueOption(id + "_FRIENDS", "Hey, man! Sorry about your troubles!"));
+                Say("Hey, buddy. Good to see you again.");
+                AddOption("Hey, man. I'm not your buddy", "ANGRY");
+                AddOption("Hey, man! Sorry about your troubles!", "FRIENDS");
             }
             else
             {
-                DialogueManager.instance.Say("Hey, man. I'm a little bummed today.");
-                DialogueManager.instance.AddOption(new DialogueOption(id + "_ANGRY", "You're pathetic."));
-                DialogueManager.instance.AddOption(new DialogueOption(id + "_FRIENDS", "Sorry, bro."));
+                Say("Hey, man. I'm a little bummed today.");
+                AddOption("You're pathetic.", "ANGRY");
+                AddOption("Sorry, bro.", "FRIENDS");
             }
         }
 
-        if(message == id + "_FRIENDS")
+        if(CheckMessage(message, "FRIENDS"))
         {
-            flagCollection.SetFlag("ANGRY", false);
-            flagCollection.SetFlag("FRIENDS", true);
-            DialogueManager.instance.Say("It's okay, bro.");
-            DialogueManager.instance.AddOption(new DialogueOption(id + "_END", "..."));
+            SetFlag("ANGRY", false);
+            SetFlag("FRIENDS", true);
+
+            Say("It's okay, bro.");
+            AddOption("...", "END");
         }
 
-        if(message == id + "_ANGRY")
+        if(CheckMessage(message, "ANGRY"))
         {
-            flagCollection.SetFlag("ANGRY", true);
-            flagCollection.SetFlag("FRIENDS", false);
-            DialogueManager.instance.Say("Hey, fuck you!");
-            DialogueManager.instance.AddOption(new DialogueOption(id + "_END", "..."));
+            SetFlag("ANGRY", true);
+            SetFlag("FRIENDS", false);
+
+            Say("Hey, fuck you! I'm so angry, I will walk forward!");
+            MessageEventManager.BroadcastCutscene("HANK_WALK_FORWARD");
+            AddOption("...", "END");
         }
 
-        if(message == id + "_END")
+        if(CheckMessage(message, "END"))
         {
-            DialogueManager.instance.Close();
+            CloseDialogue();
         }
+
+        #endregion
+
+        #region Cutscenes
+
+        if(CheckCutsceneMessage(message, "HANK_WALK_FORWARD"))
+        {
+            transform.Translate(new Vector3(2f, 0f, 0f));
+        }
+
+        #endregion
     }
 }
