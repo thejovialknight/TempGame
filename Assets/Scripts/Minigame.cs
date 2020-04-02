@@ -115,8 +115,8 @@ public class Minigame : MonoBehaviour
     public virtual void EndGame()
     {
         cameraController.EndZoneOverride(true);
-
         MessageEventManager.RaiseOnResume();
+        MessageEventManager.Broadcast("PROGRESS_TIME");
 
         outroScreen.SetActive(false);
         introScreen.SetActive(false);

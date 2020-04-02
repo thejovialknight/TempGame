@@ -60,6 +60,16 @@ public class NPC : MonoBehaviour, IInteractable
         return flagCollection.CheckFlag(flag);
     }
 
+    public void Broadcast(string node)
+    {
+        MessageEventManager.Broadcast(id + node);
+    }
+
+    public void StartCutscene(string node)
+    {
+        MessageEventManager.BroadcastCutscene(node);
+    }
+
     public bool CheckMessage(string message, string node)
     {
         if(message == id + "_" + node)

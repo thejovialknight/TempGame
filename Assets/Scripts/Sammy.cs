@@ -6,9 +6,11 @@ public class Sammy : NPC
 {
     public GameObject mailSortObject;
 
-    public override void OnReceiveMessage(string id)
+    public override void OnReceiveMessage(string message)
     {
-        //mailSortObject.SetActive(true);
-        //MessageEventManager.RaiseOnReceiveMessage("MAIL_SORT");
+        if(CheckMessage(message, "OPEN")) {
+            mailSortObject.SetActive(true);
+            MessageEventManager.Broadcast("MAIL_SORT");
+        }
     }
 }

@@ -22,14 +22,13 @@ public class LoadMenuController : MonoBehaviour
 
         if (Directory.Exists(Path.Combine(Application.persistentDataPath, "saves")))
         {
-            List<string> filenames = new List<string>();
             foreach (string filename in Directory.GetFiles(Path.Combine(Application.persistentDataPath, "saves")))
             {
                 Transform loadObj = GameObject.Instantiate(loadFilePrefab, contentParent);
                 loadObj.GetComponent<Text>().text = Path.GetFileName(filename);
             }
 
-            SetSelection(1);
+            SetSelection(0);
         }
     }
 
@@ -65,9 +64,8 @@ public class LoadMenuController : MonoBehaviour
 
         if(Input.GetButtonDown("Interact"))
         {
-            GameManager.filename = contentParent.GetChild(index).GetComponent<Text>().text;
-            GameManager.isLoading = true;
-            SceneManager.LoadSceneAsync("Job_PostOffice");
+            GameManager.manager.filename = contentParent.GetChild(index).GetComponent<Text>().text;
+            GameManager.manager.LoadFile(GameManager.manager.filename);
         }
     }
 }

@@ -45,7 +45,18 @@ public class Hank : NPC
             SetFlag("FRIENDS", false);
 
             Say("Hey, fuck you! I'm so angry, I will walk forward!");
-            MessageEventManager.BroadcastCutscene("HANK_WALK_FORWARD");
+            AddOption("...", "WALK");
+        }
+
+        if(CheckMessage(message, "WALK"))
+        {
+            CloseDialogue();
+            StartCutscene("HANK_WALK_FORWARD");
+        }
+
+        if(CheckMessage(message, "WALKED"))
+        {
+            Say("See? I have walked!");
             AddOption("...", "END");
         }
 
@@ -60,7 +71,17 @@ public class Hank : NPC
 
         if(CheckCutsceneMessage(message, "HANK_WALK_FORWARD"))
         {
-            transform.Translate(new Vector3(2f, 0f, 0f));
+            StartCoroutine(Walk(2f));
+        }
+
+        IEnumerator Walk(float length) {
+            for (float count = 0f; count <= length; count += Time.deltaTime) 
+            {
+                transform.Translate(new Vector3(0f, Time.deltaTime, 0f));
+                yield return null;
+            }
+
+            Broadcast("WALKED");
         }
 
         #endregion

@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void Start() {
+        GameManager.manager.RegisterPlayer(gameObject);
         GetInteractColliders();
     }
 

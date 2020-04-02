@@ -40,8 +40,7 @@ public class MainMenuController : MonoBehaviour
         {
             if(index == 0)
             {
-                GameManager.filename = "nullfile";
-                SceneManager.LoadSceneAsync("Job_PostOffice");
+                GameManager.manager.StartNewGame();
             }
             else
             {
