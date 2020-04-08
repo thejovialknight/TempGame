@@ -41,7 +41,7 @@ public class DialogueManager : MonoBehaviour
         if (!panel.gameObject.activeInHierarchy)
         {
             panel.gameObject.SetActive(true);
-            MessageEventManager.RaiseOnPause();
+            MessageEventManager.RaiseOnPause(true, true);
         }
         characterCount = 0;
         dialogueOptions.Clear();

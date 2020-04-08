@@ -8,25 +8,27 @@ public class NPC : MonoBehaviour, IInteractable
     public string title = "Name";
     public string jobTitle = "Job Title";
 
+    public bool isPaused = false;
+
     public FlagCollection flagCollection;
 
     void OnEnable()
     {
+        MessageEventManager.OnPauseEvent += OnPause;
+        MessageEventManager.OnResumeEvent += OnResume;
         MessageEventManager.OnReceiveMessageEvent += OnReceiveMessage;
     }
 
     void OnDisable()
     {
+        MessageEventManager.OnPauseEvent -= OnPause;
+        MessageEventManager.OnResumeEvent -= OnResume;
         MessageEventManager.OnReceiveMessageEvent -= OnReceiveMessage;
     }
 
     void Awake()
     {
         flagCollection = GetComponent<FlagCollection>();
-    }
-
-    void Start()
-    {
         GameManager.manager.RegisterNPC(this);
     }
 
@@ -43,6 +45,26 @@ public class NPC : MonoBehaviour, IInteractable
     public string GetInteractInfo()
     {
         return "Press E to talk";
+    }
+
+    void OnPause(bool pausePlayer, bool pauseNPCs, params NPC[] exceptions)
+    {
+        isPaused = true;
+        if (pauseNPCs)
+        {
+            foreach(NPC npc in exceptions)
+            {
+                if(npc == this)
+                {
+                    isPaused = false;
+                }
+            }
+        }
+    }
+
+    void OnResume()
+    {
+        isPaused = false;
     }
 
     public virtual void OnReceiveMessage(string id)
@@ -62,7 +84,7 @@ public class NPC : MonoBehaviour, IInteractable
 
     public void Broadcast(string node)
     {
-        MessageEventManager.Broadcast(id + node);
+        MessageEventManager.Broadcast(id + "_" + node);
     }
 
     public void StartCutscene(string node)

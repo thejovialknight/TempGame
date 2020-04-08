@@ -13,7 +13,6 @@ public class InteractManager : MonoBehaviour
         MessageEventManager.OnSetInteractInfoEvent += OnSetInteractInfo;
         MessageEventManager.OnClearInteractInfoEvent += OnClearInteractInfo;
         MessageEventManager.OnPauseEvent += OnPause;
-        //MessageEventManager.OnResumeEvent += OnResume;
     }
 
     void OnDisable()
@@ -21,12 +20,14 @@ public class InteractManager : MonoBehaviour
         MessageEventManager.OnSetInteractInfoEvent -= OnSetInteractInfo;
         MessageEventManager.OnClearInteractInfoEvent -= OnClearInteractInfo;
         MessageEventManager.OnPauseEvent -= OnPause;
-        //MessageEventManager.OnResumeEvent -= OnResume;
     }
 
-    void OnPause()
+    void OnPause(bool pausePlayer, bool pauseNPCS, params NPC[] exceptions)
     {
-        OnSetInteractInfo("", "");
+        if(pausePlayer)
+        {
+            OnSetInteractInfo("", "");
+        }
     }
 
     void OnSetInteractInfo(string name, string info)

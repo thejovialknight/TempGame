@@ -8,27 +8,37 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class GameManager : MonoBehaviour
 {
-    public string filename = null;
-    public bool isLoadingJob = false;
+    #region Properties
 
-    public static GameManager manager;
-
-    public Job startingJob;
-    public string startingScene;
-    public List<UnlockedJobData> unlockedJobs = new List<UnlockedJobData>();
-    public List<Job> jobs = new List<Job>();
-    public Job currentJob;
-    public GameObject playerObject;
-    public List<NPC> NPCs = new List<NPC>();
-    public List<Minigame> minigames = new List<Minigame>();
-
+    // Private Properties
     SaveData saveData;
     FlagCollection flagCollection;
 
+    // Singleton instance
+    public static GameManager manager;
+    
+    [Header("Current Game Data")]
+    public string filename = null;
+    // public List<UnlockedJobData> unlockedJobs = new List<UnlockedJobData>();
+    public List<Job> jobs = new List<Job>();
+
+    [Header("Current Job Data")]
+    public Job currentJob;
+
+    [Header("New Game Settings")]
+    public string newGameScene = "Map";
+
+    [Header("Misc Scenes")]
+    public string mainMenuScene = "MainMenu";
+    public string mapScene = "Map";
+
+    #endregion
+
+    #region MonoBehaviours
+
     void Awake()
     {
-        flagCollection = GetComponent<FlagCollection>();
-
+        // Sets up singleton
         if (manager == null)
         {
             DontDestroyOnLoad(gameObject);
@@ -42,6 +52,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        // Handles input
         if(Input.GetButtonDown("Quicksave"))
         {
             if(currentJob != null) {
@@ -57,81 +68,11 @@ public class GameManager : MonoBehaviour
             }
             Quickload();
         }
-
-        if(isLoadingJob) {
-            if(currentJob != null) {
-                LoadJob(currentJob);
-            }
-            else {
-                Debug.Log("No current job to load into!");
-            }
-            isLoadingJob = false;
-        }
     }
 
-    public void SaveJob(Job job) {
-        // construct data
-        JobData newJobData = new JobData();
+    #endregion
 
-        newJobData.id = job.id;
-
-        // construct flags
-        newJobData.flags = currentJob.flagCollection.flags.ToArray();
-
-        // construct PlayerData
-        PlayerData playerData = new PlayerData();
-        playerData.position = new float[2] { playerObject.transform.position.x, playerObject.transform.position.y };
-        newJobData.player = playerData;
-
-        // construct NPCDatas
-        List<NPCData> NPCDatas = new List<NPCData>();
-        foreach(NPC npc in NPCs)
-        {
-            NPCData data = new NPCData();
-
-            data.id = npc.id;
-            data.position = new float[2] { npc.transform.position.x, npc.transform.position.y };
-            data.flags = npc.flagCollection.flags.ToArray();
-            NPCDatas.Add(data);
-        }
-        newJobData.npcs = NPCDatas.ToArray();
-
-        // construct MinigameDatas
-        List<MinigameData> minigameDatas = new List<MinigameData>();
-        foreach (Minigame minigame in minigames)
-        {
-            MinigameData data = new MinigameData();
-
-            data.id = minigame.id;
-            data.rating = minigame.bestRating;
-            data.score = minigame.bestScore;
-            minigameDatas.Add(data);
-        }
-        newJobData.minigames = minigameDatas.ToArray();
-
-        newJobData.day = job.currentDay;
-        newJobData.time = job.currentTimeChunk;
-
-        bool jobExists = false;
-        for(int i = 0; i < saveData.jobs.Length; i++ ) {
-            if(saveData.jobs[i].id == newJobData.id) {
-                saveData.jobs[i] = newJobData;
-                jobExists = true;
-            }
-        }
-
-        if(!jobExists) {
-            List<JobData> newJobs = new List<JobData>(saveData.jobs);
-            newJobs.Add(newJobData);
-            saveData.jobs = newJobs.ToArray();
-        }
-    }
-
-    public void StartNewGame() {
-        saveData = new SaveData();
-        unlockedJobs.Add(new UnlockedJobData("Job_PostOffice", "Post Office"));
-        SceneManager.LoadSceneAsync(startingScene);
-    }
+    #region Saving and Loading
 
     public void SaveFile()
     {
@@ -147,8 +88,6 @@ public class GameManager : MonoBehaviour
         // construct flags
         saveData.gameFlags = flagCollection.flags.ToArray();
 
-        saveData.unlockedJobs = unlockedJobs.ToArray();
-
         // serialize
         bf.Serialize(file, saveData);
         file.Close();
@@ -156,14 +95,90 @@ public class GameManager : MonoBehaviour
         Debug.Log("FILESAVED!");
     }
 
-    public void Quickload() {
-        int filenameCount = 0;
-        while(File.Exists(Path.Combine(Application.persistentDataPath, "saves", "tempsave" + filenameCount + ".dat"))) {
-            filenameCount++;
+    public void LoadFile(string fName)
+        {
+            // check if saves folder exists
+            if(!Directory.Exists(Path.Combine(Application.persistentDataPath, "saves")))
+            {
+                Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, "saves"));
+            }
+
+            if(File.Exists(Path.Combine(Application.persistentDataPath, "saves", fName)))
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream file = File.Open(Path.Combine(Application.persistentDataPath, "saves", fName), FileMode.Open);
+
+                //deserialize
+                saveData = (SaveData)bf.Deserialize(file);
+                file.Close();
+
+                unlockedJobs = new List<UnlockedJobData>(saveData.unlockedJobs);
+            }
+            else
+            {
+                Debug.Log("No save file to load!");
+            }
+
+            SceneManager.LoadSceneAsync(saveData.sceneName);
         }
-        filenameCount--;
-        LoadFile("tempsave" + filenameCount + ".dat");
-    }
+
+    public void SaveJob(Job job) {
+            // construct data
+            JobData newJobData = new JobData();
+
+            newJobData.id = job.id;
+
+            // construct flags
+            newJobData.flags = currentJob.flagCollection.flags.ToArray();
+
+            // construct PlayerData
+            PlayerData playerData = new PlayerData();
+            playerData.position = new float[2] { currentJob.playerObject.transform.position.x, currentJob.playerObject.transform.position.y };
+            newJobData.player = playerData;
+
+            // construct NPCDatas
+            List<NPCData> NPCDatas = new List<NPCData>();
+            foreach(NPC npc in currentJob.NPCs)
+            {
+                NPCData data = new NPCData();
+
+                data.id = npc.id;
+                data.position = new float[2] { npc.transform.position.x, npc.transform.position.y };
+                data.flags = npc.flagCollection.flags.ToArray();
+                NPCDatas.Add(data);
+            }
+            newJobData.npcs = NPCDatas.ToArray();
+
+            // construct MinigameDatas
+            List<MinigameData> minigameDatas = new List<MinigameData>();
+            foreach (Minigame minigame in currentJob.minigames)
+            {
+                MinigameData data = new MinigameData();
+
+                data.id = minigame.id;
+                data.rating = minigame.bestRating;
+                data.score = minigame.bestScore;
+                minigameDatas.Add(data);
+            }
+            newJobData.minigames = minigameDatas.ToArray();
+
+            newJobData.day = job.currentDay;
+            newJobData.time = job.currentTimeChunk;
+
+            bool jobExists = false;
+            for(int i = 0; i < saveData.jobs.Length; i++ ) {
+                if(saveData.jobs[i].id == newJobData.id) {
+                    saveData.jobs[i] = newJobData;
+                    jobExists = true;
+                }
+            }
+
+            if(!jobExists) {
+                List<JobData> newJobs = new List<JobData>(saveData.jobs);
+                newJobs.Add(newJobData);
+                saveData.jobs = newJobs.ToArray();
+            }
+        }
 
     public void LoadJob(Job job) {
         foreach(JobData jobData in saveData.jobs) {
@@ -173,10 +188,10 @@ public class GameManager : MonoBehaviour
                 job.flagCollection.flags = new List<string>(saveData.gameFlags);
 
                 // load PlayerData
-                playerObject.transform.position = new Vector3(jobData.player.position[0], jobData.player.position[1], 0f);
+                currentJob.playerObject.transform.position = new Vector3(jobData.player.position[0], jobData.player.position[1], 0f);
 
                 // load NPCDatas
-                foreach (NPC npc in NPCs)
+                foreach (NPC npc in currentJob.NPCs)
                 {
                     foreach(NPCData data in jobData.npcs)
                     {
@@ -189,7 +204,7 @@ public class GameManager : MonoBehaviour
                 }
 
                 // load MinigameDatas
-                foreach (Minigame minigame in minigames)
+                foreach (Minigame minigame in currentJob.minigames)
                 {
                     foreach (MinigameData data in jobData.minigames)
                     {
@@ -208,51 +223,99 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LoadFile(string fName)
-    {
-        // check if saves folder exists
-        if(!Directory.Exists(Path.Combine(Application.persistentDataPath, "saves")))
-        {
-            Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, "saves"));
+    public void Quickload() {
+        int filenameCount = 0;
+        while(File.Exists(Path.Combine(Application.persistentDataPath, "saves", "tempsave" + filenameCount + ".dat"))) {
+            filenameCount++;
         }
-
-        if(File.Exists(Path.Combine(Application.persistentDataPath, "saves", fName)))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Path.Combine(Application.persistentDataPath, "saves", fName), FileMode.Open);
-
-            //deserialize
-            saveData = (SaveData)bf.Deserialize(file);
-            file.Close();
-
-            unlockedJobs = new List<UnlockedJobData>(saveData.unlockedJobs);
-        }
-        else
-        {
-            Debug.Log("No save file to load!");
-        }
-
-        SceneManager.LoadSceneAsync(saveData.sceneName);
+        filenameCount--;
+        LoadFile("tempsave" + filenameCount + ".dat");
     }
+
+    #endregion
+
+    #region Database Registration
 
     public void RegisterJob(Job job)
     {
         currentJob = job;
+        LoadJob(currentJob);
     }
 
-    public void RegisterPlayer(GameObject player)
+    #endregion
+
+    public void StartNewGame()
     {
-        playerObject = player;
+        saveData = new SaveData();
+        unlockedJobs.Add(newGameUnlockedJob);
+        SceneManager.LoadSceneAsync(newGameScene);
     }
 
-    public void RegisterNPC(NPC npc)
+    void ProgressTime()
     {
-        NPCs.Add(npc);
+        currentJob.currentTimeChunk++;
     }
 
-    public void RegisterMinigame(Minigame minigame)
+    public void ProgressDay()
     {
-        minigames.Add(minigame);
+        currentJob.currentDay++;
+        currentJob.currentTimeChunk = 0;
+        StartCoroutine(NewDayPopup(3f));
+    }
+
+    IEnumerator NewDayPopup(float length)
+    {
+        MessageEventManager.RaiseOnPause(true, true);
+        newDayPopup.SetActive(true);
+        newDayText.text = "Day " + currentDay;
+        GameManager.manager.MovePlayerToSpawn();
+        for (float count = 0f; count <= length; count += Time.deltaTime)
+        {
+            yield return null;
+        }
+        newDayPopup.SetActive(false);
+        MessageEventManager.RaiseOnResume();
+    }
+
+    public bool CheckComplete()
+    {
+        return false;
+    }
+
+    public void MovePlayerToSpawn()
+    {
+        currentJob.playerObject.transform.position = currentJob.playerSpawn.position;
+    }
+
+    public void LeaveJob(bool isSaving)
+    {
+        MovePlayerToSpawn();
+        if (isSaving)
+        {
+            if (currentJob != null)
+            {
+                SaveJob(currentJob);
+            }
+            SaveFile();
+        }
+
+        SceneManager.LoadSceneAsync(mapScene);
+    }
+
+    public void QuitGame(bool isSaving)
+    {
+        MovePlayerToSpawn();
+        if (isSaving)
+        {
+            if (currentJob != null)
+            {
+                SaveJob(currentJob);
+            }
+            SaveFile();
+        }
+
+        saveData = null;
+        SceneManager.LoadSceneAsync(mainMenuScene);
     }
 }
 
@@ -262,23 +325,10 @@ class SaveData
     public string sceneName;
     public string[] gameFlags;
     public JobData[] jobs;
-    public UnlockedJobData[] unlockedJobs;
 
     public SaveData() {
         gameFlags = new string[0];
         jobs = new JobData[0];
-    }
-}
-
-[Serializable]
-public class UnlockedJobData
-{
-    public string sceneName;
-    public string title;
-
-    public UnlockedJobData(string sceneName, string title) {
-        this.sceneName = sceneName;
-        this.title = title;
     }
 }
 

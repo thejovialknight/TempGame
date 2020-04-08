@@ -8,7 +8,7 @@ public class SpriteOutliner : MonoBehaviour, IInteractableHelper
     [Range(0, 16)]
     public int outlineSize = 1;
 
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
 
     void Awake()
     {

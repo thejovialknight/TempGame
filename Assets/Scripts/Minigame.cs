@@ -68,7 +68,7 @@ public class Minigame : MonoBehaviour
     public virtual void ShowIntro() {
         state = GameState.Intro;
 
-        MessageEventManager.RaiseOnPause();
+        MessageEventManager.RaiseOnPause(true, true);
 
         bestScoreText.text = bestScore.ToString();
         bestRatingText.text = bestRating.ToString();

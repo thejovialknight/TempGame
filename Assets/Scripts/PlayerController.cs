@@ -31,10 +31,13 @@ public class PlayerController : MonoBehaviour
         MessageEventManager.OnResumeEvent -= OnResume;
     }
 
-    void OnPause()
+    void OnPause(bool pausePlayer, bool pauseNPCs, params NPC[] exceptions)
     {
-        isPaused = true;
-        Move(new Vector2(0.0f, 0.0f));
+        if (pausePlayer)
+        {
+            isPaused = true;
+            Move(new Vector2(0.0f, 0.0f));
+        }
     }
 
     void OnResume()

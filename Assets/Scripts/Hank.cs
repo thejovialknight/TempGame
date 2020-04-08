@@ -75,12 +75,13 @@ public class Hank : NPC
         }
 
         IEnumerator Walk(float length) {
+            MessageEventManager.RaiseOnPause(true, true, this);
             for (float count = 0f; count <= length; count += Time.deltaTime) 
             {
                 transform.Translate(new Vector3(0f, Time.deltaTime, 0f));
                 yield return null;
             }
-
+            MessageEventManager.RaiseOnResume();
             Broadcast("WALKED");
         }
 

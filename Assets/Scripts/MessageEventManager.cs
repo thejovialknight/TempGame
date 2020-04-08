@@ -4,18 +4,28 @@ using UnityEngine;
 
 public class MessageEventManager : MonoBehaviour
 {
-    public delegate void PauseEvent();
+    public delegate void PauseEvent(bool pausePlayer, bool pauseNPCs, params NPC[] exceptions);
 
     public static event PauseEvent OnPauseEvent;
-    public static void RaiseOnPause()
+    public static void RaiseOnPause(bool pausePlayer, bool pauseNPCs, params NPC[] exceptions)
     {
         if (OnPauseEvent != null)
         {
-            OnPauseEvent();
+            OnPauseEvent(pausePlayer, pauseNPCs, exceptions);
         }
     }
 
-    public static event PauseEvent OnResumeEvent;
+    public static void RaiseOnPause(bool pausePlayer, bool pauseNPCs)
+    {
+        if (OnPauseEvent != null)
+        {
+            OnPauseEvent(pausePlayer, pauseNPCs, new NPC[0]);
+        }
+    }
+
+    public delegate void ResumeEvent();
+
+    public static event ResumeEvent OnResumeEvent;
     public static void RaiseOnResume()
     {
         if (OnResumeEvent != null)

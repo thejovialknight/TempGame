@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlagCollection : MonoBehaviour
+public class FlagCollection
 {
     public List<string> flags = new List<string>();
 

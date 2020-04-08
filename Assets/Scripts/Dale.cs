@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class Dale : NPC
 {
+    public Dale()
+    {
+        id = "DALE";
+        title = "Dale";
+        jobTitle = "Front Counter";
+    }
+
     public override void OnReceiveMessage(string id)
     {
-  
+    
     }
 }
