@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class MessageEventManager : MonoBehaviour
 {
+    public delegate void GenericEvent();
+    public static event GenericEvent OnRegisterJobEvent;
+    public static void RaiseRegisterJob() {
+        if(OnRegisterJobEvent != null) {
+            OnRegisterJobEvent();
+        }
+    }
+
     public delegate void PauseEvent(bool pausePlayer, bool pauseNPCs, params NPC[] exceptions);
 
     public static event PauseEvent OnPauseEvent;

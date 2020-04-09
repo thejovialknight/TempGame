@@ -15,6 +15,8 @@ public class Sammy : NPC
 
     public override void OnReceiveMessage(string message)
     {
+        base.OnReceiveMessage(message);
+
         if(CheckMessage(message, "OPEN")) {
             mailSortObject.SetActive(true);
             MessageEventManager.Broadcast("MAIL_SORT");

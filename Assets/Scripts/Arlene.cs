@@ -11,8 +11,8 @@ public class Arlene : NPC
         jobTitle = "General Manager";
     }
 
-    public override void OnReceiveMessage(string id)
+    public override void OnReceiveMessage(string message)
     {
-
+        base.OnReceiveMessage(message);
     }
 }

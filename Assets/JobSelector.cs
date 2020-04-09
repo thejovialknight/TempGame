@@ -18,12 +18,14 @@ public class JobSelector : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        if(GameManager.manager.unlockedJobs.Count > 0)
+        if(GameManager.manager.saveData.jobs.Length > 0)
         {
-            foreach (UnlockedJobData unlockedJob in GameManager.manager.unlockedJobs)
+            foreach (JobData jobData in GameManager.manager.saveData.jobs)
             {
-                Transform jobObj = GameObject.Instantiate(jobSelectionPrefab, contentParent);
-                jobObj.GetComponent<Text>().text = unlockedJob.title;
+                if(jobData.isUnlocked) {
+                    Transform jobObj = GameObject.Instantiate(jobSelectionPrefab, contentParent);
+                    jobObj.GetComponent<Text>().text = jobData.name;
+                }
             }
 
             SetSelection(0);
@@ -62,7 +64,7 @@ public class JobSelector : MonoBehaviour
 
         if(Input.GetButtonDown("Interact"))
         {
-            SceneManager.LoadSceneAsync(GameManager.manager.unlockedJobs[index].sceneName);
+            SceneManager.LoadSceneAsync(GameManager.manager.saveData.jobs[index].sceneName);
         }
     }
 }

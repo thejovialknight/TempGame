@@ -13,6 +13,8 @@ public class Hank : NPC
 
     public override void OnReceiveMessage(string message)
     {
+        base.OnReceiveMessage(message);
+        
         #region Dialogue
 
         if(CheckMessage(message, "OPEN"))
@@ -93,5 +95,6 @@ public class Hank : NPC
         }
 
         #endregion
+
     }
 }

@@ -23,12 +23,14 @@ public class PlayerController : MonoBehaviour
     {
         MessageEventManager.OnPauseEvent += OnPause;
         MessageEventManager.OnResumeEvent += OnResume;
+        MessageEventManager.OnRegisterJobEvent += OnRegisterJob;
     }
 
     void OnDisable()
     {
         MessageEventManager.OnPauseEvent -= OnPause;
         MessageEventManager.OnResumeEvent -= OnResume;
+        MessageEventManager.OnRegisterJobEvent -= OnRegisterJob;
     }
 
     void OnPause(bool pausePlayer, bool pauseNPCs, params NPC[] exceptions)
@@ -45,6 +47,10 @@ public class PlayerController : MonoBehaviour
         isPaused = false;
     }
 
+    public void OnRegisterJob() {
+        GameManager.manager.RegisterPlayer(this);
+    }
+
     void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -56,7 +62,6 @@ public class PlayerController : MonoBehaviour
     }
 
     void Start() {
-        GameManager.manager.RegisterPlayer(gameObject);
         GetInteractColliders();
     }
 
@@ -86,6 +91,19 @@ public class PlayerController : MonoBehaviour
         {
             GetInteractColliders();
         }
+    }
+
+    public void LoadData(PlayerData dataToLoad) {
+        if(dataToLoad.hasBeenSaved) {
+            transform.position = new Vector3(dataToLoad.position[0], dataToLoad.position[1], 0f);
+        }
+    }
+
+    public PlayerData SaveData() {
+        PlayerData dataToSave = new PlayerData();
+        dataToSave.hasBeenSaved = true;
+        dataToSave.position = new float[2] { transform.position.x, transform.position.y };
+        return dataToSave;
     }
 
     void Move(Vector2 movementDirection)
@@ -157,4 +175,11 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position + (Vector3)interactOffset, interactRange);
     }
+}
+
+[System.Serializable]
+public class PlayerData
+{
+    public bool hasBeenSaved = false;
+    public float[] position;
 }

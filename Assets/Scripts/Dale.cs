@@ -11,8 +11,8 @@ public class Dale : NPC
         jobTitle = "Front Counter";
     }
 
-    public override void OnReceiveMessage(string id)
+    public override void OnReceiveMessage(string message)
     {
-    
+        base.OnReceiveMessage(message);
     }
 }

@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour, IInteractable
 {
-    public NPCData data;
+    public string id;
+    public string title;
+    public string jobTitle;
 
     public bool isPaused = false;
 
-    public FlagCollection flagCollection;
+    public FlagCollection flagCollection = new FlagCollection();
 
     void OnEnable()
     {
         MessageEventManager.OnPauseEvent += OnPause;
         MessageEventManager.OnResumeEvent += OnResume;
         MessageEventManager.OnReceiveMessageEvent += OnReceiveMessage;
+        MessageEventManager.OnRegisterJobEvent += OnRegisterJob;
     }
 
     void OnDisable()
@@ -22,12 +25,27 @@ public class NPC : MonoBehaviour, IInteractable
         MessageEventManager.OnPauseEvent -= OnPause;
         MessageEventManager.OnResumeEvent -= OnResume;
         MessageEventManager.OnReceiveMessageEvent -= OnReceiveMessage;
+        MessageEventManager.OnRegisterJobEvent -= OnRegisterJob;
     }
 
-    void Awake()
-    {
-        flagCollection = GetComponent<FlagCollection>();
-        GameManager.manager.RegisterNPC(this);
+    public void LoadData(NPCData dataToLoad) {
+        name = dataToLoad.name;
+        jobTitle = dataToLoad.jobTitle;
+        if(dataToLoad.hasBeenSaved) {
+            transform.position = new Vector3(dataToLoad.position[0], dataToLoad.position[1], 0f);
+            flagCollection.flags = new List<string>(dataToLoad.flags);
+        }
+    }
+
+    public NPCData SaveData() {
+        NPCData dataToSave = new NPCData();
+        dataToSave.hasBeenSaved = true;
+        dataToSave.id = id;
+        dataToSave.name = title;
+        dataToSave.jobTitle = jobTitle;
+        dataToSave.position = new float[2] { transform.position.x, transform.position.y };
+        dataToSave.flags = flagCollection.flags.ToArray();
+        return dataToSave;
     }
 
     public void InteractWith(Transform interactor)
@@ -65,7 +83,11 @@ public class NPC : MonoBehaviour, IInteractable
         isPaused = false;
     }
 
-    public virtual void OnReceiveMessage(string id)
+    void OnRegisterJob() {
+        GameManager.manager.RegisterNPC(this);
+    }
+
+    public virtual void OnReceiveMessage(string message)
     {
 
     }
@@ -122,4 +144,15 @@ public class NPC : MonoBehaviour, IInteractable
     {
         DialogueManager.instance.Close();
     }
+}
+
+[System.Serializable]
+public class NPCData
+{
+    public bool hasBeenSaved;
+    public string id;
+    public string name;
+    public string jobTitle;
+    public float[] position;
+    public string[] flags;
 }

@@ -25,12 +25,6 @@ public class Minigame : MonoBehaviour
     public GameObject gameUI;
     public Text scoreText;
 
-    void Start()
-    {
-        GameManager.manager.RegisterMinigame(this);
-        gameObject.SetActive(false);
-    }
-
     void Update()
     {
         if (state == GameState.Intro)
@@ -50,11 +44,13 @@ public class Minigame : MonoBehaviour
     void OnEnable ()
     {
         MessageEventManager.OnReceiveMessageEvent += OnReceiveMessage;
+        MessageEventManager.OnRegisterJobEvent += OnRegisterJob;
     }
 
     void OnDisable()
     {
         MessageEventManager.OnReceiveMessageEvent -= OnReceiveMessage;
+        MessageEventManager.OnRegisterJobEvent -= OnRegisterJob;
     }
 
     void OnReceiveMessage(string message)
@@ -63,6 +59,24 @@ public class Minigame : MonoBehaviour
         {
             ShowIntro();
         }
+    }
+
+    public void OnRegisterJob() {
+        GameManager.manager.RegisterMinigame(this);
+        gameObject.SetActive(false);
+    }
+
+    public void LoadData(MinigameData dataToLoad) {
+        bestScore = dataToLoad.score;
+        bestRating = dataToLoad.rating;
+    }
+
+    public MinigameData SaveData() {
+        MinigameData dataToSave = new MinigameData();
+        dataToSave.id = id;
+        dataToSave.score = bestScore;
+        dataToSave.rating = bestRating;
+        return dataToSave;
     }
 
     public virtual void ShowIntro() {
@@ -146,4 +160,12 @@ public class Minigame : MonoBehaviour
     public virtual void SetRating() {
         
     }
+}
+
+[System.Serializable]
+public class MinigameData
+{
+    public string id;
+    public int score;
+    public int rating;
 }

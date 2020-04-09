@@ -874,7 +874,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1684582729}
   - component: {fileID: 1684582728}
-  - component: {fileID: 1684582727}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -882,19 +881,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1684582727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1684582726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20da4461282d4274d9f05104bca9d4eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flags: []
 --- !u!114 &1684582728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,16 +893,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c6e4bbe8e266d44b1b02572112ccf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveData:
+    currentSceneName: 
+    gameFlags: []
+    jobs: []
+  flagCollection:
+    flags: []
   filename: 
-  isLoadingJob: 0
-  startingJob: {fileID: 0}
-  startingScene: Map
-  unlockedJobs: []
-  jobs: []
   currentJob: {fileID: 0}
-  playerObject: {fileID: 0}
-  NPCs: []
-  minigames: []
+  newGameScene: Map
+  mainMenuScene: MainMenu
+  mapScene: Map
 --- !u!4 &1684582729
 Transform:
   m_ObjectHideFlags: 0
