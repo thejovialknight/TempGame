@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Hank : NPC
 {
+    public Hank()
+    {
+        id = "HANK";
+        title = "Hank";
+        jobTitle = "Delivery";
+    }
+
     public override void OnReceiveMessage(string message)
     {
         #region Dialogue

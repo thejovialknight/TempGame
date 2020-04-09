@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour, IInteractable
 {
-    public string id = "NAME";
-    public string title = "Name";
-    public string jobTitle = "Job Title";
+    public NPCData data;
 
     public bool isPaused = false;
 

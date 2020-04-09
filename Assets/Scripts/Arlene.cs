@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Arlene : NPC
 {
+    public Arlene()
+    {
+        id = "ARLENE";
+        title = "Arlene";
+        jobTitle = "General Manager";
+    }
+
     public override void OnReceiveMessage(string id)
     {
 
