@@ -5,12 +5,14 @@ using UnityEngine;
 [System.Serializable]
 public struct DialogueOption
 {
-    public string id;
-    public string msg;
+    public string optionID;
+    public string receiverID;
+    public string message;
 
-    public DialogueOption(string id, string msg)
+    public DialogueOption(string optionID, string receiverID, string message)
     {
-        this.id = id;
-        this.msg = msg;
+        this.optionID = optionID;
+        this.receiverID = receiverID;
+        this.message = message;
     }
 }

@@ -43,25 +43,25 @@ public class Minigame : MonoBehaviour
 
     void OnEnable ()
     {
-        MessageEventManager.OnReceiveMessageEvent += OnReceiveMessage;
-        MessageEventManager.OnRegisterJobEvent += OnRegisterJob;
+        MessageEventManager.OnMinigameStart += OnMinigameStart;
+        MessageEventManager.OnJobRegister += OnJobRegister;
     }
 
     void OnDisable()
     {
-        MessageEventManager.OnReceiveMessageEvent -= OnReceiveMessage;
-        MessageEventManager.OnRegisterJobEvent -= OnRegisterJob;
+        MessageEventManager.OnMinigameStart -= OnMinigameStart;
+        MessageEventManager.OnJobRegister -= OnJobRegister;
     }
 
-    void OnReceiveMessage(string message)
+    void OnMinigameStart(string id)
     {
-        if(message == id)
+        if(id == this.id)
         {
             ShowIntro();
         }
     }
 
-    public void OnRegisterJob() {
+    public void OnJobRegister() {
         GameManager.manager.RegisterMinigame(this);
         gameObject.SetActive(false);
     }
@@ -82,7 +82,7 @@ public class Minigame : MonoBehaviour
     public virtual void ShowIntro() {
         state = GameState.Intro;
 
-        MessageEventManager.RaiseOnPause(true, true);
+        MessageEventManager.Pause(true, true);
 
         bestScoreText.text = bestScore.ToString();
         bestRatingText.text = bestRating.ToString();
@@ -129,8 +129,8 @@ public class Minigame : MonoBehaviour
     public virtual void EndGame()
     {
         cameraController.EndZoneOverride(true);
-        MessageEventManager.RaiseOnResume();
-        MessageEventManager.Broadcast("PROGRESS_TIME");
+        MessageEventManager.Resume();
+        GameManager.manager.ProgressTime();
 
         outroScreen.SetActive(false);
         introScreen.SetActive(false);

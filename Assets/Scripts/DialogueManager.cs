@@ -33,7 +33,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         dialogueOptions.Clear();
         panel.gameObject.SetActive(false);
-        MessageEventManager.RaiseOnResume();
+        MessageEventManager.Resume();
     }
 
     public void Say(string msg)
@@ -41,7 +41,7 @@ public class DialogueManager : MonoBehaviour
         if (!panel.gameObject.activeInHierarchy)
         {
             panel.gameObject.SetActive(true);
-            MessageEventManager.RaiseOnPause(true, true);
+            MessageEventManager.Pause(true, true);
         }
         characterCount = 0;
         dialogueOptions.Clear();
@@ -78,7 +78,7 @@ public class DialogueManager : MonoBehaviour
         int count = 1;
         foreach(DialogueOption option in dialogueOptions)
         {
-            text += count + ". " + option.msg + "   ";
+            text += count + ". " + option.message + "   ";
             count++;
         }
 
@@ -104,7 +104,8 @@ public class DialogueManager : MonoBehaviour
 
         if(keyPressed != -1 && dialogueOptions.Count >= keyPressed)
         {
-            MessageEventManager.Broadcast(dialogueOptions[keyPressed - 1].id);
+            DialogueOption option = dialogueOptions[keyPressed - 1];
+            MessageEventManager.Dialogue(option.receiverID, option.optionID);
         }
     }
 }

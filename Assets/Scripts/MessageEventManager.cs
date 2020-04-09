@@ -4,60 +4,68 @@ using UnityEngine;
 
 public class MessageEventManager : MonoBehaviour
 {
-    public delegate void GenericEvent();
-    public static event GenericEvent OnRegisterJobEvent;
-    public static void RaiseRegisterJob() {
-        if(OnRegisterJobEvent != null) {
-            OnRegisterJobEvent();
+    public delegate void TriggerEvent();
+    public static event TriggerEvent OnJobRegister;
+    public static void RegisterJob() {
+        if(OnJobRegister != null) {
+            OnJobRegister();
+        }
+    }
+
+    public static event TriggerEvent OnResume;
+    public static void Resume() {
+        if(OnResume != null) {
+            OnResume();
         }
     }
 
     public delegate void PauseEvent(bool pausePlayer, bool pauseNPCs, params NPC[] exceptions);
 
-    public static event PauseEvent OnPauseEvent;
-    public static void RaiseOnPause(bool pausePlayer, bool pauseNPCs, params NPC[] exceptions)
+    public static event PauseEvent OnPause;
+    public static void Pause(bool pausePlayer, bool pauseNPCs, params NPC[] exceptions)
     {
-        if (OnPauseEvent != null)
+        if (OnPause != null)
         {
-            OnPauseEvent(pausePlayer, pauseNPCs, exceptions);
+            OnPause(pausePlayer, pauseNPCs, exceptions);
         }
     }
 
-    public static void RaiseOnPause(bool pausePlayer, bool pauseNPCs)
+    public static void Pause(bool pausePlayer, bool pauseNPCs)
     {
-        if (OnPauseEvent != null)
+        if (OnPause != null)
         {
-            OnPauseEvent(pausePlayer, pauseNPCs, new NPC[0]);
+            OnPause(pausePlayer, pauseNPCs, new NPC[0]);
         }
     }
 
-    public delegate void ResumeEvent();
+    public delegate void IDMessageEvent(string id, string message);
 
-    public static event ResumeEvent OnResumeEvent;
-    public static void RaiseOnResume()
+    public static event IDMessageEvent OnDialogue;
+    public static void Dialogue(string id, string message)
     {
-        if (OnResumeEvent != null)
+        if (OnDialogue != null)
         {
-            OnResumeEvent();
+            OnDialogue(id, message);
         }
     }
 
-    public delegate void MessageEvent(string id);
+    public delegate void MessageEvent(string message);
 
-    public static event MessageEvent OnReceiveMessageEvent;
-    public static void Broadcast(string id)
+    public static event MessageEvent OnCutscene;
+    public static void Cutscene(string id)
     {
-        if (OnReceiveMessageEvent != null)
+        if (OnCutscene != null)
         {
-            OnReceiveMessageEvent(id);
+            OnCutscene(id);
         }
     }
 
-    public static void BroadcastCutscene(string id)
+    public static event MessageEvent OnMinigameStart;
+    public static void MinigameStart(string id)
     {
-        if (OnReceiveMessageEvent != null)
+        if (OnMinigameStart != null)
         {
-            OnReceiveMessageEvent("CUTSCENE_" + id);
+            OnMinigameStart(id);
         }
     }
 

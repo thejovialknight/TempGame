@@ -11,13 +11,15 @@ public class Hank : NPC
         jobTitle = "Delivery";
     }
 
-    public override void OnReceiveMessage(string message)
+    public override void OnDialogue(string id, string message)
     {
-        base.OnReceiveMessage(message);
-        
-        #region Dialogue
+        base.OnDialogue(id, message);
 
-        if(CheckMessage(message, "OPEN"))
+        if(id != this.id) {
+            return;
+        }
+        
+        if(message == "OPEN")
         {
             if(CheckFlag("ANGRY"))
             {
@@ -39,7 +41,7 @@ public class Hank : NPC
             }
         }
 
-        if(CheckMessage(message, "FRIENDS"))
+        if(message == "FRIENDS")
         {
             SetFlag("ANGRY", false);
             SetFlag("FRIENDS", true);
@@ -48,7 +50,7 @@ public class Hank : NPC
             AddOption("...", "END");
         }
 
-        if(CheckMessage(message, "ANGRY"))
+        if(message == "ANGRY")
         {
             SetFlag("ANGRY", true);
             SetFlag("FRIENDS", false);
@@ -57,44 +59,40 @@ public class Hank : NPC
             AddOption("...", "WALK");
         }
 
-        if(CheckMessage(message, "WALK"))
+        if(message == "WALK")
         {
             CloseDialogue();
-            StartCutscene("HANK_WALK_FORWARD");
+            MessageEventManager.Cutscene("HANK_WALK_FORWARD");
         }
 
-        if(CheckMessage(message, "WALKED"))
+        if(message == "WALKED")
         {
             Say("See? I have walked!");
             AddOption("...", "END");
         }
 
-        if(CheckMessage(message, "END"))
+        if(message == "END")
         {
             CloseDialogue();
         }
+    }
 
-        #endregion
+    public override void OnCutscene(string message) {
+        base.OnCutscene(message);
 
-        #region Cutscenes
+        if(message == "HANK_WALK_FORWARD") {
+            StartCoroutine(Walk(3f));
+        }
+    }
 
-        if(CheckCutsceneMessage(message, "HANK_WALK_FORWARD"))
+    IEnumerator Walk(float length) {
+        MessageEventManager.Pause(true, true, this);
+        for (float count = 0f; count <= length; count += Time.deltaTime) 
         {
-            StartCoroutine(Walk(2f));
+            transform.Translate(new Vector3(0f, Time.deltaTime, 0f));
+            yield return null;
         }
-
-        IEnumerator Walk(float length) {
-            MessageEventManager.RaiseOnPause(true, true, this);
-            for (float count = 0f; count <= length; count += Time.deltaTime) 
-            {
-                transform.Translate(new Vector3(0f, Time.deltaTime, 0f));
-                yield return null;
-            }
-            MessageEventManager.RaiseOnResume();
-            Broadcast("WALKED");
-        }
-
-        #endregion
-
+        MessageEventManager.Resume();
+        MessageEventManager.Dialogue(id, "WALKED");
     }
 }

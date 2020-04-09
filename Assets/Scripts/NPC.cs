@@ -14,18 +14,20 @@ public class NPC : MonoBehaviour, IInteractable
 
     void OnEnable()
     {
-        MessageEventManager.OnPauseEvent += OnPause;
-        MessageEventManager.OnResumeEvent += OnResume;
-        MessageEventManager.OnReceiveMessageEvent += OnReceiveMessage;
-        MessageEventManager.OnRegisterJobEvent += OnRegisterJob;
+        MessageEventManager.OnPause += OnPause;
+        MessageEventManager.OnResume += OnResume;
+        MessageEventManager.OnDialogue += OnDialogue;
+        MessageEventManager.OnCutscene += OnCutscene;
+        MessageEventManager.OnJobRegister += OnJobRegister;
     }
 
     void OnDisable()
     {
-        MessageEventManager.OnPauseEvent -= OnPause;
-        MessageEventManager.OnResumeEvent -= OnResume;
-        MessageEventManager.OnReceiveMessageEvent -= OnReceiveMessage;
-        MessageEventManager.OnRegisterJobEvent -= OnRegisterJob;
+        MessageEventManager.OnPause -= OnPause;
+        MessageEventManager.OnResume -= OnResume;
+        MessageEventManager.OnDialogue -= OnDialogue;
+        MessageEventManager.OnCutscene += OnCutscene;
+        MessageEventManager.OnJobRegister -= OnJobRegister;
     }
 
     public void LoadData(NPCData dataToLoad) {
@@ -50,7 +52,7 @@ public class NPC : MonoBehaviour, IInteractable
 
     public void InteractWith(Transform interactor)
     {
-        MessageEventManager.Broadcast(id + "_OPEN");
+        MessageEventManager.Dialogue(id, "OPEN");
     }
 
     public string GetInteractName()
@@ -83,11 +85,16 @@ public class NPC : MonoBehaviour, IInteractable
         isPaused = false;
     }
 
-    void OnRegisterJob() {
+    void OnJobRegister() {
         GameManager.manager.RegisterNPC(this);
     }
 
-    public virtual void OnReceiveMessage(string message)
+    public virtual void OnDialogue(string id, string message)
+    {
+        
+    }
+
+    public virtual void OnCutscene(string message)
     {
 
     }
@@ -102,34 +109,6 @@ public class NPC : MonoBehaviour, IInteractable
         return flagCollection.CheckFlag(flag);
     }
 
-    public void Broadcast(string node)
-    {
-        MessageEventManager.Broadcast(id + "_" + node);
-    }
-
-    public void StartCutscene(string node)
-    {
-        MessageEventManager.BroadcastCutscene(node);
-    }
-
-    public bool CheckMessage(string message, string node)
-    {
-        if(message == id + "_" + node)
-        {
-            return true;
-        }
-        return false;
-    }
-
-    public bool CheckCutsceneMessage(string message, string cutscene)
-    {
-        if (message == "CUTSCENE_" + cutscene)
-        {
-            return true;
-        }
-        return false;
-    }
-
     public void Say(string text)
     {
         DialogueManager.instance.Say(text);
@@ -137,7 +116,7 @@ public class NPC : MonoBehaviour, IInteractable
 
     public void AddOption(string text, string node)
     {
-        DialogueManager.instance.AddOption(new DialogueOption(id + "_" + node, text));
+        DialogueManager.instance.AddOption(new DialogueOption(node, id, text));
     }
 
     public void CloseDialogue()

@@ -21,16 +21,16 @@ public class PlayerController : MonoBehaviour
 
     void OnEnable()
     {
-        MessageEventManager.OnPauseEvent += OnPause;
-        MessageEventManager.OnResumeEvent += OnResume;
-        MessageEventManager.OnRegisterJobEvent += OnRegisterJob;
+        MessageEventManager.OnPause += OnPause;
+        MessageEventManager.OnResume += OnResume;
+        MessageEventManager.OnJobRegister += OnJobRegister;
     }
 
     void OnDisable()
     {
-        MessageEventManager.OnPauseEvent -= OnPause;
-        MessageEventManager.OnResumeEvent -= OnResume;
-        MessageEventManager.OnRegisterJobEvent -= OnRegisterJob;
+        MessageEventManager.OnPause -= OnPause;
+        MessageEventManager.OnResume -= OnResume;
+        MessageEventManager.OnJobRegister -= OnJobRegister;
     }
 
     void OnPause(bool pausePlayer, bool pauseNPCs, params NPC[] exceptions)
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         isPaused = false;
     }
 
-    public void OnRegisterJob() {
+    public void OnJobRegister() {
         GameManager.manager.RegisterPlayer(this);
     }
 

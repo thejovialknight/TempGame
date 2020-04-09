@@ -7,21 +7,21 @@ public class TextDecorationController : MonoBehaviour, IInteractable
     public string decoInfo = "Decoration Info Here";
     public string decoName = "Decoration Name";
     public string decoDescription = "It's a decoration.";
-    public string decoID = "MSGID";
+    public string id = "MSGID";
 
     void OnEnable()
     {
-        MessageEventManager.OnReceiveMessageEvent += OnReceiveMessage;
+        MessageEventManager.OnDialogue += OnDialogue;
     }
 
     void OnDisable()
     {
-        MessageEventManager.OnReceiveMessageEvent -= OnReceiveMessage;
+        MessageEventManager.OnDialogue -= OnDialogue;
     }
 
     public void InteractWith(Transform interactor)
     {
-        MessageEventManager.Broadcast(decoID + "_OPEN");
+        MessageEventManager.Dialogue(id, "OPEN");
     }
 
     public string GetInteractName()
@@ -34,13 +34,17 @@ public class TextDecorationController : MonoBehaviour, IInteractable
         return decoInfo;
     }
 
-    void OnReceiveMessage(string id)
+    void OnDialogue(string id, string message)
     {
-        if(id == decoID + "_OPEN") {
-            DialogueManager.instance.Say(decoDescription);
-            DialogueManager.instance.AddOption(new DialogueOption(decoID + "_END", "..."));
+        if(id != this.id) {
+            return;
         }
-        else if(id == decoID + "_END") {
+
+        if(message == "OPEN") {
+            DialogueManager.instance.Say(decoDescription);
+            DialogueManager.instance.AddOption(new DialogueOption("END", id, "..."));
+        }
+        else if(message == "END") {
             DialogueManager.instance.Close();
         }
     }

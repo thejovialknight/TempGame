@@ -4,31 +4,37 @@ using UnityEngine;
 
 public class ExitDoor : MonoBehaviour
 {
+    public string id = "EXIT_DOOR";
+
     void OnEnable()
     {
-        MessageEventManager.OnReceiveMessageEvent += OnReceiveMessage;
+        MessageEventManager.OnDialogue += OnDialogue;
     }
 
     void OnDisable()
     {
-        MessageEventManager.OnReceiveMessageEvent -= OnReceiveMessage;
+        MessageEventManager.OnDialogue -= OnDialogue;
     }
 
-    void OnReceiveMessage(string message)
+    void OnDialogue(string id, string message)
     {
-        if(message == "EXITDOOR_DAY")
+        if(id != this.id) {
+            return;
+        }
+
+        if(message == "DAY")
         {
             DialogueManager.instance.Close();
             GameManager.manager.ProgressDay();
         }
 
-        if (message == "EXITDOOR_JOB")
+        if (message == "JOB")
         {
             DialogueManager.instance.Close();
             GameManager.manager.LeaveJob(true);
         }
 
-        if (message == "EXITDOOR_GAME")
+        if (message == "GAME")
         {
             DialogueManager.instance.Close();
             GameManager.manager.QuitGame(true);
@@ -40,9 +46,9 @@ public class ExitDoor : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             DialogueManager.instance.Say("Exit Door:");
-            DialogueManager.instance.AddOption(new DialogueOption("EXITDOOR_DAY", "End Day"));
-            DialogueManager.instance.AddOption(new DialogueOption("EXITDOOR_JOB", "Leave Job"));
-            DialogueManager.instance.AddOption(new DialogueOption("EXITDOOR_GAME", "Save and Quit"));
+            DialogueManager.instance.AddOption(new DialogueOption("DAY", id, "End Day"));
+            DialogueManager.instance.AddOption(new DialogueOption("JOB", id, "Leave Job"));
+            DialogueManager.instance.AddOption(new DialogueOption("GAME", id, "Save and Quit"));
         }
     }
 }

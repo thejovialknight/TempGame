@@ -12,11 +12,11 @@ public class PauseController : MonoBehaviour
         if(Input.GetButtonDown("Pause")) {
             isPaused = !isPaused;
             if(isPaused) {
-                MessageEventManager.RaiseOnPause(true, true);
+                MessageEventManager.Pause(true, true);
                 pauseObject.SetActive(true);
             }
             else if(!isPaused) {
-                MessageEventManager.RaiseOnResume();
+                MessageEventManager.Resume();
                 pauseObject.SetActive(false);
             }
         }

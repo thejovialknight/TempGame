@@ -13,13 +13,21 @@ public class Sammy : NPC
         jobTitle = "Warehouse";
     }
 
-    public override void OnReceiveMessage(string message)
+    public override void OnDialogue(string id, string message)
     {
-        base.OnReceiveMessage(message);
+        base.OnDialogue(id, message);
 
-        if(CheckMessage(message, "OPEN")) {
-            mailSortObject.SetActive(true);
-            MessageEventManager.Broadcast("MAIL_SORT");
+        if(id != this.id) {
+            return;
         }
+
+        if(message == "OPEN") {
+            mailSortObject.SetActive(true);
+            MessageEventManager.MinigameStart("MAIL_SORT");
+        }
+    }
+
+    public override void OnCutscene(string message) {
+        base.OnCutscene(message);
     }
 }

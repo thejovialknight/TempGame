@@ -48,20 +48,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        // Handles input
-        if(Input.GetButtonDown("Quicksave"))
-        {
-            SaveFile();
-        }
-
-        if (Input.GetButtonDown("Quickload"))
-        {
-            Quickload();
-        }
-    }
-
     #endregion
 
     #region Saving and Loading
@@ -70,10 +56,10 @@ public class GameManager : MonoBehaviour
     {
         BinaryFormatter bf = new BinaryFormatter();
         int filenameCount = 0;
-        while(File.Exists(Path.Combine(Application.persistentDataPath, "saves", "tempsave" + filenameCount + ".dat"))) {
+        while(File.Exists(Path.Combine(Application.persistentDataPath, "saves", filename + ".sav"))) {
             filenameCount++;
         }
-        FileStream file = File.Create(Path.Combine(Application.persistentDataPath, "saves", "tempsave" + filenameCount + ".dat"));
+        FileStream file = File.Create(Path.Combine(Application.persistentDataPath, "saves", filename + ".sav"));
 
         // save scene name
         saveData.currentSceneName = SceneManager.GetActiveScene().name;
@@ -122,15 +108,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync(saveData.currentSceneName);
     }
 
-    public void Quickload() {
-        int filenameCount = 0;
-        while(File.Exists(Path.Combine(Application.persistentDataPath, "saves", "tempsave" + filenameCount + ".dat"))) {
-            filenameCount++;
-        }
-        filenameCount--;
-        LoadFile("tempsave" + filenameCount + ".dat");
-    }
-
     public void LoadJob() {
         if(currentJob != null) {
             if(saveData == null) {
@@ -157,7 +134,7 @@ public class GameManager : MonoBehaviour
     public void RegisterJob(Job job)
     {
         currentJob = job;
-        MessageEventManager.RaiseRegisterJob();
+        MessageEventManager.RegisterJob();
     }
 
     public void RegisterPlayer(PlayerController player)
@@ -179,12 +156,13 @@ public class GameManager : MonoBehaviour
 
     public void StartNewGame()
     {
+        filename = "Conner";
         saveData = new SaveData();
         ConstructJobs();
         SceneManager.LoadSceneAsync(newGameScene);
     }
 
-    void ProgressTime()
+    public void ProgressTime()
     {
         currentJob.currentTimeChunk++;
     }
