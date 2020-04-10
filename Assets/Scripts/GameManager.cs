@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public string filename = null;
     public Job currentJob;
     public List<Item> items = new List<Item>();
+    public string activeItem = null;
     public FlagCollection flagCollection = new FlagCollection();
 
     [Header("New Game Settings")]

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class DialogueManager : MonoBehaviour
     public float cooldown = 0.1f;
 
     public Transform panel;
-    public Text dialogueText;
-    public Text optionsText;
+    public TextMeshProUGUI dialogueText;
+    public TextMeshProUGUI optionsText;
     public AudioClip characterAudio;
 
     public List<DialogueOption> dialogueOptions = new List<DialogueOption>();

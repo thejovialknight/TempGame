@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Minigame : MonoBehaviour
 {
@@ -17,13 +18,13 @@ public class Minigame : MonoBehaviour
     
     public CameraZone zone;
     public GameObject introScreen;
-    public Text bestScoreText;
-    public Text bestRatingText;
+    public TextMeshProUGUI bestScoreText;
+    public TextMeshProUGUI bestRatingText;
     public GameObject outroScreen;
-    public Text outroScoreText;
-    public Text outroRatingText;
+    public TextMeshProUGUI outroScoreText;
+    public TextMeshProUGUI outroRatingText;
     public GameObject gameUI;
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
 
     void Update()
     {

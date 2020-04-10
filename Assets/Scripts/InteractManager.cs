@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InteractManager : MonoBehaviour
 {
-    public Text interactNameText;
-    public Text interactInfoText;
+    public TextMeshProUGUI interactNameText;
+    public TextMeshProUGUI interactInfoText;
 
     void OnEnable()
     {

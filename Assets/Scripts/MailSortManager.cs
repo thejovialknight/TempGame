@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MailSortManager : Minigame
 {
@@ -14,7 +15,7 @@ public class MailSortManager : Minigame
 
     public ConveyorManager conveyorManager;
     public SpriteRenderer conveyorSlot;
-    public Text timerText;
+    public TextMeshProUGUI timerText;
 
     public override void StartGame()
     {
