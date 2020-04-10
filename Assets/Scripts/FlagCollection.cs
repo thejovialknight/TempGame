@@ -7,6 +7,10 @@ public class FlagCollection
 {
     public List<string> flags = new List<string>();
 
+    public void Clear() {
+        flags.Clear();
+    }
+
     public void SetFlag(string id, bool isOn)
     {
         bool flagExists = false;

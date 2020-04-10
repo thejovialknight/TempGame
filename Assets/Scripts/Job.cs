@@ -23,10 +23,6 @@ public class Job : MonoBehaviour
         GameManager.manager.RegisterJob(this);
     }
 
-    void Start() {
-        GameManager.manager.LoadJob();
-    }
-
     public void LoadData(JobData dataToLoad) {
         title = dataToLoad.name;
         sceneName = dataToLoad.sceneName;

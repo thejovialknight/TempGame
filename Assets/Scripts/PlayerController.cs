@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
         Collider2D interactCollider = null;
         foreach(Collider2D collider in interactColliders)
         {
-            if(collider.GetComponent<IInteractable>() != null) {
+            if(collider != null && collider.GetComponent<IInteractable>() != null) {
                 if(interactCollider != null) {
                     if(collider.Distance(col).distance < interactCollider.Distance(col).distance) {
                         interactCollider = collider;

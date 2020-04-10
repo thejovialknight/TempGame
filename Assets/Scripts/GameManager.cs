@@ -10,17 +10,15 @@ public class GameManager : MonoBehaviour
 {
     #region Properties
 
-    // Private Properties
-    public SaveData saveData;
-    public FlagCollection flagCollection = new FlagCollection();
-
     // Singleton instance
     public static GameManager manager;
     
     [Header("Current Game Data")]
+    public SaveData saveData;
     public string filename = null;
     public Job currentJob;
-
+    public List<Item> items = new List<Item>();
+    public FlagCollection flagCollection = new FlagCollection();
 
     [Header("New Game Settings")]
     public string newGameScene = "Map";
@@ -55,10 +53,6 @@ public class GameManager : MonoBehaviour
     public void SaveFile()
     {
         BinaryFormatter bf = new BinaryFormatter();
-        int filenameCount = 0;
-        while(File.Exists(Path.Combine(Application.persistentDataPath, "saves", filename + ".sav"))) {
-            filenameCount++;
-        }
         FileStream file = File.Create(Path.Combine(Application.persistentDataPath, "saves", filename + ".sav"));
 
         // save scene name
@@ -73,6 +67,13 @@ public class GameManager : MonoBehaviour
                 if(currentJob.id == saveData.jobs[i].id) {
                     saveData.jobs[i] = currentJob.SaveData();
                 }
+            }
+        }
+
+        saveData.items = new string[items.Count];
+        if(items.Count > 0) {
+            for(int i = 0; i < saveData.items.Length; i++) {
+                saveData.items[i] = items[i].id;
             }
         }
 
@@ -105,6 +106,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("No save file to load!");
         }
 
+        flagCollection.flags = new List<string>(saveData.gameFlags);
+        items = ItemDatabase.instance.GetItemsFromIDs(saveData.items);
         SceneManager.LoadSceneAsync(saveData.currentSceneName);
     }
 
@@ -135,6 +138,7 @@ public class GameManager : MonoBehaviour
     {
         currentJob = job;
         MessageEventManager.RegisterJob();
+        LoadJob();
     }
 
     public void RegisterPlayer(PlayerController player)
@@ -174,6 +178,14 @@ public class GameManager : MonoBehaviour
         // send message which new day pop up is listening for
     }
 
+    public void SetJobFlag(string id, bool isOn) {
+        currentJob.flagCollection.SetFlag(id, isOn);
+    }
+
+    public bool CheckJobFlag(string id) {
+        return currentJob.flagCollection.CheckFlag(id);
+    }
+
     public void MovePlayerToSpawn()
     {
         currentJob.player.transform.position = currentJob.playerSpawn.position;
@@ -198,8 +210,23 @@ public class GameManager : MonoBehaviour
             SaveFile();
         }
 
-        saveData = null;
         SceneManager.LoadSceneAsync(mainMenuScene);
+
+        saveData = null;
+        items.Clear();
+        currentJob = null;
+        filename = null;
+        flagCollection.Clear();
+    }
+
+    public void AddItem(Item item) {
+        items.Add(item);
+    }
+
+    public void RemoveItem(string id) {
+        if(items.Exists(x => x.id == id)) {
+            items.Remove(items.Find(x => x.id == id));
+        }
     }
 }
 
@@ -209,9 +236,11 @@ public class SaveData
     public string currentSceneName;
     public string[] gameFlags;
     public JobData[] jobs;
+    public string[] items;
 
     public SaveData() {
         gameFlags = new string[0];
         jobs = new JobData[0];
+        items = new string[0];
     }
 }
