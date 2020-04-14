@@ -101,4 +101,12 @@ public class MessageEventManager : MonoBehaviour
             OnClearInteractInfoEvent();
         }
     }
+
+    public delegate void ItemEvent(Item item);
+    public static event ItemEvent OnSetActiveItem;
+    public static void SetActiveItem(Item item) {
+        if(OnSetActiveItem != null) {
+            OnSetActiveItem(item);
+        }
+    }
 }

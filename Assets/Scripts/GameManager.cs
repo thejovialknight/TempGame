@@ -222,6 +222,7 @@ public class GameManager : MonoBehaviour
 
     public void AddItem(Item item) {
         items.Add(item);
+        activeItem = item.id;
     }
 
     public void RemoveItem(string id) {
