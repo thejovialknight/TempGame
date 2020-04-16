@@ -63,7 +63,7 @@ public class Minigame : MonoBehaviour
     }
 
     public void OnJobRegister() {
-        GameManager.manager.RegisterMinigame(this);
+        GameManager.instance.RegisterMinigame(this);
         gameObject.SetActive(false);
     }
 
@@ -131,7 +131,7 @@ public class Minigame : MonoBehaviour
     {
         cameraController.EndZoneOverride(true);
         MessageEventManager.Resume();
-        GameManager.manager.ProgressTime();
+        GameManager.instance.ProgressTime();
 
         outroScreen.SetActive(false);
         introScreen.SetActive(false);

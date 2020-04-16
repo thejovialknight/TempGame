@@ -25,19 +25,19 @@ public class ExitDoor : MonoBehaviour
         if(message == "DAY")
         {
             DialogueManager.instance.Close();
-            GameManager.manager.ProgressDay();
+            GameManager.instance.ProgressDay();
         }
 
         if (message == "JOB")
         {
             DialogueManager.instance.Close();
-            GameManager.manager.LeaveJob(true);
+            GameManager.instance.LeaveJob(true);
         }
 
         if (message == "GAME")
         {
             DialogueManager.instance.Close();
-            GameManager.manager.QuitGame(true);
+            GameManager.instance.QuitGame(true);
         }
     }
 

@@ -15,12 +15,23 @@ public class DialogueManager : MonoBehaviour
 
     public Transform panel;
     public TextMeshProUGUI dialogueText;
-    public TextMeshProUGUI optionsText;
     public AudioClip characterAudio;
+    public Transform optionsContentTransform;
+    public GameObject optionButtonPrefab;
 
     public List<DialogueOption> dialogueOptions = new List<DialogueOption>();
 
     public static DialogueManager instance;
+
+    void OnEnable()
+    {
+        DialogueOptionButton.OnDialoguePressed += OnDialoguePressed;
+    }
+
+    void OnDisable()
+    {
+        DialogueOptionButton.OnDialoguePressed -= OnDialoguePressed;
+    }
 
     void Awake()
     {
@@ -28,11 +39,16 @@ public class DialogueManager : MonoBehaviour
         panel.gameObject.SetActive(false);
     }
 
+    void OnDialoguePressed(DialogueOption option)
+    {
+        MessageEventManager.Dialogue(option.receiverID, option.optionID);
+    }
+
     public void Close()
     {
         dialogue = "";
         dialogueText.text = "";
-        dialogueOptions.Clear();
+        ClearOptions();
         panel.gameObject.SetActive(false);
         MessageEventManager.Resume();
     }
@@ -45,13 +61,24 @@ public class DialogueManager : MonoBehaviour
             MessageEventManager.Pause(true, true);
         }
         characterCount = 0;
-        dialogueOptions.Clear();
+        ClearOptions();
         dialogue = msg;
     }
 
     public void AddOption(DialogueOption option)
     {
         dialogueOptions.Add(option);
+        GameObject optionButton = GameObject.Instantiate(optionButtonPrefab, optionsContentTransform);
+        optionButton.GetComponent<DialogueOptionButton>().Init(option);
+    }
+
+    public void ClearOptions()
+    {
+        foreach (Transform child in optionsContentTransform)
+        {
+            dialogueOptions.Clear();
+            GameObject.Destroy(child.gameObject);
+        }
     }
 
     void Update()
@@ -72,41 +99,6 @@ public class DialogueManager : MonoBehaviour
         // Allow player to skip text
         if(Input.GetButtonDown("Skip")) {
             dialogueText.text = dialogue;
-        }
-
-        // Construct option text
-        string text = "";
-        int count = 1;
-        foreach(DialogueOption option in dialogueOptions)
-        {
-            text += count + ". " + option.message + "   ";
-            count++;
-        }
-
-        optionsText.text = text;
-
-        int keyPressed = -1;
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            keyPressed = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            keyPressed = 2;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            keyPressed = 3;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            keyPressed = 4;
-        }
-
-        if(keyPressed != -1 && dialogueOptions.Count >= keyPressed)
-        {
-            DialogueOption option = dialogueOptions[keyPressed - 1];
-            MessageEventManager.Dialogue(option.receiverID, option.optionID);
         }
     }
 }

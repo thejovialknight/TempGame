@@ -12,7 +12,7 @@ public class WorldItem : MonoBehaviour, IInteractable
     }
 
     public virtual void InteractWith(Transform interactor) {
-        GameManager.manager.AddItem(item);
+        GameManager.instance.AddItem(item);
         SetCollectedFlag(true);
         GameObject.Destroy(gameObject);
     }
@@ -25,11 +25,11 @@ public class WorldItem : MonoBehaviour, IInteractable
     }
 
     public void SetCollectedFlag(bool isOn) {
-        GameManager.manager.SetJobFlag(id + "_COLLECTED", isOn);
+        GameManager.instance.SetJobFlag(id + "_COLLECTED", isOn);
     }
 
     public bool CheckCollectedFlag() {
-        return GameManager.manager.CheckJobFlag(id + "_COLLECTED");
+        return GameManager.instance.CheckJobFlag(id + "_COLLECTED");
     }
 
     public void DeleteIfAlreadyCollected() {

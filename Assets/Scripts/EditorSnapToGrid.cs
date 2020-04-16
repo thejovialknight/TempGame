@@ -6,13 +6,14 @@ public class EditorSnapToGrid : MonoBehaviour
 {
     public bool isSnapped = true;
     public bool toggleButton;
+    public float multiplier = 2f;
 
     void OnValidate()
     {
         if (isSnapped)
         {
-            float xPos = Mathf.Round(transform.position.x * 2f) / 2f;
-            float yPos = Mathf.Round(transform.position.y * 2f) / 2f;
+            float xPos = Mathf.Round(transform.position.x * multiplier) / multiplier;
+            float yPos = Mathf.Round(transform.position.y * multiplier) / multiplier;
 
             transform.position = new Vector3(xPos, yPos, transform.position.z);
         }

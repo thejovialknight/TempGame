@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public AudioSource audioSource;
     public Collider2D col;
+    public SpriteRenderer carriedSpriteRenderer;
+    public Sprite carriedSprite;
 
     public Vector2 interactOffset;
     public float interactRange = 2.0f;
@@ -48,7 +50,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void OnJobRegister() {
-        GameManager.manager.RegisterPlayer(this);
+        GameManager.instance.RegisterPlayer(this);
     }
 
     void Awake()
@@ -83,6 +85,17 @@ public class PlayerController : MonoBehaviour
         else
         {
             audioSource.Stop();
+        }
+
+        if(carriedSprite != null)
+        {
+            carriedSpriteRenderer.sprite = carriedSprite;
+            animator.SetBool("Carrying Item", true);
+        }
+        else
+        {
+            carriedSpriteRenderer.sprite = null;
+            animator.SetBool("Carrying Item", false);
         }
     }
 

@@ -11,7 +11,7 @@ public class ClockManager : MonoBehaviour
 
     void Update()
     {
-        Job job = GameManager.manager.currentJob;
+        Job job = GameManager.instance.currentJob;
         dayText.text = "Day " + job.currentDay;
         timeText.text = job.timeChunks[job.currentTimeChunk];
     }

@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     #region Properties
 
     // Singleton instance
-    public static GameManager manager;
+    public static GameManager instance;
     
     [Header("Current Game Data")]
     public SaveData saveData;
@@ -36,12 +36,12 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         // Sets up singleton
-        if (manager == null)
+        if (instance == null)
         {
             DontDestroyOnLoad(gameObject);
-            manager = this;
+            instance = this;
         }
-        else if(manager != this)
+        else if(instance != this)
         {
             Destroy(gameObject);
         }
@@ -220,14 +220,37 @@ public class GameManager : MonoBehaviour
         flagCollection.Clear();
     }
 
+    public void SetActiveItem(Item item)
+    {
+        activeItem = item.id;
+        if(currentJob != null && currentJob.player != null)
+        {
+            currentJob.player.carriedSprite = item.worldSprite;
+        }
+    }
+
+    public void ClearActiveItem()
+    {
+        activeItem = null;
+        if (currentJob != null && currentJob.player != null)
+        {
+            currentJob.player.carriedSprite = null;
+        }
+    }
+
     public void AddItem(Item item) {
         items.Add(item);
-        activeItem = item.id;
+        SetActiveItem(item);
     }
 
     public void RemoveItem(string id) {
         if(items.Exists(x => x.id == id)) {
-            items.Remove(items.Find(x => x.id == id));
+            Item item = items.Find(x => x.id == id);
+            if(item.id == activeItem)
+            {
+                ClearActiveItem();
+            }
+            items.Remove(item);
         }
     }
 }

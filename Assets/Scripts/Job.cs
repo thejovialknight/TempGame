@@ -20,7 +20,7 @@ public class Job : MonoBehaviour
     public Transform playerSpawn;
 
     void Awake() {
-        GameManager.manager.RegisterJob(this);
+        GameManager.instance.RegisterJob(this);
     }
 
     public void LoadData(JobData dataToLoad) {

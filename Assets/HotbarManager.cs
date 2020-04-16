@@ -35,11 +35,11 @@ public class HotbarManager : MonoBehaviour
             image.color = Color.white;
         }
         
-        List<Item> inventoryItems = GameManager.manager.items;
+        List<Item> inventoryItems = GameManager.instance.items;
         for(int i = 0; i < inventoryItems.Count; i++) {
             if(slotImages.Count > i) {
                 slotImages[i].sprite = inventoryItems[i].icon;
-                if(inventoryItems[i].id == GameManager.manager.activeItem) {
+                if(inventoryItems[i].id == GameManager.instance.activeItem) {
                     slotImages[i].color = Color.white;
                 }
                 else {

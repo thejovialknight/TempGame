@@ -86,7 +86,7 @@ public class NPC : MonoBehaviour, IInteractable
     }
 
     void OnJobRegister() {
-        GameManager.manager.RegisterNPC(this);
+        GameManager.instance.RegisterNPC(this);
     }
 
     public virtual void OnDialogue(string id, string message)

@@ -43,6 +43,7 @@ public class Hank : NPC
 
         if(message == "FRIENDS")
         {
+            Debug.Log("FRIEND");
             SetFlag("ANGRY", false);
             SetFlag("FRIENDS", true);
 
@@ -52,6 +53,7 @@ public class Hank : NPC
 
         if(message == "ANGRY")
         {
+            Debug.Log("ANGER");
             SetFlag("ANGRY", true);
             SetFlag("FRIENDS", false);
 
