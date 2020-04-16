@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour, IInteractable
 {
+    float currentCloseCooldown;
+
     public SpriteRenderer spriteRenderer;
     public BoxCollider2D boxCollider;
 
@@ -11,6 +13,8 @@ public class DoorController : MonoBehaviour, IInteractable
     public Sprite openSprite;
     public AudioClip openSound;
     public AudioClip closeSound;
+    public float automaticCloseCooldown = 1.5f;
+    public bool isAutomaticallyClosed = true;
     public bool isOpen = false;
     public string doorName = "Door";
 
@@ -23,6 +27,16 @@ public class DoorController : MonoBehaviour, IInteractable
         ValidateOpen();
     }
 
+    void Update()
+    {
+        currentCloseCooldown -= Time.deltaTime;
+
+        if(isAutomaticallyClosed && isOpen && currentCloseCooldown <= 0f)
+        {
+            Close();
+        }
+    }
+
     void OnValidate() {
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
@@ -31,21 +45,35 @@ public class DoorController : MonoBehaviour, IInteractable
 
     public void InteractWith(Transform interactor) {
         if(isOpen) {
-            isOpen = false;
-            AudioSource.PlayClipAtPoint(closeSound, transform.position);
+            Close();
         }
         else 
         {
-            AudioSource.PlayClipAtPoint(openSound, transform.position);
-            isOpen = true;
+            Open();
         }
-        ValidateOpen();
     }
+
     public string GetInteractName() {
         return doorName;
     }
+
     public string GetInteractInfo() {
         return "Press E to open";
+    }
+
+    void Open()
+    {
+        AudioSource.PlayClipAtPoint(openSound, transform.position);
+        isOpen = true;
+        ValidateOpen();
+        currentCloseCooldown = automaticCloseCooldown;
+    }
+
+    void Close()
+    {
+        isOpen = false;
+        AudioSource.PlayClipAtPoint(closeSound, transform.position);
+        ValidateOpen();
     }
 
     void ValidateOpen() {
