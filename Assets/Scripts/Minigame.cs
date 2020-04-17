@@ -83,7 +83,7 @@ public class Minigame : MonoBehaviour
     public virtual void ShowIntro() {
         state = GameState.Intro;
 
-        MessageEventManager.Pause(true, true);
+        GameManager.Pause(true, true);
 
         bestScoreText.text = bestScore.ToString();
         bestRatingText.text = bestRating.ToString();
@@ -130,7 +130,7 @@ public class Minigame : MonoBehaviour
     public virtual void EndGame()
     {
         cameraController.EndZoneOverride(true);
-        MessageEventManager.Resume();
+        GameManager.Resume();
         GameManager.instance.ProgressTime();
 
         outroScreen.SetActive(false);

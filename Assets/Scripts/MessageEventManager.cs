@@ -12,32 +12,6 @@ public class MessageEventManager : MonoBehaviour
         }
     }
 
-    public static event TriggerEvent OnResume;
-    public static void Resume() {
-        if(OnResume != null) {
-            OnResume();
-        }
-    }
-
-    public delegate void PauseEvent(bool pausePlayer, bool pauseNPCs, params NPC[] exceptions);
-
-    public static event PauseEvent OnPause;
-    public static void Pause(bool pausePlayer, bool pauseNPCs, params NPC[] exceptions)
-    {
-        if (OnPause != null)
-        {
-            OnPause(pausePlayer, pauseNPCs, exceptions);
-        }
-    }
-
-    public static void Pause(bool pausePlayer, bool pauseNPCs)
-    {
-        if (OnPause != null)
-        {
-            OnPause(pausePlayer, pauseNPCs, new NPC[0]);
-        }
-    }
-
     public delegate void IDMessageEvent(string id, string message);
 
     public static event IDMessageEvent OnDialogue;

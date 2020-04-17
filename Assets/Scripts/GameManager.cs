@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public string filename = null;
     public Job currentJob;
     public List<Item> items = new List<Item>();
-    public string activeItem = null;
+    public Item activeItem = null;
     public FlagCollection flagCollection = new FlagCollection();
 
     [Header("New Game Settings")]
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         saveData.currentSceneName = SceneManager.GetActiveScene().name;
 
         // save flags
-        saveData.gameFlags = flagCollection.flags.ToArray();
+        saveData.gameFlags = flagCollection.SaveData();
 
         // save job data
         if(currentJob != null) {
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("No save file to load!");
         }
 
-        flagCollection.flags = new List<string>(saveData.gameFlags);
+        flagCollection.LoadData(saveData.gameFlags);
         items = ItemDatabase.instance.GetItemsFromIDs(saveData.items);
         SceneManager.LoadSceneAsync(saveData.currentSceneName);
     }
@@ -123,6 +123,10 @@ public class GameManager : MonoBehaviour
                     currentJob.LoadData(jobData);
                 }
             }
+
+            if(activeItem != null) {
+                currentJob.player.carriedSprite = activeItem.worldSprite;
+            }            
         }
     }
 
@@ -155,6 +159,44 @@ public class GameManager : MonoBehaviour
     public void RegisterMinigame(Minigame minigame)
     {
         currentJob.minigames.Add(minigame);
+    }
+
+    #endregion
+
+    #region Events
+
+    public delegate void TriggerEvent();
+    public static event TriggerEvent OnResume;
+    public static void Resume() {
+        if(OnResume != null) {
+            OnResume();
+        }
+    }
+
+    public delegate void PauseEvent(bool pausePlayer, bool pauseNPCs, params NPC[] exceptions);
+
+    public static event PauseEvent OnPause;
+    public static void Pause(bool pausePlayer, bool pauseNPCs, params NPC[] exceptions)
+    {
+        if (OnPause != null)
+        {
+            OnPause(pausePlayer, pauseNPCs, exceptions);
+        }
+    }
+
+    public static void Pause(bool pausePlayer, bool pauseNPCs)
+    {
+        if (OnPause != null)
+        {
+            OnPause(pausePlayer, pauseNPCs, new NPC[0]);
+        }
+    }
+
+    public static event TriggerEvent OnJobExit;
+    static void JobExit() {
+        if(OnJobExit != null) {
+            OnJobExit();
+        }
     }
 
     #endregion
@@ -194,7 +236,9 @@ public class GameManager : MonoBehaviour
 
     public void LeaveJob(bool isSaving)
     {
+        JobExit();
         MovePlayerToSpawn();
+        
         if (isSaving)
         {
             SaveFile();
@@ -220,9 +264,13 @@ public class GameManager : MonoBehaviour
         flagCollection.Clear();
     }
 
+    public Item GetActiveItem() {
+        return activeItem;
+    }
+
     public void SetActiveItem(Item item)
     {
-        activeItem = item.id;
+        activeItem = item;
         if(currentJob != null && currentJob.player != null)
         {
             currentJob.player.carriedSprite = item.worldSprite;
@@ -246,7 +294,7 @@ public class GameManager : MonoBehaviour
     public void RemoveItem(string id) {
         if(items.Exists(x => x.id == id)) {
             Item item = items.Find(x => x.id == id);
-            if(item.id == activeItem)
+            if(item.id == activeItem.id)
             {
                 ClearActiveItem();
             }
@@ -259,12 +307,12 @@ public class GameManager : MonoBehaviour
 public class SaveData
 {
     public string currentSceneName;
-    public string[] gameFlags;
+    public FlagData gameFlags;
     public JobData[] jobs;
     public string[] items;
 
     public SaveData() {
-        gameFlags = new string[0];
+        gameFlags = new FlagData();
         jobs = new JobData[0];
         items = new string[0];
     }

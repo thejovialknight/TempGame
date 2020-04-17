@@ -21,7 +21,7 @@ public class Dale : NPC
 
         if(message == "OPEN")
         {
-            if(GameManager.instance.activeItem == "DALE_WEDDING_RING") {
+            if(GameManager.instance.activeItem.id == "DALE_WEDDING_RING") {
                 Say("My god, you've found it. You've found my wedding ring!");
                 AddOption("Here you go, buddy!", "GIVE_RING");
                 AddOption("The ring is mine, Dale.", "KEEP_RING");

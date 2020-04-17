@@ -50,7 +50,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         ClearOptions();
         panel.gameObject.SetActive(false);
-        MessageEventManager.Resume();
+        GameManager.Resume();
     }
 
     public void Say(string msg)
@@ -58,7 +58,7 @@ public class DialogueManager : MonoBehaviour
         if (!panel.gameObject.activeInHierarchy)
         {
             panel.gameObject.SetActive(true);
-            MessageEventManager.Pause(true, true);
+            GameManager.Pause(true, true);
         }
         characterCount = 0;
         ClearOptions();

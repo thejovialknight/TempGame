@@ -22,6 +22,16 @@ public class ItemDatabase : MonoBehaviour
         }
     }
 
+    public Item GetItemFromID(string id) {
+        foreach(Item item in items) {
+            if(id == item.id) {
+                return item;
+            }
+        }
+        
+        return null;
+    }
+
     public List<Item> GetItemsFromIDs(string[] ids) {
         List<Item> matches = new List<Item>();
 

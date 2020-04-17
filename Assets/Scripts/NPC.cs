@@ -14,8 +14,8 @@ public class NPC : MonoBehaviour, IInteractable
 
     void OnEnable()
     {
-        MessageEventManager.OnPause += OnPause;
-        MessageEventManager.OnResume += OnResume;
+        GameManager.OnPause += OnPause;
+        GameManager.OnResume += OnResume;
         MessageEventManager.OnDialogue += OnDialogue;
         MessageEventManager.OnCutscene += OnCutscene;
         MessageEventManager.OnJobRegister += OnJobRegister;
@@ -23,8 +23,8 @@ public class NPC : MonoBehaviour, IInteractable
 
     void OnDisable()
     {
-        MessageEventManager.OnPause -= OnPause;
-        MessageEventManager.OnResume -= OnResume;
+        GameManager.OnPause -= OnPause;
+        GameManager.OnResume -= OnResume;
         MessageEventManager.OnDialogue -= OnDialogue;
         MessageEventManager.OnCutscene += OnCutscene;
         MessageEventManager.OnJobRegister -= OnJobRegister;
@@ -35,7 +35,7 @@ public class NPC : MonoBehaviour, IInteractable
         jobTitle = dataToLoad.jobTitle;
         if(dataToLoad.hasBeenSaved) {
             transform.position = new Vector3(dataToLoad.position[0], dataToLoad.position[1], 0f);
-            flagCollection.flags = new List<string>(dataToLoad.flags);
+            flagCollection.LoadData(dataToLoad.flags);
         }
     }
 
@@ -46,7 +46,7 @@ public class NPC : MonoBehaviour, IInteractable
         dataToSave.name = title;
         dataToSave.jobTitle = jobTitle;
         dataToSave.position = new float[2] { transform.position.x, transform.position.y };
-        dataToSave.flags = flagCollection.flags.ToArray();
+        dataToSave.flags = flagCollection.SaveData();
         return dataToSave;
     }
 
@@ -133,5 +133,5 @@ public class NPCData
     public string name;
     public string jobTitle;
     public float[] position;
-    public string[] flags;
+    public FlagData flags;
 }

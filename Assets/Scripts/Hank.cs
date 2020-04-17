@@ -21,20 +21,25 @@ public class Hank : NPC
         
         if(message == "OPEN")
         {
-            if(CheckFlag("ANGRY"))
-            {
-                Say("I don't really wanna talk to you, man.");
-                AddOption("And I don't want to talk to you either!", "ANGRY");
-                AddOption("Sorry, I really didn't mean it.", "FRIENDS");
-            }
-            else if(CheckFlag("FRIENDS"))
-            {
-                Say("Hey, buddy. Good to see you again.");
-                AddOption("Hey, man. I'm not your buddy", "ANGRY");
-                AddOption("Hey, man! Sorry about your troubles!", "FRIENDS");
+            if(flagCollection.CheckFlag("INITIALIZED")) {
+                if(flagCollection.CheckFloatFlag("DISPOSITION") < 50)
+                {
+                    Say("I don't really wanna talk to you, man.");
+                    AddOption("And I don't want to talk to you either!", "ANGRY");
+                    AddOption("Sorry, I really didn't mean it.", "FRIENDS");
+                }
+                else
+                {
+                    Say("Hey, buddy. Good to see you again.");
+                    AddOption("Hey, man. I'm not your buddy", "ANGRY");
+                    AddOption("Hey, man! Sorry about your troubles!", "FRIENDS");
+                }
             }
             else
             {
+                flagCollection.SetFlag("INITIALIZED", true);
+                flagCollection.SetFloatFlag("DISPOSITION", 50f);
+
                 Say("Hey, man. I'm a little bummed today.");
                 AddOption("You're pathetic.", "ANGRY");
                 AddOption("Sorry, bro.", "FRIENDS");
@@ -43,9 +48,7 @@ public class Hank : NPC
 
         if(message == "FRIENDS")
         {
-            Debug.Log("FRIEND");
-            SetFlag("ANGRY", false);
-            SetFlag("FRIENDS", true);
+            flagCollection.SetFloatFlag("DISPOSITION", 75f);
 
             Say("It's okay, bro.");
             AddOption("...", "END");
@@ -53,9 +56,7 @@ public class Hank : NPC
 
         if(message == "ANGRY")
         {
-            Debug.Log("ANGER");
-            SetFlag("ANGRY", true);
-            SetFlag("FRIENDS", false);
+            flagCollection.SetFloatFlag("DISPOSITION", 25f);
 
             Say("Hey, fuck you! I'm so angry, I will walk forward!");
             AddOption("...", "WALK");
@@ -88,13 +89,13 @@ public class Hank : NPC
     }
 
     IEnumerator Walk(float length) {
-        MessageEventManager.Pause(true, true, this);
+        GameManager.Pause(true, true, this);
         for (float count = 0f; count <= length; count += Time.deltaTime) 
         {
             transform.Translate(new Vector3(0f, Time.deltaTime, 0f));
             yield return null;
         }
-        MessageEventManager.Resume();
+        GameManager.Resume();
         MessageEventManager.Dialogue(id, "WALKED");
     }
 }

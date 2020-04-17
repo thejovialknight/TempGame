@@ -30,7 +30,7 @@ public class Job : MonoBehaviour
         currentDay = dataToLoad.day;
         currentTimeChunk = dataToLoad.time;
 
-        flagCollection.flags = new List<string>(dataToLoad.flags);
+        flagCollection.LoadData(dataToLoad.flags);
 
         if(dataToLoad.hasBeenSaved) {
             player.LoadData(dataToLoad.player);
@@ -61,7 +61,7 @@ public class Job : MonoBehaviour
         dataToSave.isUnlocked = isUnlocked;
         dataToSave.day = currentDay;
         dataToSave.time = currentTimeChunk;
-        dataToSave.flags = flagCollection.flags.ToArray();
+        dataToSave.flags = flagCollection.SaveData();
 
         if(player != null) {
             dataToSave.player = player.SaveData();
@@ -91,7 +91,7 @@ public class JobData
     public bool isUnlocked;
     public int day;
     public int time;
-    public string[] flags = new string[0];
+    public FlagData flags;
     public PlayerData player;
     public NPCData[] npcs;
     public MinigameData[] minigames;

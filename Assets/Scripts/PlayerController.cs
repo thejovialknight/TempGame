@@ -4,34 +4,35 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    bool isPaused= false;
+    bool isPaused = false;
 
-    public float baseSpeed;
-    public float currentSpeed;
-
-    public float movementSpeed;
+    [Header("Component References")]
     public Rigidbody2D body;
     public Animator animator;
+    public FreeMovement freeMovement;
     public AudioSource audioSource;
     public Collider2D col;
+
+    [Header("External References")]
     public SpriteRenderer carriedSpriteRenderer;
     public Sprite carriedSprite;
 
+    [Header("Interactor Configuration")]
     public Vector2 interactOffset;
     public float interactRange = 2.0f;
     Collider2D[] interactColliders;
 
     void OnEnable()
     {
-        MessageEventManager.OnPause += OnPause;
-        MessageEventManager.OnResume += OnResume;
+        GameManager.OnPause += OnPause;
+        GameManager.OnResume += OnResume;
         MessageEventManager.OnJobRegister += OnJobRegister;
     }
 
     void OnDisable()
     {
-        MessageEventManager.OnPause -= OnPause;
-        MessageEventManager.OnResume -= OnResume;
+        GameManager.OnPause -= OnPause;
+        GameManager.OnResume -= OnResume;
         MessageEventManager.OnJobRegister -= OnJobRegister;
     }
 
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour
         if (pausePlayer)
         {
             isPaused = true;
-            Move(new Vector2(0.0f, 0.0f));
+            freeMovement.Move(new Vector2(0.0f, 0.0f));
         }
     }
 
@@ -57,10 +58,9 @@ public class PlayerController : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        freeMovement = GetComponent<FreeMovement>();
         audioSource = GetComponent<AudioSource>();
         col = GetComponent<Collider2D>();
-
-        currentSpeed = baseSpeed;
     }
 
     void Start() {
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!isPaused)
         {
-            Move(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+            freeMovement.Move(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
             Interact();
         }
 
@@ -117,22 +117,6 @@ public class PlayerController : MonoBehaviour
         dataToSave.hasBeenSaved = true;
         dataToSave.position = new float[2] { transform.position.x, transform.position.y };
         return dataToSave;
-    }
-
-    void Move(Vector2 movementDirection)
-    {
-        movementSpeed = Mathf.Clamp(movementDirection.magnitude, 0.0f, 1.0f);
-        movementDirection.Normalize();
-        body.velocity = movementDirection * movementSpeed * currentSpeed;
-        animator.SetFloat("Velocity", movementSpeed);
-        if(movementDirection.x < 0.0f)
-        {
-            animator.SetFloat("xDirection", -1.0f);
-        }
-        if (movementDirection.x > 0.0f)
-        {
-            animator.SetFloat("xDirection", 1.0f);
-        }
     }
 
     void GetInteractColliders()
