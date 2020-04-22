@@ -15,6 +15,9 @@ public class Minigame : MonoBehaviour
     public int rating = 0;
     public int bestScore = 0;
     public int bestRating = 0;
+    public string oneStarMessage = "Bad";
+    public string twoStarMessage = "Good";
+    public string threeStarMessage = "Amazing";
     
     public CameraZone zone;
     public GameObject introScreen;
@@ -107,11 +110,28 @@ public class Minigame : MonoBehaviour
         gameUI.SetActive(true);
     }
 
+    void SetRatingMessage() {
+        switch(rating) {
+            case 1:
+                outroMessage.text = oneStarMessage;
+                break;
+            case 2:
+                outroMessage.text = oneStarMessage;
+                break;
+            case 3:
+                outroMessage.text = threeStarMessage;
+                break;
+            default:
+                break;
+        }
+    }
+
     public virtual void ShowOutro() 
     {
         state = GameState.Outro;
 
         SetRating();
+        SetRatingMessage();
 
         if(score > bestScore) {
             bestScore = score;

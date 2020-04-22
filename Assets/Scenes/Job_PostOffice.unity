@@ -21244,6 +21244,9 @@ MonoBehaviour:
   rating: 0
   bestScore: 0
   bestRating: 0
+  oneStarMessage: Not great, better luck next time!
+  twoStarMessage: Solid work, you may just become a sorting champion soon!
+  threeStarMessage: Incredible, you should get a raise after that!
   zone: {fileID: 1535396458}
   introScreen: {fileID: 861073941}
   bestScoreText: {fileID: 562113296}
