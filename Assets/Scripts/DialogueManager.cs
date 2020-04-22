@@ -41,7 +41,7 @@ public class DialogueManager : MonoBehaviour
 
     void OnDialoguePressed(DialogueOption option)
     {
-        MessageEventManager.Dialogue(option.receiverID, option.optionID);
+        MessageEventManager.Dialogue(option.receiverID, option.nodeID, option.args);
     }
 
     public void Close()
@@ -65,11 +65,31 @@ public class DialogueManager : MonoBehaviour
         dialogue = msg;
     }
 
+    public void GotoNode(string nodeID, string receiverID, params string[] args)
+    {
+        MessageEventManager.Dialogue(receiverID, nodeID, args);
+    }
+
+    public void GotoNode(string nodeID, string receiverID)
+    {
+        GotoNode(nodeID, receiverID, null);
+    }
+
     public void AddOption(DialogueOption option)
     {
         dialogueOptions.Add(option);
         GameObject optionButton = GameObject.Instantiate(optionButtonPrefab, optionsContentTransform);
         optionButton.GetComponent<DialogueOptionButton>().Init(option);
+    }
+
+    public void AddOption(string nodeID, string receiverID, string message, params string[] args)
+    {
+        AddOption(new DialogueOption(nodeID, receiverID, message, args));
+    }
+
+    public void AddOption(string nodeID, string receiverID, string message)
+    {
+        AddOption(new DialogueOption(nodeID, receiverID, message, null));
     }
 
     public void ClearOptions()

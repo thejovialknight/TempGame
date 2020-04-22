@@ -12,14 +12,22 @@ public class MessageEventManager : MonoBehaviour
         }
     }
 
-    public delegate void IDMessageEvent(string id, string message);
+    public delegate void IDMessageEvent(string id, string message, params string[] args);
 
     public static event IDMessageEvent OnDialogue;
+    public static void Dialogue(string id, string message, params string[] args)
+    {
+        if (OnDialogue != null)
+        {
+            OnDialogue(id, message, args);
+        }
+    }
+
     public static void Dialogue(string id, string message)
     {
         if (OnDialogue != null)
         {
-            OnDialogue(id, message);
+            OnDialogue(id, message, null);
         }
     }
 

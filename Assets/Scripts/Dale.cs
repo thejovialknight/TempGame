@@ -11,7 +11,7 @@ public class Dale : NPC
         jobTitle = "Front Counter";
     }
 
-    public override void OnDialogue(string id, string message)
+    public override void OnDialogue(string id, string message, params string[] args)
     {
         base.OnDialogue(id, message);
 
@@ -21,30 +21,14 @@ public class Dale : NPC
 
         if(message == "OPEN")
         {
-            if(GameManager.instance.activeItem.id == "DALE_WEDDING_RING") {
-                Say("My god, you've found it. You've found my wedding ring!");
-                AddOption("Here you go, buddy!", "GIVE_RING");
-                AddOption("The ring is mine, Dale.", "KEEP_RING");
-            }
-            else {
-                Say("Hey, man, I don't wanna talk. I lost my wedding ring...");
-                AddOption("...", "END");
-            }
+            DialogueManager.instance.Say("Hey.");
+            DialogueManager.instance.AddOption("CLOSE", id, "Bye!");
+            return;
         }
 
-        if(message == "GIVE_RING") {
-            GameManager.instance.RemoveItem("DALE_WEDDING_RING");
-            Say("I am your friend, forever...");
-            AddOption("...", "END");
-        }
-
-        if(message == "KEEP_RING") {
-            Say("NOOOOOOOOOOOOOOO!!");
-            AddOption("...", "END");
-        }
-
-        if(message == "END") {
-            CloseDialogue();
+        if(message == "CLOSE") {
+            DialogueManager.instance.Close();
+            return;
         }
     }
 

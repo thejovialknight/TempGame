@@ -16,7 +16,7 @@ public class ExitDoor : MonoBehaviour
         MessageEventManager.OnDialogue -= OnDialogue;
     }
 
-    void OnDialogue(string id, string message)
+    void OnDialogue(string id, string message, params string[] args)
     {
         if(id != this.id) {
             return;

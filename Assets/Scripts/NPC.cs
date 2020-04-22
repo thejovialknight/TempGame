@@ -89,7 +89,7 @@ public class NPC : MonoBehaviour, IInteractable
         GameManager.instance.RegisterNPC(this);
     }
 
-    public virtual void OnDialogue(string id, string message)
+    public virtual void OnDialogue(string id, string message, params string[] args)
     {
         
     }
@@ -107,21 +107,6 @@ public class NPC : MonoBehaviour, IInteractable
     public bool CheckFlag(string flag)
     {
         return flagCollection.CheckFlag(flag);
-    }
-
-    public void Say(string text)
-    {
-        DialogueManager.instance.Say(text);
-    }
-
-    public void AddOption(string text, string node)
-    {
-        DialogueManager.instance.AddOption(new DialogueOption(node, id, text));
-    }
-
-    public void CloseDialogue()
-    {
-        DialogueManager.instance.Close();
     }
 }
 

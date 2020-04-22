@@ -19,25 +19,30 @@ public class Container : MonoBehaviour, IInteractable
         MessageEventManager.OnDialogue -= OnDialogue;
     }
 
-    void OnDialogue(string id, string message) {
+    void OnDialogue(string id, string message, params string[] args) {
         if(this.id != id) {
             return;
         }
 
         if(message == "OPEN") {
-            DialogueManager.instance.Say("Inventory");
+            DialogueManager.instance.Say(title);
             ListOptions();
         }
 
-        if(message.Split(':')[0] == "TAKE") {
-            string itemIDToTake = message.Split(':')[1];
-            if(inventory.Exists(x => x.id == itemIDToTake)) {
-                itemToTake = inventory.Find(x => x.id == itemIDToTake);
-                GameManager.instance.AddItem(itemToTake);
-                inventory.Remove(itemToTake);
-            }
+        if(message == "TAKE")
+        {
+            if(args[0] != null)
+            {
+                string itemIDToTake = args[0];
+                if (inventory.Exists(x => x.id == itemIDToTake))
+                {
+                    itemToTake = inventory.Find(x => x.id == itemIDToTake);
+                    GameManager.instance.AddItem(itemToTake);
+                    inventory.Remove(itemToTake);
+                }
 
-            MessageEventManager.Dialogue(id, "TAKEN");
+                MessageEventManager.Dialogue(id, "TAKEN");
+            }
         }
 
         if(message == "TAKEN") {
@@ -52,7 +57,7 @@ public class Container : MonoBehaviour, IInteractable
 
     void ListOptions() {
         foreach(Item item in inventory) {
-            DialogueManager.instance.AddOption(new DialogueOption("TAKE:" + item.id, id, "Take " + item.title));
+            DialogueManager.instance.AddOption(new DialogueOption("TAKE", id, "Take " + item.title, item.id));
         }
 
         DialogueManager.instance.AddOption(new DialogueOption("END", id, "Close Container"));
