@@ -13,9 +13,17 @@ public class DialogueManager : MonoBehaviour
 
     public float cooldown = 0.1f;
 
+    float panelSize = 50f;
+    float desiredOptionsPos;
+    float desiredOptionsSize;
+    float desiredPanelSize;
+
+    public float lerpSpeed;
+
     public Transform panel;
     public TextMeshProUGUI dialogueText;
     public AudioClip characterAudio;
+    public Transform optionsScrollListTransform;
     public Transform optionsContentTransform;
     public GameObject optionButtonPrefab;
 
@@ -31,12 +39,27 @@ public class DialogueManager : MonoBehaviour
     void OnDisable()
     {
         DialogueOptionButton.OnDialoguePressed -= OnDialoguePressed;
+        desiredPanelSize = 0f;
     }
 
     void Awake()
     {
         instance = this;
         panel.gameObject.SetActive(false);
+    }
+
+    void ValidateSize() {
+        desiredPanelSize = 50f;
+        desiredOptionsPos = -desiredPanelSize + 5f;
+
+        desiredOptionsSize = 0f;
+        foreach (Transform child in optionsContentTransform)
+        {
+            desiredOptionsSize += 21;
+        }
+
+        desiredOptionsSize = Mathf.Clamp(desiredOptionsSize, 0f, 84f);
+        desiredPanelSize += desiredOptionsSize;
     }
 
     void OnDialoguePressed(DialogueOption option)
@@ -51,6 +74,7 @@ public class DialogueManager : MonoBehaviour
         ClearOptions();
         panel.gameObject.SetActive(false);
         GameManager.Resume();
+        desiredPanelSize = 0f;
     }
 
     public void Say(string msg)
@@ -120,5 +144,16 @@ public class DialogueManager : MonoBehaviour
         if(Input.GetButtonDown("Skip")) {
             dialogueText.text = dialogue;
         }
+
+        if(panel.gameObject.activeInHierarchy) {
+            ValidateSize();
+        }
+
+        RectTransform panelRect = panel.GetComponent<RectTransform>();
+        panelRect.sizeDelta = Vector2.Lerp(panelRect.sizeDelta, new Vector2(625f, desiredPanelSize), lerpSpeed * Time.deltaTime);
+
+        RectTransform optionsRect = optionsScrollListTransform.GetComponent<RectTransform>();
+        optionsRect.anchoredPosition = Vector2.Lerp(optionsRect.anchoredPosition, new Vector2(0f, desiredOptionsPos), lerpSpeed * Time.deltaTime);
+        optionsRect.sizeDelta = Vector2.Lerp(optionsRect.sizeDelta, new Vector2(592f, desiredOptionsSize), lerpSpeed * Time.deltaTime);
     }
 }

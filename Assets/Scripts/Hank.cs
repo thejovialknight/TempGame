@@ -11,6 +11,16 @@ public class Hank : NPC
         jobTitle = "Delivery";
     }
 
+    public override void OnProgressDay(int day) {
+        if(day == 2) {
+            transform.position = new Vector2(-200f, 0f);
+        }
+    }
+
+    public override void OnProgressTime(int time) {
+        
+    }
+
     public override void OnDialogue(string id, string message, params string[] args)
     {
         base.OnDialogue(id, message);

@@ -192,6 +192,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public delegate void IntEvent(int arg);
+
+    public static event IntEvent OnProgressTime;
+    public void ProgressTime() {
+        currentJob.currentTimeChunk++;
+
+        if(OnProgressTime != null) {
+            OnProgressTime(currentJob.currentTimeChunk);
+        }
+    }
+
+    public static event IntEvent OnProgressDay;
+    public void ProgressDay() {
+        currentJob.currentDay++;
+        currentJob.currentTimeChunk = 0;
+
+        if(OnProgressDay != null) {
+            OnProgressDay(currentJob.currentDay);
+        }
+    }
+
     public static event TriggerEvent OnJobExit;
     static void JobExit() {
         if(OnJobExit != null) {
@@ -207,18 +228,6 @@ public class GameManager : MonoBehaviour
         saveData = new SaveData();
         ConstructJobs();
         SceneManager.LoadSceneAsync(newGameScene);
-    }
-
-    public void ProgressTime()
-    {
-        currentJob.currentTimeChunk++;
-    }
-
-    public void ProgressDay()
-    {
-        currentJob.currentDay++;
-        currentJob.currentTimeChunk = 0;
-        // send message which new day pop up is listening for
     }
 
     public void SetJobFlag(string id, bool isOn) {

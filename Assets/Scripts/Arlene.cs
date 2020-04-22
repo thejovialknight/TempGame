@@ -22,9 +22,24 @@ public class Arlene : NPC
         if(message == "OPEN")
         {
             DialogueManager.instance.Say("Welcome to the job! Do you have any questions for me?");
+            DialogueManager.instance.AddOption("INQUIRE_MOOD", id, "How are you doing?");
             DialogueManager.instance.AddOption("INQUIRE_WORK", id, "Any work I can do?");
             DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "> What do you think of...");
             DialogueManager.instance.AddOption("CLOSE", id, "Nope, see you later!");
+            return;
+        }
+
+        if (message == "INQUIRE_MOOD")
+        {
+            DialogueManager.instance.Say("I've been better, to tell you the truth. I'm dealing with a missing package that's apparently pretty valuable.");
+            DialogueManager.instance.AddOption("INQUIRE_PACKAGE_HELP", id, "Can I be any help?");
+            return;
+        }
+
+        if (message == "INQUIRE_PACKAGE_HELP")
+        {
+            DialogueManager.instance.Say("If you could try gathering some information from the others that would probably help me get to the bottom of this.");
+            DialogueManager.instance.AddOption("OPEN", id, "...");
             return;
         }
 

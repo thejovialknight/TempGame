@@ -16,6 +16,9 @@ public class NPC : MonoBehaviour, IInteractable
     {
         GameManager.OnPause += OnPause;
         GameManager.OnResume += OnResume;
+        GameManager.OnProgressDay += OnProgressDay;
+        GameManager.OnProgressTime += OnProgressTime;
+
         MessageEventManager.OnDialogue += OnDialogue;
         MessageEventManager.OnCutscene += OnCutscene;
         MessageEventManager.OnJobRegister += OnJobRegister;
@@ -25,6 +28,9 @@ public class NPC : MonoBehaviour, IInteractable
     {
         GameManager.OnPause -= OnPause;
         GameManager.OnResume -= OnResume;
+        GameManager.OnProgressDay -= OnProgressDay;
+        GameManager.OnProgressTime -= OnProgressTime;
+
         MessageEventManager.OnDialogue -= OnDialogue;
         MessageEventManager.OnCutscene += OnCutscene;
         MessageEventManager.OnJobRegister -= OnJobRegister;
@@ -87,6 +93,14 @@ public class NPC : MonoBehaviour, IInteractable
 
     void OnJobRegister() {
         GameManager.instance.RegisterNPC(this);
+    }
+
+    public virtual void OnProgressDay(int day) {
+
+    }
+
+    public virtual void OnProgressTime(int time) {
+
     }
 
     public virtual void OnDialogue(string id, string message, params string[] args)
