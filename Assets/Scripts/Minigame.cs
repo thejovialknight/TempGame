@@ -21,6 +21,7 @@ public class Minigame : MonoBehaviour
     public TextMeshProUGUI bestScoreText;
     public TextMeshProUGUI bestRatingText;
     public GameObject outroScreen;
+    public TextMeshProUGUI outroMessage;
     public TextMeshProUGUI outroScoreText;
     public TextMeshProUGUI outroRatingText;
     public GameObject gameUI;

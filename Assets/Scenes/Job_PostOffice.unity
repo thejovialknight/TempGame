@@ -2393,7 +2393,7 @@ GameObject:
   - component: {fileID: 170849200}
   - component: {fileID: 170849199}
   m_Layer: 5
-  m_Name: Instructions
+  m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21249,6 +21249,7 @@ MonoBehaviour:
   bestScoreText: {fileID: 562113296}
   bestRatingText: {fileID: 45685377}
   outroScreen: {fileID: 1394001955}
+  outroMessage: {fileID: 170849199}
   outroScoreText: {fileID: 74246094}
   outroRatingText: {fileID: 410320597}
   gameUI: {fileID: 2067186894}

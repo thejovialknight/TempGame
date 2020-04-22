@@ -54,6 +54,19 @@ public class MailSortManager : Minigame
     public override void SetRating() {
         rating = Mathf.Clamp(score / 5, 1, 3);
 
+        switch(rating) {
+            case 1:
+                outroMessage.text = "Better luck next time!";
+                break;
+            case 2:
+                outroMessage.text = "Solid work, you may just be a mail sorting champion soon!";
+                break;
+            case 3:
+                outroMessage.text = "You deserve a raise after that excellent sorting!";
+                break;
+            default:
+                break;
+        }
     }
 
     void GenerateSlot()
