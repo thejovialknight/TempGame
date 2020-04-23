@@ -13,14 +13,8 @@ public class Sammy : NPC
         jobTitle = "Warehouse";
     }
 
-    public override void OnDialogue(string id, string message, params string[] args)
+    public override void HandleDialogue(string message, string[] args)
     {
-        base.OnDialogue(id, message);
-
-        if(id != this.id) {
-            return;
-        }
-
         if(message == "OPEN") {
             DialogueManager.instance.Say("Are you a loser? You sure look like one.");
             DialogueManager.instance.AddOption("MINIGAME", id, "Got any work for me?");
@@ -33,12 +27,6 @@ public class Sammy : NPC
             DialogueManager.instance.Close();
             mailSortObject.SetActive(true);
             MessageEventManager.MinigameStart("MAIL_SORT");
-            return;
-        }
-
-        if (message == "CLOSE")
-        {
-            DialogueManager.instance.Close();
             return;
         }
     }

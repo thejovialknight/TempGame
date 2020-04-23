@@ -21,24 +21,12 @@ public class Hank : NPC
         
     }
 
-    public override void OnDialogue(string id, string message, params string[] args)
+    public override void HandleDialogue(string message, string[] args)
     {
-        base.OnDialogue(id, message);
-
-        if(id != this.id) {
-            return;
-        }
-
         if (message == "OPEN")
         {
             DialogueManager.instance.Say("Hey, man. What's the what?");
             DialogueManager.instance.AddOption("CLOSE", id, "Nothing much.");
-            return;
-        }
-
-        if(message == "CLOSE")
-        {
-            DialogueManager.instance.Close();
             return;
         }
     }

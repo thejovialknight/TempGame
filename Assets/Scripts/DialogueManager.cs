@@ -97,7 +97,7 @@ public class DialogueManager : MonoBehaviour
 
     public void GotoNode(string nodeID, string receiverID)
     {
-        GotoNode(nodeID, receiverID, null);
+        GotoNode(nodeID, receiverID, new string[0]);
     }
 
     public void AddOption(DialogueOption option)
@@ -132,7 +132,7 @@ public class DialogueManager : MonoBehaviour
         {
             return args[argToCheck];
         }
-        return "";
+        return null;
     }
 
     void Update()

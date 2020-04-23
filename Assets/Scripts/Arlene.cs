@@ -11,32 +11,42 @@ public class Arlene : NPC
         jobTitle = "General Manager";
     }
 
-    public override void OnDialogue(string id, string message, params string[] args)
+    public override void HandleDialogue(string message, params string[] args)
     {
-        base.OnDialogue(id, message);
-
-        if(id != this.id) {
-            return;
-        }
-
         if(message == "OPEN")
         {
-            string introduction = "";
-            if(!flagCollection.CheckFlag("INTRODUCED"))
+            if(DialogueManager.CheckArg(args, 0) == "NEVERMIND") 
             {
-                introduction += "Welcome to the job! ";
-                flagCollection.SetFlag("INTRODUCED", true);
+                DialogueManager.instance.Say("Okay, then.");
+            }
+            else 
+            {
+                string introduction = "";
+                if(!flagCollection.CheckFlag("INTRODUCED"))
+                {
+                    introduction += "Welcome to the job! ";
+                    flagCollection.SetFlag("INTRODUCED", true);
+                }
+
+                DialogueManager.instance.Say(introduction + "Do you have any questions for me?");
             }
 
-            DialogueManager.instance.Say(introduction + "Do you have any questions for me?");
-            DialogueManager.instance.AddOption("HUB_PACKAGE", id, "How are you doing?");
+            if(GameManager.instance.currentJob.flagCollection.CheckStringFlag("QUEST_PACKAGE") == null)
+            {
+                DialogueManager.instance.AddOption("HUB_PACKAGE", id, "How are you doing?");
+            }
+            else if(GameManager.instance.currentJob.flagCollection.CheckStringFlag("QUEST_PACKAGE") == "IN_PROGRESS")
+            {
+                DialogueManager.instance.AddOption("HUB_PACKAGE", id, "I have some questions about the missing package.", "QUESTIONS");
+            }
+
             DialogueManager.instance.AddOption("INQUIRE_WORK", id, "Any work I can do?");
-            DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "> What do you think of...");
-            DialogueManager.instance.AddOption("CLOSE", id, "Nope, see you later!");
+            DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "What do you think of...");
+            DialogueManager.instance.AddOption("CLOSE", id, "[X] Nope, see you later!");
             return;
         }
 
-        #region Package Hub
+        #region HUB_PACKAGE
 
         if (message == "HUB_PACKAGE")
         {
@@ -52,9 +62,12 @@ public class Arlene : NPC
             {
                 DialogueManager.instance.Say("I've been better, to tell you the truth. I'm dealing with a missing package that's apparently pretty valuable.");
             }
+
+            if(GameManager.instance.currentJob.flagCollection.CheckStringFlag("QUEST_PACKAGE") == null) {
+                DialogueManager.instance.AddOption("INQUIRE_PACKAGE_HELP", id, "Anything I can do?");
+            }
+
             DialogueManager.instance.AddOption("INQUIRE_PACKAGE_CONTENT", id, "What's in the box?");
-            DialogueManager.instance.AddOption("INQUIRE_PACKAGE_HELP", id, "Anything I can do?");
-            DialogueManager.instance.AddOption("REJECT_PACKAGE_HELP", id, "Not my problem, sorry.");
             DialogueManager.instance.AddOption("OPEN", id, "< BACK");
             return;
         }
@@ -69,6 +82,7 @@ public class Arlene : NPC
 
         if (message == "INQUIRE_PACKAGE_CONTENT_2")
         {
+            flagCollection.SetFlag("PLAYER_IS_ODD", true);
             DialogueManager.instance.Say("Hey, are you alright?");
             DialogueManager.instance.AddOption("WHATS_BOX_YES", id, "Yes, I'm perfectly fine, why do you ask?");
             DialogueManager.instance.AddOption("WHATS_BOX_NO", id, "No, not really.");
@@ -93,12 +107,14 @@ public class Arlene : NPC
         {
             DialogueManager.instance.Say("If you could try gathering some information from the others that would probably help me get to the bottom of this.");
             DialogueManager.instance.AddOption("ACCEPT_PACKAGE_HELP", id, "Yes, ma'am.");
-            DialogueManager.instance.AddOption("HUB_PACKAGE", id, "I have some more questions first.", "QUESTIONS");
+            DialogueManager.instance.AddOption("REJECT_PACKAGE_HELP", id, "Not my problem, sorry.");
+            DialogueManager.instance.AddOption("HUB_PACKAGE", id, "< I have some more questions first.", "QUESTIONS");
             return;
         }
 
         if (message == "ACCEPT_PACKAGE_HELP")
         {
+            GameManager.instance.currentJob.flagCollection.SetStringFlag("QUEST_PACKAGE", "IN_PROGRESS");
             DialogueManager.instance.Say("Thanks a lot!");
             DialogueManager.instance.AddOption("HUB_PACKAGE", id, "No problem.", "HUB");
             return;
@@ -106,12 +122,15 @@ public class Arlene : NPC
 
         if (message == "REJECT_PACKAGE_HELP")
         {
+            GameManager.instance.currentJob.flagCollection.SetStringFlag("QUEST_PACKAGE", "REJECTED");
             DialogueManager.instance.Say("No need to be a dick, I wasn't asking for your help.");
             DialogueManager.instance.AddOption("OPEN", id, "...");
             return;
         }
 
         #endregion
+
+        #region INQUIRE_WORK
 
         if (message == "INQUIRE_WORK")
         {
@@ -126,6 +145,10 @@ public class Arlene : NPC
             DialogueManager.instance.AddOption("OPEN", id, "...");
             return;
         }
+
+        #endregion
+
+        #region INQUIRE_CHARACTER
 
         if (message == "INQUIRE_CHARACTER")
         {
@@ -153,17 +176,21 @@ public class Arlene : NPC
 
         if (message == "INQUIRE_HANK")
         {
-            DialogueManager.instance.Say("Between you and me, Hank's a bit of a weirdo, but I suppose that's none of my business.");
+            if(flagCollection.CheckFlag("PLAYER_IS_ODD")) {
+                DialogueManager.instance.Say("Hank's a bit... odd. I'm sure you two woud get along nicely.");
+            }
+            else {
+                DialogueManager.instance.Say("Between you and me, Hank's a bit of a weirdo, but I suppose that's none of my business.");
+            }
             DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "...");
             return;
         }
 
-        if (message == "CLOSE")
-        {
-            DialogueManager.instance.Close();
-            return;
-        }
+        #endregion
+
     }
+
+
 
     public override void OnCutscene(string message) {
         base.OnCutscene(message);

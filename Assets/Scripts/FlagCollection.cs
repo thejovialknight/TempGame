@@ -99,7 +99,7 @@ public class FlagCollection
             }
         }
 
-        return -1;
+        return 0;
     }
 
     public float CheckFloatFlag(string id)
@@ -112,7 +112,7 @@ public class FlagCollection
             }
         }
         
-        return -1;
+        return 0.0f;
     }
 
     public string CheckStringFlag(string id)

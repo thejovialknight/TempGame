@@ -58,7 +58,7 @@ public class NPC : MonoBehaviour, IInteractable
 
     public void InteractWith(Transform interactor)
     {
-        MessageEventManager.Dialogue(id, "OPEN");
+        DialogueManager.instance.GotoNode("OPEN", id);
     }
 
     public string GetInteractName()
@@ -103,9 +103,23 @@ public class NPC : MonoBehaviour, IInteractable
 
     }
 
-    public virtual void OnDialogue(string id, string message, params string[] args)
+    public void OnDialogue(string id, string message, params string[] args)
     {
-        
+        if(id != this.id) {
+            return;
+        }
+
+        if (message == "CLOSE")
+        {
+            DialogueManager.instance.Close();
+            return;
+        }
+
+        HandleDialogue(message, args);
+    }
+
+    public virtual void HandleDialogue(string message, string[] args) {
+
     }
 
     public virtual void OnCutscene(string message)

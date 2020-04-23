@@ -11,23 +11,12 @@ public class Dale : NPC
         jobTitle = "Front Counter";
     }
 
-    public override void OnDialogue(string id, string message, params string[] args)
+    public override void HandleDialogue(string message, string[] args)
     {
-        base.OnDialogue(id, message);
-
-        if(id != this.id) {
-            return;
-        }
-
         if(message == "OPEN")
         {
             DialogueManager.instance.Say("Hey.");
             DialogueManager.instance.AddOption("CLOSE", id, "Bye!");
-            return;
-        }
-
-        if(message == "CLOSE") {
-            DialogueManager.instance.Close();
             return;
         }
     }
