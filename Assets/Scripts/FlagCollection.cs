@@ -166,24 +166,30 @@ public class FlagCollection
     }
 
     public void LoadData(FlagData dataToLoad) {
-        flags = new List<string>(dataToLoad.flags);
+        if (dataToLoad != null)
+        {
+            flags = new List<string>(dataToLoad.flags);
 
-        // load ints
-        intFlags = new List<IntFlag>();
-        for(int i = 0; i < dataToLoad.intFlagIDs.Length; i++) {
-            intFlags.Add(new IntFlag(dataToLoad.intFlagIDs[i], dataToLoad.intFlagValues[i]));
-        }
+            // load ints
+            intFlags = new List<IntFlag>();
+            for (int i = 0; i < dataToLoad.intFlagIDs.Length; i++)
+            {
+                intFlags.Add(new IntFlag(dataToLoad.intFlagIDs[i], dataToLoad.intFlagValues[i]));
+            }
 
-        // load floats
-        floatFlags = new List<FloatFlag>();
-        for(int i = 0; i < dataToLoad.floatFlagIDs.Length; i++) {
-            floatFlags.Add(new FloatFlag(dataToLoad.floatFlagIDs[i], dataToLoad.floatFlagValues[i]));
-        }
+            // load floats
+            floatFlags = new List<FloatFlag>();
+            for (int i = 0; i < dataToLoad.floatFlagIDs.Length; i++)
+            {
+                floatFlags.Add(new FloatFlag(dataToLoad.floatFlagIDs[i], dataToLoad.floatFlagValues[i]));
+            }
 
-        // load strings
-        stringFlags = new List<StringFlag>();
-        for(int i = 0; i < dataToLoad.stringFlagIDs.Length; i++) {
-            stringFlags.Add(new StringFlag(dataToLoad.stringFlagIDs[i], dataToLoad.stringFlagValues[i]));
+            // load strings
+            stringFlags = new List<StringFlag>();
+            for (int i = 0; i < dataToLoad.stringFlagIDs.Length; i++)
+            {
+                stringFlags.Add(new StringFlag(dataToLoad.stringFlagIDs[i], dataToLoad.stringFlagValues[i]));
+            }
         }
     }
 }

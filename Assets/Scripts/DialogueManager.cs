@@ -13,7 +13,6 @@ public class DialogueManager : MonoBehaviour
 
     public float cooldown = 0.1f;
 
-    float panelSize = 50f;
     float desiredOptionsPos;
     float desiredOptionsSize;
     float desiredPanelSize;
@@ -40,6 +39,7 @@ public class DialogueManager : MonoBehaviour
     {
         DialogueOptionButton.OnDialoguePressed -= OnDialoguePressed;
         desiredPanelSize = 0f;
+        desiredOptionsSize = 0f;
     }
 
     void Awake()
@@ -75,6 +75,7 @@ public class DialogueManager : MonoBehaviour
         panel.gameObject.SetActive(false);
         GameManager.Resume();
         desiredPanelSize = 0f;
+        desiredOptionsSize = 0f;
     }
 
     public void Say(string msg)
@@ -113,7 +114,7 @@ public class DialogueManager : MonoBehaviour
 
     public void AddOption(string nodeID, string receiverID, string message)
     {
-        AddOption(new DialogueOption(nodeID, receiverID, message, null));
+        AddOption(new DialogueOption(nodeID, receiverID, message, new string[0]));
     }
 
     public void ClearOptions()
@@ -123,6 +124,15 @@ public class DialogueManager : MonoBehaviour
             dialogueOptions.Clear();
             GameObject.Destroy(child.gameObject);
         }
+    }
+
+    public static string CheckArg(string[] args, int argToCheck)
+    {
+        if(args.Length > argToCheck)
+        {
+            return args[argToCheck];
+        }
+        return "";
     }
 
     void Update()

@@ -31,18 +31,15 @@ public class Container : MonoBehaviour, IInteractable
 
         if(message == "TAKE")
         {
-            if(args[0] != null)
+            string itemIDToTake = DialogueManager.CheckArg(args, 0);
+            if (inventory.Exists(x => x.id == itemIDToTake))
             {
-                string itemIDToTake = args[0];
-                if (inventory.Exists(x => x.id == itemIDToTake))
-                {
-                    itemToTake = inventory.Find(x => x.id == itemIDToTake);
-                    GameManager.instance.AddItem(itemToTake);
-                    inventory.Remove(itemToTake);
-                }
-
-                MessageEventManager.Dialogue(id, "TAKEN");
+                itemToTake = inventory.Find(x => x.id == itemIDToTake);
+                GameManager.instance.AddItem(itemToTake);
+                inventory.Remove(itemToTake);
             }
+
+            MessageEventManager.Dialogue(id, "TAKEN");
         }
 
         if(message == "TAKEN") {

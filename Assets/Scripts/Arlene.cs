@@ -21,27 +21,97 @@ public class Arlene : NPC
 
         if(message == "OPEN")
         {
-            DialogueManager.instance.Say("Welcome to the job! Do you have any questions for me?");
-            DialogueManager.instance.AddOption("INQUIRE_MOOD", id, "How are you doing?");
+            string introduction = "";
+            if(!flagCollection.CheckFlag("INTRODUCED"))
+            {
+                introduction += "Welcome to the job! ";
+                flagCollection.SetFlag("INTRODUCED", true);
+            }
+
+            DialogueManager.instance.Say(introduction + "Do you have any questions for me?");
+            DialogueManager.instance.AddOption("HUB_PACKAGE", id, "How are you doing?");
             DialogueManager.instance.AddOption("INQUIRE_WORK", id, "Any work I can do?");
             DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "> What do you think of...");
             DialogueManager.instance.AddOption("CLOSE", id, "Nope, see you later!");
             return;
         }
 
-        if (message == "INQUIRE_MOOD")
+        #region Package Hub
+
+        if (message == "HUB_PACKAGE")
         {
-            DialogueManager.instance.Say("I've been better, to tell you the truth. I'm dealing with a missing package that's apparently pretty valuable.");
-            DialogueManager.instance.AddOption("INQUIRE_PACKAGE_HELP", id, "Can I be any help?");
+            if (DialogueManager.CheckArg(args, 0) == "QUESTIONS")
+            {
+                DialogueManager.instance.Say("Okay, shoot.");
+            }
+            else if (DialogueManager.CheckArg(args, 0) == "HUB")
+            {
+                DialogueManager.instance.Say("Anything else?");
+            }
+            else
+            {
+                DialogueManager.instance.Say("I've been better, to tell you the truth. I'm dealing with a missing package that's apparently pretty valuable.");
+            }
+            DialogueManager.instance.AddOption("INQUIRE_PACKAGE_CONTENT", id, "What's in the box?");
+            DialogueManager.instance.AddOption("INQUIRE_PACKAGE_HELP", id, "Anything I can do?");
+            DialogueManager.instance.AddOption("REJECT_PACKAGE_HELP", id, "Not my problem, sorry.");
+            DialogueManager.instance.AddOption("OPEN", id, "< BACK");
+            return;
+        }
+
+        if (message == "INQUIRE_PACKAGE_CONTENT")
+        {
+            DialogueManager.instance.Say("I'm not really allowed to say, but I can tell you it's a pain in my ass!");
+            DialogueManager.instance.AddOption("HUB_PACKAGE", id, "Got it.", "HUB");
+            DialogueManager.instance.AddOption("INQUIRE_PACKAGE_CONTENT_2", id, "What's in the box?? What's in the box!?");
+            return;
+        }
+
+        if (message == "INQUIRE_PACKAGE_CONTENT_2")
+        {
+            DialogueManager.instance.Say("Hey, are you alright?");
+            DialogueManager.instance.AddOption("WHATS_BOX_YES", id, "Yes, I'm perfectly fine, why do you ask?");
+            DialogueManager.instance.AddOption("WHATS_BOX_NO", id, "No, not really.");
+            return;
+        }
+
+        if (message == "WHATS_BOX_YES")
+        {
+            DialogueManager.instance.Say("Oh, uh, nothing. You just seemed a little... nevermind.");
+            DialogueManager.instance.AddOption("HUB_PACKAGE", id, "Okay.", "HUB");
+            return;
+        }
+
+        if (message == "WHATS_BOX_NO")
+        {
+            DialogueManager.instance.Say("You know, you're a bit of a weird dude.");
+            DialogueManager.instance.AddOption("HUB_PACKAGE", id, "Yes.", "HUB");
             return;
         }
 
         if (message == "INQUIRE_PACKAGE_HELP")
         {
             DialogueManager.instance.Say("If you could try gathering some information from the others that would probably help me get to the bottom of this.");
+            DialogueManager.instance.AddOption("ACCEPT_PACKAGE_HELP", id, "Yes, ma'am.");
+            DialogueManager.instance.AddOption("HUB_PACKAGE", id, "I have some more questions first.", "QUESTIONS");
+            return;
+        }
+
+        if (message == "ACCEPT_PACKAGE_HELP")
+        {
+            DialogueManager.instance.Say("Thanks a lot!");
+            DialogueManager.instance.AddOption("HUB_PACKAGE", id, "No problem.", "HUB");
+            return;
+        }
+
+        if (message == "REJECT_PACKAGE_HELP")
+        {
+            DialogueManager.instance.Say("No need to be a dick, I wasn't asking for your help.");
             DialogueManager.instance.AddOption("OPEN", id, "...");
             return;
         }
+
+        #endregion
 
         if (message == "INQUIRE_WORK")
         {
