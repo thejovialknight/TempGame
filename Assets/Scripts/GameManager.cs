@@ -161,6 +161,11 @@ public class GameManager : MonoBehaviour
         currentJob.minigames.Add(minigame);
     }
 
+    public void RegisterContainer(Container container)
+    {
+        currentJob.containers.Add(container);
+    }
+
     #endregion
 
     #region Events

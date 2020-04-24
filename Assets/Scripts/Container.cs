@@ -11,12 +11,19 @@ public class Container : MonoBehaviour, IInteractable
 
     void OnEnable()
     {
+        MessageEventManager.OnJobRegister += OnJobRegister;
         MessageEventManager.OnDialogue += OnDialogue;
     }
 
     void OnDisable()
     {
+        MessageEventManager.OnJobRegister += OnJobRegister;
         MessageEventManager.OnDialogue -= OnDialogue;
+    }
+
+    void OnJobRegister()
+    {
+        GameManager.instance.RegisterContainer(this);
     }
 
     void OnDialogue(string id, string message, params string[] args) {
@@ -71,4 +78,39 @@ public class Container : MonoBehaviour, IInteractable
     public string GetInteractInfo() {
         return "Press SPACE to open";
     }
+
+    public void LoadData(ContainerData dataToLoad)
+    {
+        id = dataToLoad.id;
+
+        inventory.Clear();
+        foreach(string itemID in dataToLoad.items)
+        {
+            if (ItemDatabase.instance.GetItemFromID(itemID) != null)
+            {
+                inventory.Add(ItemDatabase.instance.GetItemFromID(itemID));
+            }
+        }
+    }
+
+    public ContainerData SaveData()
+    {
+        ContainerData dataToSave = new ContainerData();
+        dataToSave.id = id;
+        List<string> itemIDs = new List<string>();
+        foreach(Item item in inventory)
+        {
+            itemIDs.Add(item.id);
+        }
+        dataToSave.items = itemIDs.ToArray();
+
+        return dataToSave;
+    }
+}
+
+[System.Serializable]
+public class ContainerData
+{
+    public string id = "NEW_CONTAINER_ID";
+    public string[] items;
 }

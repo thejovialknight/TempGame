@@ -46,14 +46,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveData:
     currentSceneName: 
-    gameFlags: []
+    gameFlags:
+      flags: []
+      intFlagIDs: []
+      floatFlagIDs: []
+      stringFlagIDs: []
+      intFlagValues: 
+      floatFlagValues: []
+      stringFlagValues: []
     jobs: []
     items: []
-  flagCollection:
-    flags: []
   filename: 
   currentJob: {fileID: 0}
   items: []
+  activeItem: {fileID: 0}
+  flagCollection:
+    flags: []
+  gameState: 0
   newGameScene: Map
   mainMenuScene: MainMenu
   mapScene: Map
@@ -71,3 +80,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 11400000, guid: a2b088d9ef3d6674cabb17561065b5e6, type: 2}
+  - {fileID: 11400000, guid: 2e602c2f9cad99743b2cf79dea7b5a53, type: 2}
+  - {fileID: 11400000, guid: c4d62fecf89775c42929990f59da3be2, type: 2}
