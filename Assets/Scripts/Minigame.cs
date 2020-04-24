@@ -9,8 +9,8 @@ public class Minigame : MonoBehaviour
     CameraController cameraController;
 
     public string id;
-    public enum GameState { Intro, InGame, Outro };
-    public GameState state;
+    public enum MinigameState { Intro, InGame, Outro };
+    public MinigameState state;
     public int score = 0;
     public int rating = 0;
     public int bestScore = 0;
@@ -32,15 +32,15 @@ public class Minigame : MonoBehaviour
 
     void Update()
     {
-        if (state == GameState.Intro)
+        if (state == MinigameState.Intro)
         {
             UpdateIntro();
         }
-        else if (state == GameState.InGame)
+        else if (state == MinigameState.InGame)
         {
             UpdateGame();
         }
-        else if (state == GameState.Outro)
+        else if (state == MinigameState.Outro)
         {
             UpdateOutro();
         }
@@ -85,8 +85,9 @@ public class Minigame : MonoBehaviour
     }
 
     public virtual void ShowIntro() {
-        state = GameState.Intro;
+        state = MinigameState.Intro;
 
+        GameManager.instance.gameState = GameState.Minigame;
         GameManager.Pause(true, true);
 
         bestScoreText.text = bestScore.ToString();
@@ -99,7 +100,7 @@ public class Minigame : MonoBehaviour
     
     public virtual void StartGame()
     {
-        state = GameState.InGame;
+        state = MinigameState.InGame;
 
         cameraController = Camera.main.GetComponent<CameraController>();
         cameraController.StartZoneOverride(zone, true);
@@ -128,7 +129,7 @@ public class Minigame : MonoBehaviour
 
     public virtual void ShowOutro() 
     {
-        state = GameState.Outro;
+        state = MinigameState.Outro;
 
         SetRating();
         SetRatingMessage();

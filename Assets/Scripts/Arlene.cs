@@ -31,16 +31,22 @@ public class Arlene : NPC
                 DialogueManager.instance.Say(introduction + "Do you have any questions for me?");
             }
 
-            if(GameManager.instance.currentJob.flagCollection.CheckStringFlag("QUEST_PACKAGE") == null)
+            DialogueManager.instance.AddOption("INQUIRE_WORK", id, "Any work I can do?");
+
+            if(!GameManager.instance.currentJob.flagCollection.CheckFlag("KNOWLEDGE_PACKAGE"))
             {
                 DialogueManager.instance.AddOption("HUB_PACKAGE", id, "How are you doing?");
             }
-            else if(GameManager.instance.currentJob.flagCollection.CheckStringFlag("QUEST_PACKAGE") == "IN_PROGRESS")
+            else if(GameManager.instance.currentJob.flagCollection.CheckFlag("KNOWLEDGE_PACKAGE"))
             {
-                DialogueManager.instance.AddOption("HUB_PACKAGE", id, "I have some questions about the missing package.", "QUESTIONS");
+                DialogueManager.instance.AddOption("HUB_PACKAGE", id, "About the missing package...", "QUESTIONS");
             }
 
-            DialogueManager.instance.AddOption("INQUIRE_WORK", id, "Any work I can do?");
+            if(GameManager.instance.currentJob.flagCollection.CheckFlag("KNOWLEDGE_SAMMY_DALE"))
+            {
+                DialogueManager.instance.AddOption("HUB_DOWNSIZING", id, "What's the beef between Sammy and Dale?");
+            }
+
             DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "What do you think of...");
             DialogueManager.instance.AddOption("CLOSE", id, "[X] Nope, see you later!");
             return;
@@ -60,6 +66,7 @@ public class Arlene : NPC
             }
             else
             {
+                GameManager.instance.currentJob.flagCollection.SetFlag("KNOWLEDGE_PACKAGE", true);
                 DialogueManager.instance.Say("I've been better, to tell you the truth. I'm dealing with a missing package that's apparently pretty valuable.");
             }
 
@@ -144,6 +151,17 @@ public class Arlene : NPC
             DialogueManager.instance.Say("I think Sammy mentioned she was falling a little behind on sorting mail today, maybe you should try your hand at that!");
             DialogueManager.instance.AddOption("OPEN", id, "...");
             return;
+        }
+
+        #endregion
+
+        #region HUB_DOWNSIZING
+
+        if(message == "HUB_DOWNSIZING") {
+            DialogueManager.instance.Say("God, those two are a pain in my ass. I don't know what it is, but I'm sure Sammy started it.");
+
+            // TAKE TO NEXT NODE WHERE SHE ASKS ABOUT FIRING
+            DialogueManager.instance.AddOption("OPEN", id, "...");
         }
 
         #endregion

@@ -83,6 +83,8 @@ public class DialogueManager : MonoBehaviour
         if (!panel.gameObject.activeInHierarchy)
         {
             panel.gameObject.SetActive(true);
+
+            GameManager.instance.gameState = GameState.Dialogue;
             GameManager.Pause(true, true);
         }
         characterCount = 0;

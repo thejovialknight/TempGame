@@ -20,10 +20,10 @@ public class GameManager : MonoBehaviour
     public List<Item> items = new List<Item>();
     public Item activeItem = null;
     public FlagCollection flagCollection = new FlagCollection();
+    public GameState gameState = GameState.Default;
 
     [Header("New Game Settings")]
     public string newGameScene = "Map";
-
 
     [Header("Misc Scenes")]
     public string mainMenuScene = "MainMenu";
@@ -168,6 +168,8 @@ public class GameManager : MonoBehaviour
     public delegate void TriggerEvent();
     public static event TriggerEvent OnResume;
     public static void Resume() {
+        GameManager.instance.gameState = GameState.Default;
+
         if(OnResume != null) {
             OnResume();
         }
@@ -178,6 +180,10 @@ public class GameManager : MonoBehaviour
     public static event PauseEvent OnPause;
     public static void Pause(bool pausePlayer, bool pauseNPCs, params NPC[] exceptions)
     {
+        if(GameManager.instance.gameState == GameState.Default) {
+            GameManager.instance.gameState = GameState.DefaultPause;
+        }
+        
         if (OnPause != null)
         {
             OnPause(pausePlayer, pauseNPCs, exceptions);
@@ -186,10 +192,7 @@ public class GameManager : MonoBehaviour
 
     public static void Pause(bool pausePlayer, bool pauseNPCs)
     {
-        if (OnPause != null)
-        {
-            OnPause(pausePlayer, pauseNPCs, new NPC[0]);
-        }
+        Pause(pausePlayer, pauseNPCs, new NPC[0]);
     }
 
     public delegate void IntEvent(int arg);
@@ -311,6 +314,8 @@ public class GameManager : MonoBehaviour
         }
     }
 }
+
+public enum GameState { Default, DefaultPause, Menu, Dialogue, PauseMenu, Minigame };
 
 [Serializable]
 public class SaveData
