@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExitDoor : MonoBehaviour
 {
     public string id = "EXIT_DOOR";
+    public Vector2 direction;
 
     void OnEnable()
     {
@@ -39,6 +40,12 @@ public class ExitDoor : MonoBehaviour
             DialogueManager.instance.Close();
             GameManager.instance.QuitGame(true);
         }
+
+        if (message == "CANCEL")
+        {
+            StartCoroutine(MovePlayer(0.4f));
+            DialogueManager.instance.Close();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -49,6 +56,20 @@ public class ExitDoor : MonoBehaviour
             DialogueManager.instance.AddOption(new DialogueOption("DAY", id, "End Day"));
             DialogueManager.instance.AddOption(new DialogueOption("JOB", id, "Leave Job"));
             DialogueManager.instance.AddOption(new DialogueOption("GAME", id, "Save and Quit"));
+            DialogueManager.instance.AddOption(new DialogueOption("CANCEL", id, "[X] Return to Job"));
         }
+    }
+
+    IEnumerator MovePlayer(float length)
+    {
+        PlayerController player = GameManager.instance.currentJob.player;
+        GameManager.Pause(true, false);
+        while (length > 0f)
+        {
+            player.freeMovement.Move(direction);
+            length -= Time.deltaTime;
+            yield return null;
+        }
+        GameManager.Resume();
     }
 }
