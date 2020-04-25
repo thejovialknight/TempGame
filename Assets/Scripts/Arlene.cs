@@ -33,16 +33,16 @@ public class Arlene : NPC
 
             DialogueManager.instance.AddOption("INQUIRE_WORK", id, "Any work I can do?");
 
-            if(!GameManager.instance.currentJob.flagCollection.CheckFlag("KNOWLEDGE_PACKAGE"))
+            if(!GameManager.JobFlags.CheckFlag("KNOWLEDGE_PACKAGE"))
             {
                 DialogueManager.instance.AddOption("HUB_PACKAGE", id, "How are you doing?");
             }
-            else if(GameManager.instance.currentJob.flagCollection.CheckFlag("KNOWLEDGE_PACKAGE"))
+            else if(GameManager.JobFlags.CheckFlag("KNOWLEDGE_PACKAGE"))
             {
                 DialogueManager.instance.AddOption("HUB_PACKAGE", id, "About the missing package...", "QUESTIONS");
             }
 
-            if(GameManager.instance.currentJob.flagCollection.CheckFlag("KNOWLEDGE_SAMMY_DALE"))
+            if(GameManager.JobFlags.CheckFlag("KNOWLEDGE_SAMMY_DALE"))
             {
                 DialogueManager.instance.AddOption("HUB_DOWNSIZING", id, "What's the beef between Sammy and Dale?");
             }
@@ -66,11 +66,11 @@ public class Arlene : NPC
             }
             else
             {
-                GameManager.instance.currentJob.flagCollection.SetFlag("KNOWLEDGE_PACKAGE", true);
+                GameManager.JobFlags.SetFlag("KNOWLEDGE_PACKAGE", true);
                 DialogueManager.instance.Say("I've been better, to tell you the truth. I'm dealing with a missing package that's apparently pretty valuable.");
             }
 
-            if(GameManager.instance.currentJob.flagCollection.CheckStringFlag("QUEST_PACKAGE") == null) {
+            if(GameManager.JobFlags.CheckStringFlag("QUEST_PACKAGE") == null) {
                 DialogueManager.instance.AddOption("INQUIRE_PACKAGE_HELP", id, "Anything I can do?");
             }
 
@@ -121,7 +121,7 @@ public class Arlene : NPC
 
         if (message == "ACCEPT_PACKAGE_HELP")
         {
-            GameManager.instance.currentJob.flagCollection.SetStringFlag("QUEST_PACKAGE", "IN_PROGRESS");
+            GameManager.JobFlags.SetStringFlag("QUEST_PACKAGE", "IN_PROGRESS");
             DialogueManager.instance.Say("Thanks a lot!");
             DialogueManager.instance.AddOption("HUB_PACKAGE", id, "No problem.", "HUB");
             return;
@@ -129,7 +129,7 @@ public class Arlene : NPC
 
         if (message == "REJECT_PACKAGE_HELP")
         {
-            GameManager.instance.currentJob.flagCollection.SetStringFlag("QUEST_PACKAGE", "REJECTED");
+            GameManager.JobFlags.SetStringFlag("QUEST_PACKAGE", "REJECTED");
             DialogueManager.instance.Say("No need to be a dick, I wasn't asking for your help.");
             DialogueManager.instance.AddOption("OPEN", id, "...");
             return;

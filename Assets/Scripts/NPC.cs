@@ -92,7 +92,7 @@ public class NPC : MonoBehaviour, IInteractable
     }
 
     void OnJobRegister() {
-        GameManager.instance.RegisterNPC(this);
+        GameManager.RegisterNPC(this);
     }
 
     public virtual void OnProgressDay(int day) {

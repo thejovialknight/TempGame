@@ -40,7 +40,7 @@ public class MainMenuController : MonoBehaviour
         {
             if(index == 0)
             {
-                GameManager.instance.StartNewGame();
+                GameManager.StartNewGame();
             }
             else
             {

@@ -26,19 +26,19 @@ public class ExitDoor : MonoBehaviour
         if(message == "DAY")
         {
             DialogueManager.instance.Close();
-            GameManager.instance.ProgressDay();
+            GameManager.ProgressDay();
         }
 
         if (message == "JOB")
         {
             DialogueManager.instance.Close();
-            GameManager.instance.LeaveJob(true);
+            GameManager.LeaveJob(true);
         }
 
         if (message == "GAME")
         {
             DialogueManager.instance.Close();
-            GameManager.instance.QuitGame(true);
+            GameManager.QuitGame(true);
         }
 
         if (message == "CANCEL")
@@ -62,7 +62,7 @@ public class ExitDoor : MonoBehaviour
 
     IEnumerator MovePlayer(float length)
     {
-        PlayerController player = GameManager.instance.currentJob.player;
+        PlayerController player = GameManager.Player;
         GameManager.Pause(true, false);
         while (length > 0f)
         {

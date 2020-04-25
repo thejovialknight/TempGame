@@ -67,7 +67,7 @@ public class Minigame : MonoBehaviour
     }
 
     public void OnJobRegister() {
-        GameManager.instance.RegisterMinigame(this);
+        GameManager.RegisterMinigame(this);
         gameObject.SetActive(false);
     }
 
@@ -87,7 +87,7 @@ public class Minigame : MonoBehaviour
     public virtual void ShowIntro() {
         state = MinigameState.Intro;
 
-        GameManager.instance.gameState = GameState.Minigame;
+        GameManager.State = GameState.Minigame;
         GameManager.Pause(true, true);
 
         bestScoreText.text = bestScore.ToString();
@@ -153,7 +153,7 @@ public class Minigame : MonoBehaviour
     {
         cameraController.EndZoneOverride(true);
         GameManager.Resume();
-        GameManager.instance.ProgressTime();
+        GameManager.ProgressTime();
 
         outroScreen.SetActive(false);
         introScreen.SetActive(false);

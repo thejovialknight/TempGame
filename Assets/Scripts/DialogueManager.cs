@@ -84,7 +84,7 @@ public class DialogueManager : MonoBehaviour
         {
             panel.gameObject.SetActive(true);
 
-            GameManager.instance.gameState = GameState.Dialogue;
+            GameManager.State = GameState.Dialogue;
             GameManager.Pause(true, true);
         }
         characterCount = 0;

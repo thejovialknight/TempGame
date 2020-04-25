@@ -20,7 +20,7 @@ public class Sammy : NPC
 
             DialogueManager.instance.AddOption("MINIGAME", id, "Got any work for me?");
 
-            if(GameManager.instance.currentJob.flagCollection.CheckFlag("KNOWLEDGE_PACKAGE")) {
+            if(GameManager.JobFlags.CheckFlag("KNOWLEDGE_PACKAGE")) {
                 DialogueManager.instance.AddOption("MISSING_PACKAGE", id, "I have some questions about the missing package.");
             }
             else {
@@ -43,19 +43,19 @@ public class Sammy : NPC
         #region MISSING_PACKAGE
 
         if(message == "MISSING_PACKAGE") {
-            if(!GameManager.instance.currentJob.flagCollection.CheckFlag("KNOWLEDGE_PACKAGE")) {
+            if(!GameManager.JobFlags.CheckFlag("KNOWLEDGE_PACKAGE")) {
                 DialogueManager.instance.Say("Well, between Dale being a loser like always and now this missing package, I'd say things are just swell.");
                 DialogueManager.instance.AddOption("INQUIRE_DALE", id, "Dale?");
                 DialogueManager.instance.AddOption("INQUIRE_PACKAGE", id, "What missing package?");
 
-                GameManager.instance.currentJob.flagCollection.SetFlag("KNOWLEDGE_PACKAGE", true);
-                GameManager.instance.currentJob.flagCollection.SetFlag("KNOWLEDGE_SAMMY_DALE", true);
+                GameManager.JobFlags.SetFlag("KNOWLEDGE_PACKAGE", true);
+                GameManager.JobFlags.SetFlag("KNOWLEDGE_SAMMY_DALE", true);
             }
             else {
                 DialogueManager.instance.Say("I'm all ears.");
             }
 
-            if(GameManager.instance.currentJob.flagCollection.CheckStringFlag("PACKAGE_SAMMY_STATUS") != "ADMITTED") {
+            if(GameManager.JobFlags.CheckStringFlag("PACKAGE_SAMMY_STATUS") != "ADMITTED") {
                 DialogueManager.instance.AddOption("INQUIRE_PACKAGE_BLAME", id, "Was it you who lost it?");
             }
             DialogueManager.instance.AddOption("OPEN", id, "< BACK");
@@ -64,17 +64,17 @@ public class Sammy : NPC
 
         if(message == "INQUIRE_PACKAGE") {
             DialogueManager.instance.Say("It was probably Dale. He's always making us all look bad.");
-            GameManager.instance.currentJob.flagCollection.SetFlag("KNOWLEDGE_SAMMY_DALE", true);
+            GameManager.JobFlags.SetFlag("KNOWLEDGE_SAMMY_DALE", true);
             DialogueManager.instance.AddOption("MISSING_PACKAGE", id, "...");
         }
 
         if(message == "INQUIRE_PACKAGE_BLAME") {
             DialogueManager.instance.Say("It wasn't me! It was obviously Dale.");
-            GameManager.instance.currentJob.flagCollection.SetFlag("KNOWLEDGE_SAMMY_DALE", true);
+            GameManager.JobFlags.SetFlag("KNOWLEDGE_SAMMY_DALE", true);
             DialogueManager.instance.AddOption("PACKAGE_ACCUSE", id, "You're lying!");
             DialogueManager.instance.AddOption("PACKAGE_ACQUIT", id, "Okay, I believe you.");
             DialogueManager.instance.AddOption("MISSING_PACKAGE", id, "< I have more questions.");
-            GameManager.instance.currentJob.flagCollection.SetStringFlag("PACKAGE_SAMMY_STATUS", "DENIED");
+            GameManager.JobFlags.SetStringFlag("PACKAGE_SAMMY_STATUS", "DENIED");
         }
 
         if(message == "PACKAGE_ACCUSE") {
@@ -90,13 +90,13 @@ public class Sammy : NPC
         if(message == "PACKAGE_ADMIT") {
             DialogueManager.instance.Say("Okay, I admit it. I did [INSERT NEFARIOUS ACTIVITY REGARDING PACKAGE].");
             DialogueManager.instance.AddOption("OPEN", id, "Just as I suspected.");
-            GameManager.instance.currentJob.flagCollection.SetStringFlag("PACKAGE_SAMMY_STATUS", "ADMITTED");
+            GameManager.JobFlags.SetStringFlag("PACKAGE_SAMMY_STATUS", "ADMITTED");
         }
 
         if(message == "PACKAGE_ACQUIT") {
             DialogueManager.instance.Say("You'd better!");
             DialogueManager.instance.AddOption("OPEN", id, "...");
-            GameManager.instance.currentJob.flagCollection.SetStringFlag("PACKAGE_SAMMY_STATUS", "ACQUITTED");
+            GameManager.JobFlags.SetStringFlag("PACKAGE_SAMMY_STATUS", "ACQUITTED");
         }
 
         #endregion
@@ -129,7 +129,7 @@ public class Sammy : NPC
         #region DALE
 
         if(message == "INQUIRE_DALE") {
-            GameManager.instance.currentJob.flagCollection.SetFlag("KNOWLEDGE_SAMMY_DALE", true);
+            GameManager.JobFlags.SetFlag("KNOWLEDGE_SAMMY_DALE", true);
             DialogueManager.instance.Say("Waste-of-space, good-for-nothing, goody-two-shoes Dale. Is that who you mean?");
             DialogueManager.instance.AddOption("OPEN", id, "...");
         }

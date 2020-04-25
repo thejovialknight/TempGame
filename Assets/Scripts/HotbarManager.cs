@@ -71,11 +71,11 @@ public class HotbarManager : MonoBehaviour
         }
 
         if(keyPressed != -1) {
-            if(GameManager.instance.items.Count > keyPressed - 1) {
-                GameManager.instance.SetActiveItem(GameManager.instance.items[keyPressed - 1]);
+            if(GameManager.Inventory.Count > keyPressed - 1) {
+                GameManager.SetActiveItem(GameManager.Inventory[keyPressed - 1]);
             }
             else {
-                GameManager.instance.ClearActiveItem();
+                GameManager.ClearActiveItem();
             }
         }
     }
@@ -86,11 +86,11 @@ public class HotbarManager : MonoBehaviour
             image.color = Color.white;
         }
         
-        List<Item> inventoryItems = GameManager.instance.items;
+        List<Item> inventoryItems = GameManager.Inventory;
         for(int i = 0; i < inventoryItems.Count; i++) {
             if(slotImages.Count > i) {
                 slotImages[i].sprite = inventoryItems[i].icon;
-                if(GameManager.instance.GetActiveItem() != null && inventoryItems[i].id == GameManager.instance.GetActiveItem().id) {
+                if(GameManager.ActiveItem != null && inventoryItems[i].id == GameManager.ActiveItem.id) {
                     slotImages[i].color = Color.white;
                 }
                 else {

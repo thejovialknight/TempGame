@@ -64,8 +64,8 @@ public class LoadMenuController : MonoBehaviour
 
         if(Input.GetButtonDown("Interact"))
         {
-            GameManager.instance.filename = contentParent.GetChild(index).GetComponent<Text>().text;
-            GameManager.instance.LoadFile(GameManager.instance.filename);
+            GameManager.Filename = contentParent.GetChild(index).GetComponent<Text>().text;
+            GameManager.LoadFile(GameManager.Filename);
         }
     }
 }

@@ -11,16 +11,23 @@ public class GameManager : MonoBehaviour
     #region Properties
 
     // Singleton instance
-    public static GameManager instance;
+    static GameManager instance;
     
     [Header("Current Game Data")]
-    public SaveData saveData;
-    public string filename = null;
-    public Job currentJob;
-    public List<Item> items = new List<Item>();
-    public Item activeItem = null;
-    public FlagCollection flagCollection = new FlagCollection();
-    public GameState gameState = GameState.Default;
+    [SerializeField]
+    SaveData saveData;
+    [SerializeField]
+    string filename = null;
+    [SerializeField]
+    Job currentJob;
+    [SerializeField]
+    List<Item> inventory = new List<Item>();
+    [SerializeField]
+    Item activeItem = null;
+    [SerializeField]
+    FlagCollection flagCollection = new FlagCollection();
+    [SerializeField]
+    GameState gameState = GameState.Default;
 
     [Header("New Game Settings")]
     public string newGameScene = "Map";
@@ -28,6 +35,330 @@ public class GameManager : MonoBehaviour
     [Header("Misc Scenes")]
     public string mainMenuScene = "MainMenu";
     public string mapScene = "Map";
+
+    #endregion
+
+    #region Get/Set
+
+    public static SaveData SaveData
+    {
+        get
+        {
+            if (GameManager.instance != null)
+            {
+                return GameManager.instance.saveData;
+            }
+            return null;
+        }
+
+        set
+        {
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.saveData = value;
+            }
+        }
+    }
+
+    public static string Filename
+    {
+        get
+        {
+            if (GameManager.instance != null)
+            {
+                return GameManager.instance.filename;
+            }
+            return null;
+        }
+
+        set
+        {
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.filename = value;
+            }
+        }
+    }
+
+    public static List<Item> Inventory
+    {
+        get
+        {
+            if (GameManager.instance != null)
+            {
+                return GameManager.instance.inventory;
+            }
+            return null;
+        }
+
+        set
+        {
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.inventory = value;
+            }
+        }
+    }
+
+    public static Item ActiveItem
+    {
+        get
+        {
+            if (GameManager.instance != null)
+            {
+                return GameManager.instance.activeItem;
+            }
+            return null;
+        }
+
+        set
+        {
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.activeItem = value;
+            }
+        }
+    }
+
+    static Job Job
+    {
+        get
+        {
+            if (GameManager.instance != null)
+            {
+                return GameManager.instance.currentJob;
+            }
+            return null;
+        }
+
+        set
+        {
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.currentJob = value;
+            }
+        }
+    }
+
+    public static FlagCollection Flags
+    {
+        get
+        {
+            if (GameManager.instance != null)
+            {
+                return GameManager.instance.flagCollection;
+            }
+            return null;
+        }
+
+        set
+        {
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.flagCollection = value;
+            }
+        }
+    }
+
+    public static FlagCollection JobFlags
+    {
+        get
+        {
+            if (Job != null)
+            {
+                return Job.flagCollection;
+            }
+            return null;
+        }
+
+        set
+        {
+            if (Job != null)
+            {
+                Job.flagCollection = value;
+            }
+        }
+    }
+
+    public static GameState State
+    {
+        get
+        {
+            if (GameManager.instance != null)
+            {
+                return GameManager.instance.gameState;
+            }
+            return GameState.Default;
+        }
+
+        set
+        {
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.gameState = value;
+            }
+        }
+    }
+
+    public static PlayerController Player
+    {
+        get
+        {
+            if (Job != null)
+            {
+                return Job.player;
+            }
+            return null;
+        }
+
+        set
+        {
+            if (Job != null)
+            {
+                Job.player = value;
+            }
+        }
+    }
+
+    public static string JobTitle
+    {
+        get
+        {
+            if (Job != null)
+            {
+                return Job.title;
+            }
+            return null;
+        }
+
+        set
+        {
+            if (Job != null)
+            {
+                Job.title = value;
+            }
+        }
+    }
+
+    public static int Day
+    {
+        get
+        {
+            if (Job != null)
+            {
+                return Job.currentDay;
+            }
+            return 0;
+        }
+
+        set
+        {
+            if (Job != null)
+            {
+                Job.currentDay = value;
+            }
+        }
+    }
+
+    public static int TimeChunk
+    {
+        get
+        {
+            if (Job != null)
+            {
+                return Job.currentTimeChunk;
+            }
+            return 0;
+        }
+
+        set
+        {
+            if (Job != null)
+            {
+                Job.currentTimeChunk = value;
+            }
+        }
+    }
+
+    public static string TimeChunkString
+    {
+        get
+        {
+            if (Job != null)
+            {
+                return Job.timeChunks[Job.currentTimeChunk];
+            }
+            return null;
+        }
+
+        set
+        {
+            if (Job != null)
+            {
+                Job.timeChunks[Job.currentTimeChunk] = value;
+            }
+        }
+    }
+
+    public static List<NPC> NPCs
+    {
+        get
+        {
+            if (Job != null)
+            {
+                return Job.npcs;
+            }
+            return null;
+        }
+
+        set
+        {
+            if (Job != null)
+            {
+                Job.npcs = value;
+            }
+        }
+    }
+
+    public static List<Minigame> Minigames
+    {
+        get
+        {
+            if (Job != null)
+            {
+                return Job.minigames;
+            }
+            return null;
+        }
+
+        set
+        {
+            if (Job != null)
+            {
+                Job.minigames = value;
+            }
+        }
+    }
+
+    public static List<Container> Containers
+    {
+        get
+        {
+            if (Job != null)
+            {
+                return Job.containers;
+            }
+            return null;
+        }
+
+        set
+        {
+            if (Job != null)
+            {
+                Job.containers = value;
+            }
+        }
+    }
 
     #endregion
 
@@ -51,7 +382,7 @@ public class GameManager : MonoBehaviour
 
     #region Saving and Loading
 
-    public void SaveFile()
+    void SaveFile()
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Path.Combine(Application.persistentDataPath, "saves", filename + ".sav"));
@@ -71,10 +402,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        saveData.items = new string[items.Count];
-        if(items.Count > 0) {
+        saveData.items = new string[inventory.Count];
+        if(inventory.Count > 0) {
             for(int i = 0; i < saveData.items.Length; i++) {
-                saveData.items[i] = items[i].id;
+                saveData.items[i] = inventory[i].id;
             }
         }
 
@@ -85,7 +416,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("FILESAVED!");
     }
 
-    public void LoadFile(string fName)
+    public static void LoadFile(string fName)
     {
         // check if saves folder exists
         if(!Directory.Exists(Path.Combine(Application.persistentDataPath, "saves")))
@@ -99,7 +430,7 @@ public class GameManager : MonoBehaviour
             FileStream file = File.Open(Path.Combine(Application.persistentDataPath, "saves", fName), FileMode.Open);
 
             //deserialize
-            saveData = (SaveData)bf.Deserialize(file);
+            SaveData = (SaveData)bf.Deserialize(file);
             file.Close();
         }
         else
@@ -107,12 +438,12 @@ public class GameManager : MonoBehaviour
             Debug.Log("No save file to load!");
         }
 
-        flagCollection.LoadData(saveData.gameFlags);
-        items = ItemDatabase.instance.GetItemsFromIDs(saveData.items);
-        SceneManager.LoadSceneAsync(saveData.currentSceneName);
+        Flags.LoadData(SaveData.gameFlags);
+        Inventory = ItemDatabase.instance.GetItemsFromIDs(SaveData.items);
+        SceneManager.LoadSceneAsync(SaveData.currentSceneName);
     }
 
-    public void LoadJob() {
+    void LoadJob() {
         if(currentJob != null) {
             if(saveData == null) {
                 saveData = new SaveData();
@@ -139,31 +470,31 @@ public class GameManager : MonoBehaviour
 
     #region Database Registration
 
-    public void RegisterJob(Job job)
+    public static void RegisterJob(Job job)
     {
-        currentJob = job;
+        Job = job;
         MessageEventManager.RegisterJob();
-        LoadJob();
+        GameManager.instance.LoadJob();
     }
 
-    public void RegisterPlayer(PlayerController player)
+    public static void RegisterPlayer(PlayerController player)
     {
-        currentJob.player = player;
+        Job.player = player;
     }
 
-    public void RegisterNPC(NPC npc)
+    public static void RegisterNPC(NPC npc)
     {
-        currentJob.npcs.Add(npc);
+        Job.npcs.Add(npc);
     }
 
-    public void RegisterMinigame(Minigame minigame)
+    public static void RegisterMinigame(Minigame minigame)
     {
-        currentJob.minigames.Add(minigame);
+        Job.minigames.Add(minigame);
     }
 
-    public void RegisterContainer(Container container)
+    public static void RegisterContainer(Container container)
     {
-        currentJob.containers.Add(container);
+        Job.containers.Add(container);
     }
 
     #endregion
@@ -203,21 +534,21 @@ public class GameManager : MonoBehaviour
     public delegate void IntEvent(int arg);
 
     public static event IntEvent OnProgressTime;
-    public void ProgressTime() {
-        currentJob.currentTimeChunk++;
+    public static void ProgressTime() {
+        TimeChunk++;
 
         if(OnProgressTime != null) {
-            OnProgressTime(currentJob.currentTimeChunk);
+            OnProgressTime(TimeChunk);
         }
     }
 
     public static event IntEvent OnProgressDay;
-    public void ProgressDay() {
-        currentJob.currentDay++;
-        currentJob.currentTimeChunk = 0;
+    public static void ProgressDay() {
+        Day++;
+        TimeChunk = 0;
 
         if(OnProgressDay != null) {
-            OnProgressDay(currentJob.currentDay);
+            OnProgressDay(Day);
         }
     }
 
@@ -230,94 +561,91 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    public void StartNewGame()
+    #region Game Management
+
+    public static void StartNewGame()
     {
-        filename = "Conner";
-        saveData = new SaveData();
-        ConstructJobs();
-        SceneManager.LoadSceneAsync(newGameScene);
+        instance.filename = "Conner";
+        SaveData = new SaveData();
+        instance.ConstructJobs();
+        SceneManager.LoadSceneAsync(instance.newGameScene);
     }
 
-    public void SetJobFlag(string id, bool isOn) {
-        currentJob.flagCollection.SetFlag(id, isOn);
-    }
-
-    public bool CheckJobFlag(string id) {
-        return currentJob.flagCollection.CheckFlag(id);
-    }
-
-    public void MovePlayerToSpawn()
+    public static void MovePlayerToSpawn()
     {
-        currentJob.player.transform.position = currentJob.playerSpawn.position;
+        Player.transform.position = Job.playerSpawn.position;
     }
 
-    public void LeaveJob(bool isSaving)
+    public static void LeaveJob(bool isSaving)
     {
         JobExit();
         MovePlayerToSpawn();
         
         if (isSaving)
         {
-            SaveFile();
+            instance.SaveFile();
         }
 
-        SceneManager.LoadSceneAsync(mapScene);
+        SceneManager.LoadSceneAsync(instance.mapScene);
     }
 
-    public void QuitGame(bool isSaving)
+    public static void QuitGame(bool isSaving)
     {
         MovePlayerToSpawn();
         if (isSaving)
         {
-            SaveFile();
+            instance.SaveFile();
         }
 
-        SceneManager.LoadSceneAsync(mainMenuScene);
+        SceneManager.LoadSceneAsync(instance.mainMenuScene);
 
-        saveData = null;
-        items.Clear();
-        currentJob = null;
-        filename = null;
-        flagCollection.Clear();
+        SaveData = null;
+        Inventory.Clear();
+        Job = null;
+        instance.filename = null;
+        Flags.Clear();
     }
 
-    public Item GetActiveItem() {
-        return activeItem;
-    }
+    #endregion
 
-    public void SetActiveItem(Item item)
+    #region Inventory Management
+
+    public static void SetActiveItem(Item item)
     {
-        activeItem = item;
-        if(currentJob != null && currentJob.player != null)
+        GameManager.ActiveItem = item;
+        if(Job != null && Player != null)
         {
-            currentJob.player.carriedSprite = item.worldSprite;
+            Player.carriedSprite = item.worldSprite;
         }
     }
 
-    public void ClearActiveItem()
+    public static void ClearActiveItem()
     {
-        activeItem = null;
-        if (currentJob != null && currentJob.player != null)
+        ActiveItem = null;
+        if (Job != null && Player != null)
         {
-            currentJob.player.carriedSprite = null;
+            Player.carriedSprite = null;
         }
     }
 
-    public void AddItem(Item item) {
-        items.Add(item);
+    public static void AddItem(Item item) {
+        Inventory.Add(item);
         SetActiveItem(item);
     }
 
-    public void RemoveItem(string id) {
-        if(items.Exists(x => x.id == id)) {
-            Item item = items.Find(x => x.id == id);
-            if(item.id == activeItem.id)
+    public static void RemoveItem(string id) {
+        if(Inventory.Exists(x => x.id == id)) {
+            Item item = Inventory.Find(x => x.id == id);
+            if(item.id == ActiveItem.id)
             {
                 ClearActiveItem();
             }
-            items.Remove(item);
+            Inventory.Remove(item);
         }
     }
+
+    #endregion
+
 }
 
 public enum GameState { Default, DefaultPause, Menu, Dialogue, PauseMenu, Minigame };

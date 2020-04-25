@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void OnJobRegister() {
-        GameManager.instance.RegisterPlayer(this);
+        GameManager.RegisterPlayer(this);
     }
 
     void Awake()

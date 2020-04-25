@@ -41,7 +41,7 @@ public class Hank : NPC
 
                 DialogueManager.instance.AddOption("NO_WORK", id, "Got any work for me?");
 
-                if(GameManager.instance.currentJob.flagCollection.CheckFlag("KNOWLEDGE_PACKAGE")) {
+                if(GameManager.JobFlags.CheckFlag("KNOWLEDGE_PACKAGE")) {
                     DialogueManager.instance.AddOption("MISSING_PACKAGE", id, "I have some questions about the missing package.");
                 }
                 else {
@@ -130,8 +130,8 @@ public class Hank : NPC
         #region MISSING_PACKAGE
 
         if(message == "MISSING_PACKAGE") {
-            if(!GameManager.instance.currentJob.flagCollection.CheckFlag("KNOWLEDGE_PACKAGE")) {
-                GameManager.instance.currentJob.flagCollection.SetFlag("KNOWLEDGE_PACKAGE", true);
+            if(!GameManager.JobFlags.CheckFlag("KNOWLEDGE_PACKAGE")) {
+                GameManager.JobFlags.SetFlag("KNOWLEDGE_PACKAGE", true);
                 DialogueManager.instance.Say("Oh, we're all having a rough morning what with the missing package.");
                 DialogueManager.instance.AddOption("INQUIRE_PACKAGE", id, "What missing package?");
             }
@@ -139,7 +139,7 @@ public class Hank : NPC
                 DialogueManager.instance.Say("I'm all ears.");
             }
 
-            if(GameManager.instance.currentJob.flagCollection.CheckStringFlag("PACKAGE_HANK_STATUS") != "ADMITTED") {
+            if(GameManager.JobFlags.CheckStringFlag("PACKAGE_HANK_STATUS") != "ADMITTED") {
                 DialogueManager.instance.AddOption("INQUIRE_PACKAGE_BLAME", id, "Was it you who lost it?");
             }
             DialogueManager.instance.AddOption("OPEN", id, "< BACK");
@@ -156,7 +156,7 @@ public class Hank : NPC
             DialogueManager.instance.AddOption("PACKAGE_ACCUSE", id, "You're lying!");
             DialogueManager.instance.AddOption("PACKAGE_ACQUIT", id, "Okay, I believe you.");
             DialogueManager.instance.AddOption("MISSING_PACKAGE", id, "< I have more questions.");
-            GameManager.instance.currentJob.flagCollection.SetStringFlag("PACKAGE_HANK_STATUS", "DENIED");
+            GameManager.JobFlags.SetStringFlag("PACKAGE_HANK_STATUS", "DENIED");
         }
 
         if(message == "PACKAGE_ACCUSE") {
@@ -172,13 +172,13 @@ public class Hank : NPC
         if(message == "PACKAGE_ADMIT") {
             DialogueManager.instance.Say("Okay, I admit it. I did [INSERT NEFARIOUS ACTIVITY REGARDING PACKAGE].");
             DialogueManager.instance.AddOption("OPEN", id, "Just as I suspected.");
-            GameManager.instance.currentJob.flagCollection.SetStringFlag("PACKAGE_HANK_STATUS", "ADMITTED");
+            GameManager.JobFlags.SetStringFlag("PACKAGE_HANK_STATUS", "ADMITTED");
         }
 
         if(message == "PACKAGE_ACQUIT") {
             DialogueManager.instance.Say("I knew you'd understand. I'm not a thief.");
             DialogueManager.instance.AddOption("OPEN", id, "...");
-            GameManager.instance.currentJob.flagCollection.SetStringFlag("PACKAGE_HANK_STATUS", "ACQUITTED");
+            GameManager.JobFlags.SetStringFlag("PACKAGE_HANK_STATUS", "ACQUITTED");
         }
 
         #endregion

@@ -49,11 +49,11 @@ public class PlayerInput : MonoBehaviour
         }
 
         if(keyPressed != -1) {
-            if(GameManager.instance.items.Count > keyPressed - 1) {
-                GameManager.instance.SetActiveItem(GameManager.instance.items[keyPressed - 1]);
+            if(GameManager.Inventory.Count > keyPressed - 1) {
+                GameManager.SetActiveItem(GameManager.Inventory[keyPressed - 1]);
             }
             else {
-                GameManager.instance.ClearActiveItem();
+                GameManager.ClearActiveItem();
             }
         }
     }

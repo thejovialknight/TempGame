@@ -11,12 +11,12 @@ public class PauseController : MonoBehaviour
     void Update() {
         if(Input.GetButtonDown("Pause")) {
             isPaused = !isPaused;
-            if(!isPaused && GameManager.instance.gameState == GameState.Default) {
-                GameManager.instance.gameState = GameState.PauseMenu;
+            if(!isPaused && GameManager.State == GameState.Default) {
+                GameManager.State = GameState.PauseMenu;
                 GameManager.Pause(true, true);
                 pauseObject.SetActive(true);
             }
-            else if(isPaused && GameManager.instance.gameState == GameState.PauseMenu) {
+            else if(isPaused && GameManager.State == GameState.PauseMenu) {
                 GameManager.Resume();
                 pauseObject.SetActive(false);
             }

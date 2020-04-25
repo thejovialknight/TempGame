@@ -36,7 +36,7 @@ public class Dale : NPC
             DialogueManager.instance.Say("Sammy doesn't like me very much. I suppose I don't like her very much either.");
             DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "...");
 
-            GameManager.instance.currentJob.flagCollection.SetFlag("KNOWLEDGE_SAMMY_DALE", true);
+            GameManager.JobFlags.SetFlag("KNOWLEDGE_SAMMY_DALE", true);
             return;
         }
 

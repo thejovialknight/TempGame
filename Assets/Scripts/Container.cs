@@ -23,7 +23,7 @@ public class Container : MonoBehaviour, IInteractable
 
     void OnJobRegister()
     {
-        GameManager.instance.RegisterContainer(this);
+        GameManager.RegisterContainer(this);
     }
 
     void OnDialogue(string id, string message, params string[] args) {
@@ -42,7 +42,7 @@ public class Container : MonoBehaviour, IInteractable
             if (inventory.Exists(x => x.id == itemIDToTake))
             {
                 itemToTake = inventory.Find(x => x.id == itemIDToTake);
-                GameManager.instance.AddItem(itemToTake);
+                GameManager.AddItem(itemToTake);
                 inventory.Remove(itemToTake);
             }
 
