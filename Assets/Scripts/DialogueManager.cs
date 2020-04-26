@@ -67,63 +67,63 @@ public class DialogueManager : MonoBehaviour
         MessageEventManager.Dialogue(option.receiverID, option.nodeID, option.args);
     }
 
-    public void Close()
+    public static void Close()
     {
-        dialogue = "";
-        dialogueText.text = "";
+        DialogueManager.instance.dialogue = "";
+        DialogueManager.instance.dialogueText.text = "";
         ClearOptions();
-        panel.gameObject.SetActive(false);
+        DialogueManager.instance.panel.gameObject.SetActive(false);
         GameManager.Resume();
-        desiredPanelSize = 0f;
-        desiredOptionsSize = 0f;
+        DialogueManager.instance.desiredPanelSize = 0f;
+        DialogueManager.instance.desiredOptionsSize = 0f;
     }
 
-    public void Say(string msg)
+    public static void Say(string msg)
     {
-        if (!panel.gameObject.activeInHierarchy)
+        if (!DialogueManager.instance.panel.gameObject.activeInHierarchy)
         {
-            panel.gameObject.SetActive(true);
+            DialogueManager.instance.panel.gameObject.SetActive(true);
 
             GameManager.State = GameState.Dialogue;
             GameManager.Pause(true, true);
         }
-        characterCount = 0;
+        DialogueManager.instance.characterCount = 0;
         ClearOptions();
-        dialogue = msg;
+        DialogueManager.instance.dialogue = msg;
     }
 
-    public void GotoNode(string nodeID, string receiverID, params string[] args)
+    public static void GotoNode(string nodeID, string receiverID, params string[] args)
     {
         MessageEventManager.Dialogue(receiverID, nodeID, args);
     }
 
-    public void GotoNode(string nodeID, string receiverID)
+    public static void GotoNode(string nodeID, string receiverID)
     {
         GotoNode(nodeID, receiverID, new string[0]);
     }
 
-    public void AddOption(DialogueOption option)
+    public static void AddOption(DialogueOption option)
     {
-        dialogueOptions.Add(option);
-        GameObject optionButton = GameObject.Instantiate(optionButtonPrefab, optionsContentTransform);
+        DialogueManager.instance.dialogueOptions.Add(option);
+        GameObject optionButton = GameObject.Instantiate(DialogueManager.instance.optionButtonPrefab, DialogueManager.instance.optionsContentTransform);
         optionButton.GetComponent<DialogueOptionButton>().Init(option);
     }
 
-    public void AddOption(string nodeID, string receiverID, string message, params string[] args)
+    public static void AddOption(string nodeID, string receiverID, string message, params string[] args)
     {
         AddOption(new DialogueOption(nodeID, receiverID, message, args));
     }
 
-    public void AddOption(string nodeID, string receiverID, string message)
+    public static void AddOption(string nodeID, string receiverID, string message)
     {
         AddOption(new DialogueOption(nodeID, receiverID, message, new string[0]));
     }
 
-    public void ClearOptions()
+    public static void ClearOptions()
     {
-        foreach (Transform child in optionsContentTransform)
+        foreach (Transform child in DialogueManager.instance.optionsContentTransform)
         {
-            dialogueOptions.Clear();
+            DialogueManager.instance.dialogueOptions.Clear();
             GameObject.Destroy(child.gameObject);
         }
     }

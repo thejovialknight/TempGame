@@ -17,7 +17,7 @@ public class Arlene : NPC
         {
             if(DialogueManager.CheckArg(args, 0) == "NEVERMIND") 
             {
-                DialogueManager.instance.Say("Okay, then.");
+                DialogueManager.Say("Okay, then.");
             }
             else 
             {
@@ -28,27 +28,27 @@ public class Arlene : NPC
                     flagCollection.SetFlag("INTRODUCED", true);
                 }
 
-                DialogueManager.instance.Say(introduction + "Do you have any questions for me?");
+                DialogueManager.Say(introduction + "Do you have any questions for me?");
             }
 
-            DialogueManager.instance.AddOption("INQUIRE_WORK", id, "Any work I can do?");
+            DialogueManager.AddOption("INQUIRE_WORK", id, "Any work I can do?");
 
             if(!GameManager.JobFlags.CheckFlag("KNOWLEDGE_PACKAGE"))
             {
-                DialogueManager.instance.AddOption("HUB_PACKAGE", id, "How are you doing?");
+                DialogueManager.AddOption("HUB_PACKAGE", id, "How are you doing?");
             }
             else if(GameManager.JobFlags.CheckFlag("KNOWLEDGE_PACKAGE"))
             {
-                DialogueManager.instance.AddOption("HUB_PACKAGE", id, "About the missing package...", "QUESTIONS");
+                DialogueManager.AddOption("HUB_PACKAGE", id, "About the missing package...", "QUESTIONS");
             }
 
             if(GameManager.JobFlags.CheckFlag("KNOWLEDGE_SAMMY_DALE"))
             {
-                DialogueManager.instance.AddOption("HUB_DOWNSIZING", id, "What's the beef between Sammy and Dale?");
+                DialogueManager.AddOption("HUB_DOWNSIZING", id, "What's the beef between Sammy and Dale?");
             }
 
-            DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "What do you think of...");
-            DialogueManager.instance.AddOption("CLOSE", id, "[X] Nope, see you later!");
+            DialogueManager.AddOption("INQUIRE_CHARACTER", id, "What do you think of...");
+            DialogueManager.AddOption("CLOSE", id, "[X] Nope, see you later!");
             return;
         }
 
@@ -58,80 +58,80 @@ public class Arlene : NPC
         {
             if (DialogueManager.CheckArg(args, 0) == "QUESTIONS")
             {
-                DialogueManager.instance.Say("Okay, shoot.");
+                DialogueManager.Say("Okay, shoot.");
             }
             else if (DialogueManager.CheckArg(args, 0) == "HUB")
             {
-                DialogueManager.instance.Say("Anything else?");
+                DialogueManager.Say("Anything else?");
             }
             else
             {
                 GameManager.JobFlags.SetFlag("KNOWLEDGE_PACKAGE", true);
-                DialogueManager.instance.Say("I've been better, to tell you the truth. I'm dealing with a missing package that's apparently pretty valuable.");
+                DialogueManager.Say("I've been better, to tell you the truth. I'm dealing with a missing package that's apparently pretty valuable.");
             }
 
             if(GameManager.JobFlags.CheckStringFlag("QUEST_PACKAGE") == null) {
-                DialogueManager.instance.AddOption("INQUIRE_PACKAGE_HELP", id, "Anything I can do?");
+                DialogueManager.AddOption("INQUIRE_PACKAGE_HELP", id, "Anything I can do?");
             }
 
-            DialogueManager.instance.AddOption("INQUIRE_PACKAGE_CONTENT", id, "What's in the box?");
-            DialogueManager.instance.AddOption("OPEN", id, "< BACK");
+            DialogueManager.AddOption("INQUIRE_PACKAGE_CONTENT", id, "What's in the box?");
+            DialogueManager.AddOption("OPEN", id, "< BACK");
             return;
         }
 
         if (message == "INQUIRE_PACKAGE_CONTENT")
         {
-            DialogueManager.instance.Say("I'm not really allowed to say, but I can tell you it's a pain in my ass!");
-            DialogueManager.instance.AddOption("HUB_PACKAGE", id, "Got it.", "HUB");
-            DialogueManager.instance.AddOption("INQUIRE_PACKAGE_CONTENT_2", id, "What's in the box?? What's in the box!?");
+            DialogueManager.Say("I'm not really allowed to say, but I can tell you it's a pain in my ass!");
+            DialogueManager.AddOption("HUB_PACKAGE", id, "Got it.", "HUB");
+            DialogueManager.AddOption("INQUIRE_PACKAGE_CONTENT_2", id, "What's in the box?? What's in the box!?");
             return;
         }
 
         if (message == "INQUIRE_PACKAGE_CONTENT_2")
         {
             flagCollection.SetFlag("PLAYER_IS_ODD", true);
-            DialogueManager.instance.Say("Hey, are you alright?");
-            DialogueManager.instance.AddOption("WHATS_BOX_YES", id, "Yes, I'm perfectly fine, why do you ask?");
-            DialogueManager.instance.AddOption("WHATS_BOX_NO", id, "No, not really.");
+            DialogueManager.Say("Hey, are you alright?");
+            DialogueManager.AddOption("WHATS_BOX_YES", id, "Yes, I'm perfectly fine, why do you ask?");
+            DialogueManager.AddOption("WHATS_BOX_NO", id, "No, not really.");
             return;
         }
 
         if (message == "WHATS_BOX_YES")
         {
-            DialogueManager.instance.Say("Oh, uh, nothing. You just seemed a little... nevermind.");
-            DialogueManager.instance.AddOption("HUB_PACKAGE", id, "Okay.", "HUB");
+            DialogueManager.Say("Oh, uh, nothing. You just seemed a little... nevermind.");
+            DialogueManager.AddOption("HUB_PACKAGE", id, "Okay.", "HUB");
             return;
         }
 
         if (message == "WHATS_BOX_NO")
         {
-            DialogueManager.instance.Say("You know, you're a bit of a weird dude.");
-            DialogueManager.instance.AddOption("HUB_PACKAGE", id, "Yes.", "HUB");
+            DialogueManager.Say("You know, you're a bit of a weird dude.");
+            DialogueManager.AddOption("HUB_PACKAGE", id, "Yes.", "HUB");
             return;
         }
 
         if (message == "INQUIRE_PACKAGE_HELP")
         {
-            DialogueManager.instance.Say("If you could try gathering some information from the others that would probably help me get to the bottom of this.");
-            DialogueManager.instance.AddOption("ACCEPT_PACKAGE_HELP", id, "Yes, ma'am.");
-            DialogueManager.instance.AddOption("REJECT_PACKAGE_HELP", id, "Not my problem, sorry.");
-            DialogueManager.instance.AddOption("HUB_PACKAGE", id, "< I have some more questions first.", "QUESTIONS");
+            DialogueManager.Say("If you could try gathering some information from the others that would probably help me get to the bottom of this.");
+            DialogueManager.AddOption("ACCEPT_PACKAGE_HELP", id, "Yes, ma'am.");
+            DialogueManager.AddOption("REJECT_PACKAGE_HELP", id, "Not my problem, sorry.");
+            DialogueManager.AddOption("HUB_PACKAGE", id, "< I have some more questions first.", "QUESTIONS");
             return;
         }
 
         if (message == "ACCEPT_PACKAGE_HELP")
         {
             GameManager.JobFlags.SetStringFlag("QUEST_PACKAGE", "IN_PROGRESS");
-            DialogueManager.instance.Say("Thanks a lot!");
-            DialogueManager.instance.AddOption("HUB_PACKAGE", id, "No problem.", "HUB");
+            DialogueManager.Say("Thanks a lot!");
+            DialogueManager.AddOption("HUB_PACKAGE", id, "No problem.", "HUB");
             return;
         }
 
         if (message == "REJECT_PACKAGE_HELP")
         {
             GameManager.JobFlags.SetStringFlag("QUEST_PACKAGE", "REJECTED");
-            DialogueManager.instance.Say("No need to be a dick, I wasn't asking for your help.");
-            DialogueManager.instance.AddOption("OPEN", id, "...");
+            DialogueManager.Say("No need to be a dick, I wasn't asking for your help.");
+            DialogueManager.AddOption("OPEN", id, "...");
             return;
         }
 
@@ -141,15 +141,15 @@ public class Arlene : NPC
 
         if (message == "INQUIRE_WORK")
         {
-            DialogueManager.instance.Say("I'm sure your fellow employees have a lot on their plate at the moment, you should go ask one of them.");
-            DialogueManager.instance.AddOption("INQUIRE_WORK2", id, "...");
+            DialogueManager.Say("I'm sure your fellow employees have a lot on their plate at the moment, you should go ask one of them.");
+            DialogueManager.AddOption("INQUIRE_WORK2", id, "...");
             return;
         }
 
         if (message == "INQUIRE_WORK2")
         {
-            DialogueManager.instance.Say("I think Sammy mentioned she was falling a little behind on sorting mail today, maybe you should try your hand at that!");
-            DialogueManager.instance.AddOption("OPEN", id, "...");
+            DialogueManager.Say("I think Sammy mentioned she was falling a little behind on sorting mail today, maybe you should try your hand at that!");
+            DialogueManager.AddOption("OPEN", id, "...");
             return;
         }
 
@@ -158,10 +158,10 @@ public class Arlene : NPC
         #region HUB_DOWNSIZING
 
         if(message == "HUB_DOWNSIZING") {
-            DialogueManager.instance.Say("God, those two are a pain in my ass. I don't know what it is, but I'm sure Sammy started it.");
+            DialogueManager.Say("God, those two are a pain in my ass. I don't know what it is, but I'm sure Sammy started it.");
 
             // TAKE TO NEXT NODE WHERE SHE ASKS ABOUT FIRING
-            DialogueManager.instance.AddOption("OPEN", id, "...");
+            DialogueManager.AddOption("OPEN", id, "...");
         }
 
         #endregion
@@ -170,37 +170,37 @@ public class Arlene : NPC
 
         if (message == "INQUIRE_CHARACTER")
         {
-            DialogueManager.instance.Say("...");
-            DialogueManager.instance.AddOption("INQUIRE_DALE", id, "...Dale?");
-            DialogueManager.instance.AddOption("INQUIRE_SAMMY", id, "...Sammy?");
-            DialogueManager.instance.AddOption("INQUIRE_HANK", id, "...Hank?");
-            DialogueManager.instance.AddOption("OPEN", id, "< BACK");
+            DialogueManager.Say("...");
+            DialogueManager.AddOption("INQUIRE_DALE", id, "...Dale?");
+            DialogueManager.AddOption("INQUIRE_SAMMY", id, "...Sammy?");
+            DialogueManager.AddOption("INQUIRE_HANK", id, "...Hank?");
+            DialogueManager.AddOption("OPEN", id, "< BACK");
             return;
         }
 
         if (message == "INQUIRE_DALE")
         {
-            DialogueManager.instance.Say("Dale is a hard worker and isn't quite as dull as he seems. He's not great with customers, though.");
-            DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "...");
+            DialogueManager.Say("Dale is a hard worker and isn't quite as dull as he seems. He's not great with customers, though.");
+            DialogueManager.AddOption("INQUIRE_CHARACTER", id, "...");
             return;
         }
 
         if (message == "INQUIRE_SAMMY")
         {
-            DialogueManager.instance.Say("Sammy is a bit intense, but she does her job quickly and efficiently, so I can't complain.");
-            DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "...");
+            DialogueManager.Say("Sammy is a bit intense, but she does her job quickly and efficiently, so I can't complain.");
+            DialogueManager.AddOption("INQUIRE_CHARACTER", id, "...");
             return;
         }
 
         if (message == "INQUIRE_HANK")
         {
             if(flagCollection.CheckFlag("PLAYER_IS_ODD")) {
-                DialogueManager.instance.Say("Hank's a bit... odd. I'm sure you two woud get along nicely.");
+                DialogueManager.Say("Hank's a bit... odd. I'm sure you two woud get along nicely.");
             }
             else {
-                DialogueManager.instance.Say("Between you and me, Hank's a bit of a weirdo, but I suppose that's none of my business.");
+                DialogueManager.Say("Between you and me, Hank's a bit of a weirdo, but I suppose that's none of my business.");
             }
-            DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "...");
+            DialogueManager.AddOption("INQUIRE_CHARACTER", id, "...");
             return;
         }
 

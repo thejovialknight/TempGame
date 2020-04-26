@@ -28,28 +28,28 @@ public class Hank : NPC
             if (!flagCollection.CheckFlag("INTRODUCED"))
             {
                 flagCollection.SetFlag("INTRODUCED", true);
-                DialogueManager.instance.Say("Hey, man, you ever tried tortoise?");
-                DialogueManager.instance.AddOption("TORTOISE_WHAT", id, "I'm sorry, what was that?");
-                DialogueManager.instance.AddOption("TORTOISE_INQUIRE_FOOD", id, "As food or as a friend?");
-                DialogueManager.instance.AddOption("TORTOISE_NO", id, "I don't think so, no.");
-                DialogueManager.instance.AddOption("TORTOISE_SURE", id, "Sure.");
-                DialogueManager.instance.AddOption("CLOSE", id, "Okay, nevermind.");
+                DialogueManager.Say("Hey, man, you ever tried tortoise?");
+                DialogueManager.AddOption("TORTOISE_WHAT", id, "I'm sorry, what was that?");
+                DialogueManager.AddOption("TORTOISE_INQUIRE_FOOD", id, "As food or as a friend?");
+                DialogueManager.AddOption("TORTOISE_NO", id, "I don't think so, no.");
+                DialogueManager.AddOption("TORTOISE_SURE", id, "Sure.");
+                DialogueManager.AddOption("CLOSE", id, "Okay, nevermind.");
             }
             else 
             {
-                DialogueManager.instance.Say("What's the what?");
+                DialogueManager.Say("What's the what?");
 
-                DialogueManager.instance.AddOption("NO_WORK", id, "Got any work for me?");
+                DialogueManager.AddOption("NO_WORK", id, "Got any work for me?");
 
                 if(GameManager.JobFlags.CheckFlag("KNOWLEDGE_PACKAGE")) {
-                    DialogueManager.instance.AddOption("MISSING_PACKAGE", id, "I have some questions about the missing package.");
+                    DialogueManager.AddOption("MISSING_PACKAGE", id, "I have some questions about the missing package.");
                 }
                 else {
-                    DialogueManager.instance.AddOption("MISSING_PACKAGE", id, "What's up with you?");
+                    DialogueManager.AddOption("MISSING_PACKAGE", id, "What's up with you?");
                 }
 
-                DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "What do you think of...");
-                DialogueManager.instance.AddOption("CLOSE", id, "[X] Oh, nothing much.");
+                DialogueManager.AddOption("INQUIRE_CHARACTER", id, "What do you think of...");
+                DialogueManager.AddOption("CLOSE", id, "[X] Oh, nothing much.");
             }
             return;
         }
@@ -58,70 +58,70 @@ public class Hank : NPC
 
         if (message == "TORTOISE_WHAT")
         {
-            DialogueManager.instance.Say("You know, tortoise.");
-            DialogueManager.instance.AddOption("TORTOISE_SURE", id, "Sure.");
+            DialogueManager.Say("You know, tortoise.");
+            DialogueManager.AddOption("TORTOISE_SURE", id, "Sure.");
         }
 
         if (message == "TORTOISE_INQUIRE_FOOD")
         {
-            DialogueManager.instance.Say("Either or, I'd say.");
-            DialogueManager.instance.AddOption("TORTOISE_SURE", id, "Sure.");
-            DialogueManager.instance.AddOption("TORTOISE_NO", id, "No, definitely not.");
-            DialogueManager.instance.AddOption("TORTOISE_IDK", id, "I can't answer without more information");
+            DialogueManager.Say("Either or, I'd say.");
+            DialogueManager.AddOption("TORTOISE_SURE", id, "Sure.");
+            DialogueManager.AddOption("TORTOISE_NO", id, "No, definitely not.");
+            DialogueManager.AddOption("TORTOISE_IDK", id, "I can't answer without more information");
         }
 
         if (message == "TORTOISE_SURE")
         {
-            DialogueManager.instance.Say("You haven't tried tortoise. I can always tell when someone's tried tortoise, and you haven't.");
-            DialogueManager.instance.AddOption("TORTOISE_NO", id, "Okay, you got me.");
+            DialogueManager.Say("You haven't tried tortoise. I can always tell when someone's tried tortoise, and you haven't.");
+            DialogueManager.AddOption("TORTOISE_NO", id, "Okay, you got me.");
         }
 
         if (message == "TORTOISE_NO")
         {
-            DialogueManager.instance.Say("That's okay, I'm not surprised.");
-            DialogueManager.instance.AddOption("CLOSE", id, "See you later!");
+            DialogueManager.Say("That's okay, I'm not surprised.");
+            DialogueManager.AddOption("CLOSE", id, "See you later!");
         }
 
         if (message == "TORTOISE_IDK")
         {
-            DialogueManager.instance.Say("That's understandable. I'll let it go.");
-            DialogueManager.instance.AddOption("CLOSE", id, "Okay.");
+            DialogueManager.Say("That's understandable. I'll let it go.");
+            DialogueManager.AddOption("CLOSE", id, "Okay.");
         }
 
         #endregion
 
         if(message == "INQUIRE_WORK") {
-            DialogueManager.instance.Say("Nothing going at the moment, I just got back from my morning delivery.");
-            DialogueManager.instance.AddOption("OPEN", id, "...");
+            DialogueManager.Say("Nothing going at the moment, I just got back from my morning delivery.");
+            DialogueManager.AddOption("OPEN", id, "...");
             return;
         }
 
         #region INQUIRE_CHARACTER
 
         if(message == "INQUIRE_CHARACTER") {
-            DialogueManager.instance.Say("...");
-            DialogueManager.instance.AddOption("INQUIRE_DALE", id, "...Dale?");
-            DialogueManager.instance.AddOption("INQUIRE_SAMMY", id, "...Sammy?");
-            DialogueManager.instance.AddOption("INQUIRE_ARLENE", id, "...Arlene?");
-            DialogueManager.instance.AddOption("OPEN", id, "< BACK");
+            DialogueManager.Say("...");
+            DialogueManager.AddOption("INQUIRE_DALE", id, "...Dale?");
+            DialogueManager.AddOption("INQUIRE_SAMMY", id, "...Sammy?");
+            DialogueManager.AddOption("INQUIRE_ARLENE", id, "...Arlene?");
+            DialogueManager.AddOption("OPEN", id, "< BACK");
             return;
         }
 
         if(message == "INQUIRE_DALE") {
-            DialogueManager.instance.Say("Dale's a bit quiet, but he's alright.");
-            DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "...");
+            DialogueManager.Say("Dale's a bit quiet, but he's alright.");
+            DialogueManager.AddOption("INQUIRE_CHARACTER", id, "...");
             return;
         }
 
         if(message == "INQUIRE_SAMMY") {
-            DialogueManager.instance.Say("Sammy scares me a bit, but I've been through far worse.");
-            DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "...");
+            DialogueManager.Say("Sammy scares me a bit, but I've been through far worse.");
+            DialogueManager.AddOption("INQUIRE_CHARACTER", id, "...");
             return;
         }
 
         if(message == "INQUIRE_ARLENE") {
-            DialogueManager.instance.Say("Arlene's great. Tough, but fair, and lets me do my job.");
-            DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "...");
+            DialogueManager.Say("Arlene's great. Tough, but fair, and lets me do my job.");
+            DialogueManager.AddOption("INQUIRE_CHARACTER", id, "...");
             return;
         }
 
@@ -132,52 +132,52 @@ public class Hank : NPC
         if(message == "MISSING_PACKAGE") {
             if(!GameManager.JobFlags.CheckFlag("KNOWLEDGE_PACKAGE")) {
                 GameManager.JobFlags.SetFlag("KNOWLEDGE_PACKAGE", true);
-                DialogueManager.instance.Say("Oh, we're all having a rough morning what with the missing package.");
-                DialogueManager.instance.AddOption("INQUIRE_PACKAGE", id, "What missing package?");
+                DialogueManager.Say("Oh, we're all having a rough morning what with the missing package.");
+                DialogueManager.AddOption("INQUIRE_PACKAGE", id, "What missing package?");
             }
             else {
-                DialogueManager.instance.Say("I'm all ears.");
+                DialogueManager.Say("I'm all ears.");
             }
 
             if(GameManager.JobFlags.CheckStringFlag("PACKAGE_HANK_STATUS") != "ADMITTED") {
-                DialogueManager.instance.AddOption("INQUIRE_PACKAGE_BLAME", id, "Was it you who lost it?");
+                DialogueManager.AddOption("INQUIRE_PACKAGE_BLAME", id, "Was it you who lost it?");
             }
-            DialogueManager.instance.AddOption("OPEN", id, "< BACK");
+            DialogueManager.AddOption("OPEN", id, "< BACK");
             return;
         }
 
         if(message == "INQUIRE_PACKAGE") {
-            DialogueManager.instance.Say("It's just some package.");
-            DialogueManager.instance.AddOption("MISSING_PACKAGE", id, "...");
+            DialogueManager.Say("It's just some package.");
+            DialogueManager.AddOption("MISSING_PACKAGE", id, "...");
         }
 
         if(message == "INQUIRE_PACKAGE_BLAME") {
-            DialogueManager.instance.Say("Wasn't me, and you can take that to the bank!");
-            DialogueManager.instance.AddOption("PACKAGE_ACCUSE", id, "You're lying!");
-            DialogueManager.instance.AddOption("PACKAGE_ACQUIT", id, "Okay, I believe you.");
-            DialogueManager.instance.AddOption("MISSING_PACKAGE", id, "< I have more questions.");
+            DialogueManager.Say("Wasn't me, and you can take that to the bank!");
+            DialogueManager.AddOption("PACKAGE_ACCUSE", id, "You're lying!");
+            DialogueManager.AddOption("PACKAGE_ACQUIT", id, "Okay, I believe you.");
+            DialogueManager.AddOption("MISSING_PACKAGE", id, "< I have more questions.");
             GameManager.JobFlags.SetStringFlag("PACKAGE_HANK_STATUS", "DENIED");
         }
 
         if(message == "PACKAGE_ACCUSE") {
-            DialogueManager.instance.Say("Well, where's your proof?");
-            DialogueManager.instance.AddOption("PACKAGE_NO_PROOF", id, "That's all I have...");
+            DialogueManager.Say("Well, where's your proof?");
+            DialogueManager.AddOption("PACKAGE_NO_PROOF", id, "That's all I have...");
         }
 
         if(message == "PACKAGE_NO_PROOF") {
-            DialogueManager.instance.Say("Sorry, bud. You've got the wrong guy.");
-            DialogueManager.instance.AddOption("MISSING_PACKAGE", id, "Fine.");
+            DialogueManager.Say("Sorry, bud. You've got the wrong guy.");
+            DialogueManager.AddOption("MISSING_PACKAGE", id, "Fine.");
         }
 
         if(message == "PACKAGE_ADMIT") {
-            DialogueManager.instance.Say("Okay, I admit it. I did [INSERT NEFARIOUS ACTIVITY REGARDING PACKAGE].");
-            DialogueManager.instance.AddOption("OPEN", id, "Just as I suspected.");
+            DialogueManager.Say("Okay, I admit it. I did [INSERT NEFARIOUS ACTIVITY REGARDING PACKAGE].");
+            DialogueManager.AddOption("OPEN", id, "Just as I suspected.");
             GameManager.JobFlags.SetStringFlag("PACKAGE_HANK_STATUS", "ADMITTED");
         }
 
         if(message == "PACKAGE_ACQUIT") {
-            DialogueManager.instance.Say("I knew you'd understand. I'm not a thief.");
-            DialogueManager.instance.AddOption("OPEN", id, "...");
+            DialogueManager.Say("I knew you'd understand. I'm not a thief.");
+            DialogueManager.AddOption("OPEN", id, "...");
             GameManager.JobFlags.SetStringFlag("PACKAGE_HANK_STATUS", "ACQUITTED");
         }
 

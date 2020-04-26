@@ -15,40 +15,40 @@ public class Dale : NPC
     {
         if(message == "OPEN")
         {
-            DialogueManager.instance.Say("Hey.");
-            DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "What do you think of...");
-            DialogueManager.instance.AddOption("CLOSE", id, "Bye!");
+            DialogueManager.Say("Hey.");
+            DialogueManager.AddOption("INQUIRE_CHARACTER", id, "What do you think of...");
+            DialogueManager.AddOption("CLOSE", id, "Bye!");
             return;
         }
 
         #region INQUIRE_CHARACTER
 
         if(message == "INQUIRE_CHARACTER") {
-            DialogueManager.instance.Say("...");
-            DialogueManager.instance.AddOption("INQUIRE_SAMMY", id, "...Sammy?");
-            DialogueManager.instance.AddOption("INQUIRE_HANK", id, "...Hank?");
-            DialogueManager.instance.AddOption("INQUIRE_ARLENE", id, "...Arlene?");
-            DialogueManager.instance.AddOption("OPEN", id, "< BACK");
+            DialogueManager.Say("...");
+            DialogueManager.AddOption("INQUIRE_SAMMY", id, "...Sammy?");
+            DialogueManager.AddOption("INQUIRE_HANK", id, "...Hank?");
+            DialogueManager.AddOption("INQUIRE_ARLENE", id, "...Arlene?");
+            DialogueManager.AddOption("OPEN", id, "< BACK");
             return;
         }
 
         if(message == "INQUIRE_SAMMY") {
-            DialogueManager.instance.Say("Sammy doesn't like me very much. I suppose I don't like her very much either.");
-            DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "...");
+            DialogueManager.Say("Sammy doesn't like me very much. I suppose I don't like her very much either.");
+            DialogueManager.AddOption("INQUIRE_CHARACTER", id, "...");
 
             GameManager.JobFlags.SetFlag("KNOWLEDGE_SAMMY_DALE", true);
             return;
         }
 
         if(message == "INQUIRE_HANK") {
-            DialogueManager.instance.Say("Hank's okay, I guess.");
-            DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "...");
+            DialogueManager.Say("Hank's okay, I guess.");
+            DialogueManager.AddOption("INQUIRE_CHARACTER", id, "...");
             return;
         }
 
         if(message == "INQUIRE_ARLENE") {
-            DialogueManager.instance.Say("Arlene's good.");
-            DialogueManager.instance.AddOption("INQUIRE_CHARACTER", id, "...");
+            DialogueManager.Say("Arlene's good.");
+            DialogueManager.AddOption("INQUIRE_CHARACTER", id, "...");
             return;
         }
 

@@ -32,7 +32,7 @@ public class Container : MonoBehaviour, IInteractable
         }
 
         if(message == "OPEN") {
-            DialogueManager.instance.Say(title);
+            DialogueManager.Say(title);
             ListOptions();
         }
 
@@ -50,21 +50,21 @@ public class Container : MonoBehaviour, IInteractable
         }
 
         if(message == "TAKEN") {
-            DialogueManager.instance.Say(itemToTake.title + " taken!");
+            DialogueManager.Say(itemToTake.title + " taken!");
             ListOptions();
         }
 
         if(message == "END") {
-            DialogueManager.instance.Close();
+            DialogueManager.Close();
         }
     }
 
     void ListOptions() {
         foreach(Item item in inventory) {
-            DialogueManager.instance.AddOption(new DialogueOption("TAKE", id, "Take " + item.title, item.id));
+            DialogueManager.AddOption(new DialogueOption("TAKE", id, "Take " + item.title, item.id));
         }
 
-        DialogueManager.instance.AddOption(new DialogueOption("END", id, "Close Container"));
+        DialogueManager.AddOption(new DialogueOption("END", id, "Close Container"));
     }
 
     public void InteractWith(Transform interactor) {

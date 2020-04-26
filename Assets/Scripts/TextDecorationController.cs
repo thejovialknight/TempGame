@@ -41,11 +41,11 @@ public class TextDecorationController : MonoBehaviour, IInteractable
         }
 
         if(message == "OPEN") {
-            DialogueManager.instance.Say(decoDescription);
-            DialogueManager.instance.AddOption(new DialogueOption("END", id, "..."));
+            DialogueManager.Say(decoDescription);
+            DialogueManager.AddOption(new DialogueOption("END", id, "..."));
         }
         else if(message == "END") {
-            DialogueManager.instance.Close();
+            DialogueManager.Close();
         }
     }
 }

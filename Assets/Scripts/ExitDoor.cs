@@ -25,26 +25,26 @@ public class ExitDoor : MonoBehaviour
 
         if(message == "DAY")
         {
-            DialogueManager.instance.Close();
+            DialogueManager.Close();
             GameManager.ProgressDay();
         }
 
         if (message == "JOB")
         {
-            DialogueManager.instance.Close();
+            DialogueManager.Close();
             GameManager.LeaveJob(true);
         }
 
         if (message == "GAME")
         {
-            DialogueManager.instance.Close();
+            DialogueManager.Close();
             GameManager.QuitGame(true);
         }
 
         if (message == "CANCEL")
         {
             StartCoroutine(MovePlayer(0.4f));
-            DialogueManager.instance.Close();
+            DialogueManager.Close();
         }
     }
 
@@ -52,11 +52,11 @@ public class ExitDoor : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            DialogueManager.instance.Say("Exit Door:");
-            DialogueManager.instance.AddOption(new DialogueOption("DAY", id, "End Day"));
-            DialogueManager.instance.AddOption(new DialogueOption("JOB", id, "Leave Job"));
-            DialogueManager.instance.AddOption(new DialogueOption("GAME", id, "Save and Quit"));
-            DialogueManager.instance.AddOption(new DialogueOption("CANCEL", id, "[X] Return to Job"));
+            DialogueManager.Say("Exit Door:");
+            DialogueManager.AddOption(new DialogueOption("DAY", id, "End Day"));
+            DialogueManager.AddOption(new DialogueOption("JOB", id, "Leave Job"));
+            DialogueManager.AddOption(new DialogueOption("GAME", id, "Save and Quit"));
+            DialogueManager.AddOption(new DialogueOption("CANCEL", id, "[X] Return to Job"));
         }
     }
 

@@ -58,7 +58,7 @@ public class NPC : MonoBehaviour, IInteractable
 
     public void InteractWith(Transform interactor)
     {
-        DialogueManager.instance.GotoNode("OPEN", id);
+        DialogueManager.GotoNode("OPEN", id);
     }
 
     public string GetInteractName()
@@ -111,7 +111,7 @@ public class NPC : MonoBehaviour, IInteractable
 
         if (message == "CLOSE")
         {
-            DialogueManager.instance.Close();
+            DialogueManager.Close();
             return;
         }
 
