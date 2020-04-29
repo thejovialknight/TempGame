@@ -26,7 +26,7 @@ public class FreeMovement : MonoBehaviour
         body.velocity = movementDirection * currentSpeed;
 
         animator.SetFloat("Velocity", body.velocity.magnitude);
-        if(movementDirection.x < 0.0f)
+        if (movementDirection.x < 0.0f)
         {
             animator.SetFloat("xDirection", -1.0f);
         }
