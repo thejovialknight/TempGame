@@ -22,11 +22,16 @@ public class FreeMovement : MonoBehaviour
 
     public void Move(Vector2 movementDirection)
     {
+        Move(movementDirection, currentSpeed);
+    }
+
+    public void Move(Vector2 movementDirection, float speed)
+    {
         movementDirection = Vector2.ClampMagnitude(movementDirection, 1f);
-        body.velocity = movementDirection * currentSpeed;
+        body.velocity = movementDirection * speed;
 
         animator.SetFloat("Velocity", body.velocity.magnitude);
-        if(movementDirection.x < 0.0f)
+        if (movementDirection.x < 0.0f)
         {
             animator.SetFloat("xDirection", -1.0f);
         }
