@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Hank : NPC
 {
+    public GameObject deliveryObject;
+
     public Hank()
     {
         id = "HANK";
         title = "Hank";
         jobTitle = "Delivery";
+    }
+
+    void Start()
+    {
+        deliveryObject.SetActive(true);
+        MessageEventManager.MinigameStart("DELIVERY");
     }
 
     public override void OnProgressDay(int day) {
@@ -39,7 +47,7 @@ public class Hank : NPC
             {
                 DialogueManager.Say("What's the what?");
 
-                DialogueManager.AddOption("NO_WORK", id, "Got any work for me?");
+                DialogueManager.AddOption("MINIGAME", id, "Got any work for me?"); // should be NO_WORK if day 1
 
                 if(GameManager.JobFlags.CheckFlag("KNOWLEDGE_PACKAGE")) {
                     DialogueManager.AddOption("MISSING_PACKAGE", id, "I have some questions about the missing package.");
@@ -51,6 +59,14 @@ public class Hank : NPC
                 DialogueManager.AddOption("INQUIRE_CHARACTER", id, "What do you think of...");
                 DialogueManager.AddOption("CLOSE", id, "[X] Oh, nothing much.");
             }
+            return;
+        }
+
+        if (message == "MINIGAME")
+        {
+            DialogueManager.Close();
+            deliveryObject.SetActive(true);
+            MessageEventManager.MinigameStart("DELIVERY");
             return;
         }
 

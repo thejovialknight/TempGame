@@ -6,7 +6,7 @@ using TMPro;
 
 public class Minigame : MonoBehaviour
 {
-    CameraController cameraController;
+    public CameraController cameraController;
 
     public string id;
     public enum MinigameState { Intro, InGame, Outro };

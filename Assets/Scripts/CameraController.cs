@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour
     public CameraZone overrideZone;
     public bool isOverride = false;
     public float lerpFactor = 2.0f;
+    public bool isFollowing;
+    public Transform followTarget;
 
 
     void Awake() 
@@ -39,6 +41,17 @@ public class CameraController : MonoBehaviour
         if(isImmediate) {
             immediateTrigger = true;
         }
+    }
+
+    public void SetFollowing(Transform target)
+    {
+        followTarget = target;
+        isFollowing = true;
+    }
+
+    public void ClearFollowing()
+    {
+        isFollowing = false;
     }
 
     void Update()
@@ -71,6 +84,11 @@ public class CameraController : MonoBehaviour
             immediateTrigger = false;
             cam.orthographicSize = desiredPerfectSize;
             cam.transform.position = new Vector3(zoneToUse.position.x, zoneToUse.position.y, -10.0f);
+        }
+
+        if(isFollowing)
+        {
+            transform.position = new Vector3(followTarget.position.x, followTarget.position.y, -10.0f);
         }
     }
 }
