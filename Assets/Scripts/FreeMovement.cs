@@ -39,5 +39,8 @@ public class FreeMovement : MonoBehaviour
         {
             animator.SetFloat("xDirection", 1.0f);
         }
+        if(animator.GetFloat("Velocity") > 0.1f) {
+            animator.speed = body.velocity.magnitude / 4f;
+        }
     }
 }

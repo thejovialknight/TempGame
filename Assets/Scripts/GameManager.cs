@@ -563,6 +563,37 @@ public class GameManager : MonoBehaviour
 
     #region Game Management
 
+    public static void StartQuest(string id) {
+        Quest quest = new Quest(id, QuestState.InProgress);
+        Job.quests.Add(quest);
+    }
+
+    public static void EndQuest(string id, bool isSuccess) {
+        Quest quest = GetQuest(id);
+        if(quest != null) {
+            if(isSuccess) 
+                quest.State = QuestState.Complete;
+            else
+                quest.State = QuestState.Failed;
+        }
+    }
+
+    public static void SetQuestState(string id, QuestState state) {
+        Quest quest = GetQuest(id);
+        if(quest != null) {
+            quest.State = state;
+        }
+    }
+
+    public static Quest GetQuest(string id) {
+        foreach(Quest quest in Job.quests) {
+            if(quest.ID == id) {
+                return quest;
+            }
+        }
+        return null;
+    }
+
     public static void StartNewGame()
     {
         instance.filename = "Conner";
