@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Quest
 {
     string id;
@@ -60,6 +61,7 @@ public enum QuestState {
     Failed
 }
 
+[System.Serializable]
 public class QuestData {
     public string id;
     public string state;

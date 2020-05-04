@@ -47,8 +47,8 @@ public class Arlene : NPC
                 DialogueManager.AddOption("INQUIRE_SAMMY_DALE", id, "What's the beef between Sammy and Dale?");
             }
             
-            if(GameManager.CheckQuestStarted("DOWNSIZING")) {
-                DialogueManager.AddOption("HUB_DOWNSIZING", id, "About the downsizing.");
+            if(GameManager.GetQuest("DOWNSIZING").State == QuestState.InProgress) {
+                DialogueManager.AddOption("DOWNSIZING_HUB", id, "About the downsizing.");
             }
 
             DialogueManager.AddOption("INQUIRE_CHARACTER", id, "What do you think of...");
@@ -176,7 +176,7 @@ public class Arlene : NPC
                 DialogueManager.AddOption("DOWNSIZING_REJECT", id, "I won't do it.");
             }
             else {
-                DialogueManager.AddOption("< BACK", id, "...");
+                DialogueManager.AddOption("OPEN", id, "< BACK");
             }
 
             return;
@@ -189,7 +189,6 @@ public class Arlene : NPC
         }
 
         if(message == "INQUIRE_SAMMY_DALE2") {
-            GameManager.StartQuest("DOWNSIZING");
             DialogueManager.Say("Speaking of that, I have a small task for you, if you're up for it.");
             DialogueManager.AddOption("DOWNSIZING_LISTEN", id, "I'm listening.");
             DialogueManager.AddOption("DOWNSIZING_REJECT", id, "Not a chance.");
@@ -219,13 +218,29 @@ public class Arlene : NPC
             GameManager.StartQuest("DOWNSIZING");
 
             DialogueManager.Say("Fantastic!");
-            DialogueManager.AddOption("DOWNSIZING_HUB", id, "...");
+            DialogueManager.AddOption("DOWNSIZING_HUB", id, "...", "Any other questions?");
             return;
         }
 
         if(message == "DOWNSIZING_REJECT") {
+            GameManager.RejectQuest("DOWNSIZING");
+
             DialogueManager.Say("I can't say I blame you. That's okay, I'll find someone else.");
             DialogueManager.AddOption("OPEN", id, "...");
+            return;
+        }
+
+        if (message == "INQUIRE_SPYING")
+        {
+            DialogueManager.Say("Well, not so much spying as much as...");
+            DialogueManager.AddOption("INQUIRE_SPYING2", id, "...");
+            return;
+        }
+
+        if (message == "INQUIRE_SPYING2")
+        {
+            DialogueManager.Say("I mean, yes, it is. I'm asking you to spy, yes.");
+            DialogueManager.AddOption("DOWNSIZING_HUB", id, "...");
             return;
         }
 
