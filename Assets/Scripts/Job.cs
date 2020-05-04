@@ -16,6 +16,7 @@ public class Job : MonoBehaviour
     public PlayerController player;
     public List<NPC> npcs = new List<NPC>();
     public List<Minigame> minigames = new List<Minigame>();
+    public List<Quest> quests = new List<Quest>();
     public List<Container> containers = new List<Container>();
 
     public Transform playerSpawn;
@@ -89,6 +90,11 @@ public class Job : MonoBehaviour
             dataToSave.minigames[i] = minigames[i].SaveData();
         }
 
+        dataToSave.quests = new QuestData[quests.Count];
+        for(int i = 0; i < dataToSave.quests.Length; i++) {
+            dataToSave.quests[i] = quests[i].SaveData();
+        }
+
         dataToSave.containers = new ContainerData[containers.Count];
         for (int i = 0; i < dataToSave.containers.Length; i++)
         {
@@ -113,5 +119,6 @@ public class JobData
     public PlayerData player;
     public NPCData[] npcs;
     public MinigameData[] minigames;
+    public QuestData[] quests;
     public ContainerData[] containers;
 }

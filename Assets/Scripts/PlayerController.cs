@@ -69,9 +69,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Vector2 movementVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
         if (!isPaused)
         {
-            freeMovement.Move(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+            if(Input.GetButton("Sprint")) {
+                freeMovement.Move(movementVector, freeMovement.baseSpeed * 1.33f);
+            }
+            else {
+                freeMovement.Move(movementVector);
+            }
             Interact();
         }
 

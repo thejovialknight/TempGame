@@ -13,11 +13,13 @@ public class Hank : NPC
         jobTitle = "Delivery";
     }
 
+/*
     void Start()
     {
         deliveryObject.SetActive(true);
         MessageEventManager.MinigameStart("DELIVERY");
     }
+    */
 
     public override void OnProgressDay(int day) {
         if(day == 2) {
