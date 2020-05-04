@@ -67,7 +67,6 @@ public class CarController : MonoBehaviour
             {
                 currentSpeed += decelerationFactor * Time.deltaTime;
             }
-            Debug.Log(currentTurnSpeed);
         }
 
         currentSpeed += acceleration * Input.GetAxisRaw("Vertical") * Time.deltaTime;
