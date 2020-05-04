@@ -42,9 +42,13 @@ public class Arlene : NPC
                 DialogueManager.AddOption("HUB_PACKAGE", id, "About the missing package...", "QUESTIONS");
             }
 
-            if(GameManager.JobFlags.CheckFlag("KNOWLEDGE_SAMMY_DALE"))
+            if(GameManager.JobFlags.CheckFlag("KNOWLEDGE_SAMMY_DALE") && !GameManager.CheckQuestStarted("DOWNSIZING"))
             {
-                DialogueManager.AddOption("HUB_DOWNSIZING", id, "What's the beef between Sammy and Dale?");
+                DialogueManager.AddOption("INQUIRE_SAMMY_DALE", id, "What's the beef between Sammy and Dale?");
+            }
+            
+            if(GameManager.CheckQuestStarted("DOWNSIZING")) {
+                DialogueManager.AddOption("HUB_DOWNSIZING", id, "About the downsizing.");
             }
 
             DialogueManager.AddOption("INQUIRE_CHARACTER", id, "What do you think of...");
@@ -155,13 +159,74 @@ public class Arlene : NPC
 
         #endregion
 
-        #region HUB_DOWNSIZING
+        #region DOWNSIZING
 
-        if(message == "HUB_DOWNSIZING") {
+        if(message == "DOWNSIZING_HUB") {
+            if(DialogueManager.CheckArg(args, 0) != null) {
+                DialogueManager.Say(DialogueManager.CheckArg(args, 0));
+            }
+            else {
+                DialogueManager.Say("Sure thing.");
+            }
+
+            ListDownsizingQuestions();
+
+            if(!GameManager.CheckQuestStarted("DOWNSIZING")) {
+                DialogueManager.AddOption("DOWNSIZING_ACCEPT", id, "I can do that.");
+                DialogueManager.AddOption("DOWNSIZING_REJECT", id, "I won't do it.");
+            }
+            else {
+                DialogueManager.AddOption("< BACK", id, "...");
+            }
+
+            return;
+        }
+
+        if(message == "INQUIRE_SAMMY_DALE") {
             DialogueManager.Say("God, those two are a pain in my ass. I don't know what it is, but I'm sure Sammy started it.");
+            DialogueManager.AddOption("INQUIRE_SAMMY_DALE2", id, "...");
+            return;
+        }
 
-            // TAKE TO NEXT NODE WHERE SHE ASKS ABOUT FIRING
+        if(message == "INQUIRE_SAMMY_DALE2") {
+            GameManager.StartQuest("DOWNSIZING");
+            DialogueManager.Say("Speaking of that, I have a small task for you, if you're up for it.");
+            DialogueManager.AddOption("DOWNSIZING_LISTEN", id, "I'm listening.");
+            DialogueManager.AddOption("DOWNSIZING_REJECT", id, "Not a chance.");
+            return;
+        }
+
+        if(message == "DOWNSIZING_LISTEN") {
+            DialogueManager.Say("Don't tell anyone, but corporate has been on my ass lately about downsizing the office.");
+            DialogueManager.AddOption("DOWNSIZING_LISTEN2", id, "...");
+            return;
+        }
+
+        if(message == "DOWNSIZING_LISTEN2") {
+            DialogueManager.Say("They want me to fire someone by the end of the week.");
+            DialogueManager.AddOption("INQUIRE_TEMP_HIRE", id, "Why did you hire me, then?");
+            DialogueManager.AddOption("DOWNSIZING_HUB", id, "...", "Could you gather some information about your fellow employees and report them back to me at the end of your three day period here?");
+            return;
+        }
+
+        if(message == "INQUIRE_TEMP_HIRE") {
+            DialogueManager.Say("Oh. Well, nevermind that.");
+            DialogueManager.AddOption("DOWNSIZING_HUB", id, "Alright.", "Could you gather some information about your fellow employees and report them back to me at the end of your three day period here?");
+            return;
+        }
+
+        if(message == "DOWNSIZING_ACCEPT") {
+            GameManager.StartQuest("DOWNSIZING");
+
+            DialogueManager.Say("Fantastic!");
+            DialogueManager.AddOption("DOWNSIZING_HUB", id, "...");
+            return;
+        }
+
+        if(message == "DOWNSIZING_REJECT") {
+            DialogueManager.Say("I can't say I blame you. That's okay, I'll find someone else.");
             DialogueManager.AddOption("OPEN", id, "...");
+            return;
         }
 
         #endregion
@@ -208,7 +273,13 @@ public class Arlene : NPC
 
     }
 
+    #region DIALOGUE METHODS
 
+    void ListDownsizingQuestions() {
+        DialogueManager.AddOption("INQUIRE_SPYING", id, "You want me to spy on my colleagues?");
+    }
+
+    #endregion
 
     public override void OnCutscene(string message) {
         base.OnCutscene(message);

@@ -563,9 +563,19 @@ public class GameManager : MonoBehaviour
 
     #region Game Management
 
+    public static bool CheckQuestStarted(string id) {
+        Quest quest = GetQuest(id);
+        if(quest != null) {
+            return true;
+        }
+        return false;
+    }
+
     public static void StartQuest(string id) {
         Quest quest = new Quest(id, QuestState.InProgress);
-        Job.quests.Add(quest);
+        if(GetQuest(id) != null) {
+            Job.quests.Add(quest);
+        }
     }
 
     public static void EndQuest(string id, bool isSuccess) {

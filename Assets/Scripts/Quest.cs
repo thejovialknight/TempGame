@@ -54,6 +54,7 @@ public class Quest
 
 public enum QuestState {
     Inactive,
+    Rejected,
     InProgress,
     Complete,
     Failed
