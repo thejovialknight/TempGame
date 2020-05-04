@@ -83,6 +83,150 @@ TextureImporter:
   - first:
       213: 3238691602273840791
     second: Road_Tileset_26
+  - first:
+      213: 553427150560667474
+    second: Road_Tileset_0
+  - first:
+      213: -8859127097391245785
+    second: Road_Tileset_1
+  - first:
+      213: 2190191327103159725
+    second: Road_Tileset_2
+  - first:
+      213: 654867177731772946
+    second: Road_Tileset_3
+  - first:
+      213: 2507020867314592461
+    second: Road_Tileset_4
+  - first:
+      213: 2652755339766178615
+    second: Road_Tileset_5
+  - first:
+      213: 180478052606046418
+    second: Road_Tileset_6
+  - first:
+      213: -956204689968079923
+    second: Road_Tileset_7
+  - first:
+      213: -362777598006771105
+    second: Road_Tileset_8
+  - first:
+      213: 6728096798325605871
+    second: Road_Tileset_9
+  - first:
+      213: -5738081141079569350
+    second: Road_Tileset_10
+  - first:
+      213: -6614111147369902095
+    second: Road_Tileset_11
+  - first:
+      213: -4170475802459082408
+    second: Road_Tileset_12
+  - first:
+      213: -3574878029942039898
+    second: Road_Tileset_13
+  - first:
+      213: -2332067044843919203
+    second: Road_Tileset_14
+  - first:
+      213: -7194715894850108472
+    second: Road_Tileset_15
+  - first:
+      213: 3381181451566671831
+    second: Road_Tileset_16
+  - first:
+      213: -4153156927794138230
+    second: Road_Tileset_17
+  - first:
+      213: -3143741762270169783
+    second: Road_Tileset_18
+  - first:
+      213: 4655056920284870888
+    second: Road_Tileset_19
+  - first:
+      213: 2915090926072061295
+    second: Road_Tileset_20
+  - first:
+      213: 3547857367869664067
+    second: Road_Tileset_21
+  - first:
+      213: -4869049541205023914
+    second: Road_Tileset_22
+  - first:
+      213: 585558865120715276
+    second: Road_Tileset_23
+  - first:
+      213: 552542338428163405
+    second: Road_Tileset_24
+  - first:
+      213: 3093667876537524710
+    second: Road_Tileset_25
+  - first:
+      213: -7823210698699935124
+    second: Road_Tileset_26
+  - first:
+      213: 5289824611281682012
+    second: Road_Tileset_27
+  - first:
+      213: -1121378896499619386
+    second: Road_Tileset_28
+  - first:
+      213: 4680338597852556631
+    second: Road_Tileset_29
+  - first:
+      213: -8191599242306747500
+    second: Road_Tileset_30
+  - first:
+      213: -2875448391742196659
+    second: Road_Tileset_31
+  - first:
+      213: -6751255620381465019
+    second: Road_Tileset_32
+  - first:
+      213: 8562403309152506572
+    second: Road_Tileset_33
+  - first:
+      213: -7509519707584150132
+    second: Road_Tileset_34
+  - first:
+      213: -7087536103144581796
+    second: Road_Tileset_35
+  - first:
+      213: 7846870353051617827
+    second: Road_Tileset_36
+  - first:
+      213: 5767908495382069847
+    second: Road_Tileset_37
+  - first:
+      213: -712770405849812502
+    second: Road_Tileset_38
+  - first:
+      213: 2670661996455874441
+    second: Road_Tileset_39
+  - first:
+      213: -7372385898066521823
+    second: Road_Tileset_40
+  - first:
+      213: 3031616658790938062
+    second: Road_Tileset_41
+  - first:
+      213: 2157598207222542529
+    second: Road_Tileset_42
+  - first:
+      213: 2410991091619507245
+    second: Road_Tileset_43
+  - first:
+      213: -7110976587441946079
+    second: Road_Tileset_44
+  - first:
+      213: 7228429918915417
+    second: Road_Tileset_45
+  - first:
+      213: -2382996523294907187
+    second: Road_Tileset_46
+  - first:
+      213: 3112410005645341861
+    second: Road_Tileset_47
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -171,27 +315,6 @@ TextureImporter:
       name: Road_Tileset_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 951d2165b1c4e9e00800000000000000
-      internalID: 1053363043143176537
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Road_Tileset_1
-      rect:
-        serializedVersion: 2
         x: 48
         y: 112
         width: 16
@@ -203,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09858dffee7d5c970800000000000000
-      internalID: 8774656870495836304
+      spriteID: 257a93eaf0b2ea700800000000000000
+      internalID: 553427150560667474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Road_Tileset_2
+      name: Road_Tileset_1
       rect:
         serializedVersion: 2
         x: 64
@@ -224,18 +347,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e96d8f4032216a1d0800000000000000
-      internalID: -3339962132032072034
+      spriteID: 72615f3b7de0e0580800000000000000
+      internalID: -8859127097391245785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Road_Tileset_3
+      name: Road_Tileset_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
+        x: 80
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -245,8 +368,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 360c2997231f9cb50800000000000000
-      internalID: 6614082726860603491
+      spriteID: dad002a686f156e10800000000000000
+      internalID: 2190191327103159725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 212d3cf7a3e861900800000000000000
+      internalID: 654867177731772946
       vertices: []
       indices: 
       edges: []
@@ -266,8 +410,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 492702425ac13db10800000000000000
-      internalID: 2004977754711290516
+      spriteID: dca27c0323abac220800000000000000
+      internalID: 2507020867314592461
       vertices: []
       indices: 
       edges: []
@@ -287,8 +431,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12776e318f0db8760800000000000000
-      internalID: 7461286971573696289
+      spriteID: 733a8c63dea70d420800000000000000
+      internalID: 2652755339766178615
       vertices: []
       indices: 
       edges: []
@@ -297,8 +441,8 @@ TextureImporter:
       name: Road_Tileset_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
+        x: 80
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -308,8 +452,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82587623f9b9a7560800000000000000
-      internalID: 7312328053037172008
+      spriteID: 2d0765725df218200800000000000000
+      internalID: 180478052606046418
       vertices: []
       indices: 
       edges: []
@@ -318,8 +462,8 @@ TextureImporter:
       name: Road_Tileset_7
       rect:
         serializedVersion: 2
-        x: 16
-        y: 80
+        x: 96
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -329,35 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55178ecae6fbde0b0800000000000000
-      internalID: -5697687471485587115
+      spriteID: dcbd3e196e0eab2f0800000000000000
+      internalID: -956204689968079923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: Road_Tileset_8
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1b98ba32666c9c2a0800000000000000
-      internalID: -6716619227258975823
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Road_Tileset_9
       rect:
         serializedVersion: 2
         x: 48
@@ -371,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbf43691ada0db240800000000000000
-      internalID: 4809011908946644924
+      spriteID: f52465a52b727faf0800000000000000
+      internalID: -362777598006771105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Road_Tileset_10
+      name: Road_Tileset_9
       rect:
         serializedVersion: 2
         x: 64
@@ -392,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59e28a85de7ffa1a0800000000000000
-      internalID: -6795940713912062315
+      spriteID: fe504ae14600f5d50800000000000000
+      internalID: 6728096798325605871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Road_Tileset_11
+      name: Road_Tileset_10
       rect:
         serializedVersion: 2
         x: 80
@@ -413,8 +536,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd240849b66ba9a10800000000000000
-      internalID: 1917045164568756956
+      spriteID: a3c85959a9d3e50b0800000000000000
+      internalID: -5738081141079569350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ffc01c54f4f534a0800000000000000
+      internalID: -6614111147369902095
       vertices: []
       indices: 
       edges: []
@@ -434,8 +578,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91c52173a0b6bbaa0800000000000000
-      internalID: -6144199574999114727
+      spriteID: 85170129a5e7f16c0800000000000000
+      internalID: -4170475802459082408
       vertices: []
       indices: 
       edges: []
@@ -455,8 +599,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 570bea25f8ed977c0800000000000000
-      internalID: -4072979680831033227
+      spriteID: 6aad4fd4f5b736ec0800000000000000
+      internalID: -3574878029942039898
       vertices: []
       indices: 
       edges: []
@@ -476,8 +620,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b80dd81152a575c40800000000000000
-      internalID: 5500964585111146635
+      spriteID: d98eea7e065d2afd0800000000000000
+      internalID: -2332067044843919203
       vertices: []
       indices: 
       edges: []
@@ -497,8 +641,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1669c3bde25fc8f0800000000000000
-      internalID: -518104251247270374
+      spriteID: 8c34a9b430c372c90800000000000000
+      internalID: -7194715894850108472
       vertices: []
       indices: 
       edges: []
@@ -518,8 +662,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b48103dddd5f568f0800000000000000
-      internalID: -547761446408153013
+      spriteID: 7d765cdad9e5cee20800000000000000
+      internalID: 3381181451566671831
       vertices: []
       indices: 
       edges: []
@@ -539,14 +683,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c78c65ea873d046f0800000000000000
-      internalID: -702329026595338116
+      spriteID: a83b06e47c50d56c0800000000000000
+      internalID: -4153156927794138230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: Road_Tileset_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9457352068f2f54d0800000000000000
+      internalID: -3143741762270169783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_19
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e8bdcefa951a9040800000000000000
+      internalID: 4655056920284870888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_20
       rect:
         serializedVersion: 2
         x: 0
@@ -560,14 +746,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf89e86eaddae6510800000000000000
-      internalID: 1544362877917239548
+      spriteID: f6d5d70a0cb747820800000000000000
+      internalID: 2915090926072061295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Road_Tileset_19
+      name: Road_Tileset_21
       rect:
         serializedVersion: 2
         x: 16
@@ -581,14 +767,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e503b83d0908cde40800000000000000
-      internalID: 5682558189347483742
+      spriteID: 34baf9d8a758c3130800000000000000
+      internalID: 3547857367869664067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Road_Tileset_20
+      name: Road_Tileset_22
       rect:
         serializedVersion: 2
         x: 32
@@ -602,14 +788,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f207dd08097ee3a80800000000000000
-      internalID: -8485090040096133073
+      spriteID: 65322b65d39ad6cb0800000000000000
+      internalID: -4869049541205023914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Road_Tileset_21
+      name: Road_Tileset_23
       rect:
         serializedVersion: 2
         x: 48
@@ -623,14 +809,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5648658a30a0c8b80800000000000000
-      internalID: -8391320994872654747
+      spriteID: c02e9967fa2502800800000000000000
+      internalID: 585558865120715276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Road_Tileset_22
+      name: Road_Tileset_24
       rect:
         serializedVersion: 2
         x: 64
@@ -644,14 +830,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 263efe69b7a614f70800000000000000
-      internalID: 9169727395348865890
+      spriteID: d45df5d44560ba700800000000000000
+      internalID: 552542338428163405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Road_Tileset_23
+      name: Road_Tileset_25
       rect:
         serializedVersion: 2
         x: 80
@@ -665,14 +851,98 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e57d30c51c98d2460800000000000000
-      internalID: 7218577241310222174
+      spriteID: 6e16e02fa8aeeea20800000000000000
+      internalID: 3093667876537524710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Road_Tileset_24
+      name: Road_Tileset_26
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6274f4915f5e6390800000000000000
+      internalID: -7823210698699935124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_27
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5e309f057b396940800000000000000
+      internalID: 5289824611281682012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c9458fb5df0070f0800000000000000
+      internalID: -1121378896499619386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_29
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d2d814827e3f040800000000000000
+      internalID: 4680338597852556631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_30
       rect:
         serializedVersion: 2
         x: 32
@@ -686,14 +956,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdc0f0050be710d80800000000000000
-      internalID: -8286202543662494500
+      spriteID: 49382fbd3e7915e80800000000000000
+      internalID: -8191599242306747500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Road_Tileset_25
+      name: Road_Tileset_31
       rect:
         serializedVersion: 2
         x: 48
@@ -707,14 +977,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d216c7a0bbf28e150800000000000000
-      internalID: 5902019792050348333
+      spriteID: d44fc382cea5818d0800000000000000
+      internalID: -2875448391742196659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Road_Tileset_26
+      name: Road_Tileset_32
       rect:
         serializedVersion: 2
         x: 64
@@ -728,8 +998,323 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79ea29a5ad422fc20800000000000000
-      internalID: 3238691602273840791
+      spriteID: 546ad4f68c8be42a0800000000000000
+      internalID: -6751255620381465019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_33
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc21aa1b174c3d670800000000000000
+      internalID: 8562403309152506572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_34
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c85c6a3fc93d8c790800000000000000
+      internalID: -7509519707584150132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_35
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c559f4f277304ad90800000000000000
+      internalID: -7087536103144581796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32a8f28f20fa5ec60800000000000000
+      internalID: 7846870353051617827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_37
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 752c434873abb0050800000000000000
+      internalID: 5767908495382069847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_38
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae139e0a71bbb16f0800000000000000
+      internalID: -712770405849812502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_39
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98f43ed9fe8101520800000000000000
+      internalID: 2670661996455874441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_40
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12155a6161600b990800000000000000
+      internalID: -7372385898066521823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_41
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec5f36af947721a20800000000000000
+      internalID: 3031616658790938062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_42
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c0f485532451fd10800000000000000
+      internalID: 2157598207222542529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_43
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2cac94bf9f857120800000000000000
+      internalID: 2410991091619507245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_44
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1224763287cb05d90800000000000000
+      internalID: -7110976587441946079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_45
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95bc99df73ea91000800000000000000
+      internalID: 7228429918915417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_46
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc42408a945edeed0800000000000000
+      internalID: -2382996523294907187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Tileset_47
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a4bcdde860813b20800000000000000
+      internalID: 3112410005645341861
       vertices: []
       indices: 
       edges: []
