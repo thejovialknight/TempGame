@@ -42308,7 +42308,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1ad15c37cc868da49b4efa785210a560, type: 3}
@@ -52531,7 +52531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1058218004
 Transform:
   m_ObjectHideFlags: 0
@@ -58919,6 +58919,7 @@ MonoBehaviour:
   player: {fileID: 0}
   npcs: []
   minigames: []
+  quests: []
   containers: []
   playerSpawn: {fileID: 1402040456}
 --- !u!4 &1439910548 stripped
