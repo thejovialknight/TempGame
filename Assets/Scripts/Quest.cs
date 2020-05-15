@@ -36,6 +36,7 @@ public class Quest
     public Quest(string id, QuestState state) {
         this.id = id;
         this.state = state;
+        flagCollection = new FlagCollection();
     }
 
     public void LoadData(QuestData dataToLoad) {

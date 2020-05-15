@@ -42,7 +42,7 @@ public class Arlene : NPC
                 DialogueManager.AddOption("HUB_PACKAGE", id, "About the missing package...", "QUESTIONS");
             }
 
-            if(GameManager.JobFlags.CheckFlag("KNOWLEDGE_SAMMY_DALE") && !GameManager.CheckQuestStarted("DOWNSIZING"))
+            if(GameManager.JobFlags.CheckFlag("KNOWLEDGE_SAMMY_DALE") && GameManager.GetQuest("DOWNSIZING").State == QuestState.Inactive)
             {
                 DialogueManager.AddOption("INQUIRE_SAMMY_DALE", id, "What's the beef between Sammy and Dale?");
             }
@@ -171,11 +171,14 @@ public class Arlene : NPC
 
             ListDownsizingQuestions();
 
-            if(!GameManager.CheckQuestStarted("DOWNSIZING")) {
+            if(GameManager.GetQuest("DOWNSIZING").State == QuestState.Inactive) {
                 DialogueManager.AddOption("DOWNSIZING_ACCEPT", id, "I can do that.");
                 DialogueManager.AddOption("DOWNSIZING_REJECT", id, "I won't do it.");
             }
             else {
+                if(GameManager.Day == 3 && GameManager.TimeChunk == 2) {
+                    DialogueManager.AddOption("DOWNSIZING_RECOMMEND_HUB", id, "I'm ready to make a recommendation.");
+                }
                 DialogueManager.AddOption("OPEN", id, "< BACK");
             }
 
@@ -241,6 +244,166 @@ public class Arlene : NPC
         {
             DialogueManager.Say("I mean, yes, it is. I'm asking you to spy, yes.");
             DialogueManager.AddOption("DOWNSIZING_HUB", id, "...");
+            return;
+        }
+
+        #endregion
+        
+        #region RECOMMENDATION HUB
+
+        if(message == "DOWNSIZING_RECOMMEND_HUB") {
+            if(DialogueManager.CheckArg(args, 0) != null) {
+                DialogueManager.Say(DialogueManager.CheckArg(args, 0));
+            }
+            else {
+                DialogueManager.Say("What do you have for me?");
+            }
+
+            DialogueManager.AddOption("FIRE_DALE", id, "It's time to bail on Dale.");
+            DialogueManager.AddOption("FIRE_SAMMY", id, "Sammy's the one that's hammy.");
+            DialogueManager.AddOption("FIRE_HANK", id, "You've gotta tank Hank.");
+            DialogueManager.AddOption("FIRE_ARLENE", id, "Unfortunately, it's you who's overdue.");
+            DialogueManager.AddOption("DOWNSIZING_HUB", id, "< BACK");
+        }
+
+        #endregion
+
+        #region FIRING DALE
+
+        if(message == "FIRE_DALE") {
+            if(GameManager.GetQuest("DOWNSIZING").Flags.CheckIntFlag("DALE_EVIDENCE") >= 2) {
+                DialogueManager.Say("Well, that's all I need. I guess Dale's gotta go. What a shame, he was a hard worker.");
+                GameManager.GetQuest("DOWNSIZING").Flags.SetStringFlag("RECOMMENDATION", "DALE");
+                GameManager.GetQuest("DOWNSIZING").State = QuestState.Complete;
+                DialogueManager.AddOption("OPEN", id, "...");
+            } 
+            else {
+                if(DialogueManager.CheckArg(args, 0) != null) {
+                    DialogueManager.Say(DialogueManager.CheckArg(args, 0));
+                }
+                else {
+                    DialogueManager.Say("Oh, really?");
+                }
+
+                if(GameManager.GetQuest("DOWNSIZING").Flags.CheckFlag("DALE_EVIDENCE_LAZY")) {
+                    DialogueManager.AddOption("DALE_EVIDENCE_LAZY", id, "He has way too much time on his hands.");
+                }
+
+                if(GameManager.GetQuest("DOWNSIZING").Flags.CheckFlag("DALE_EVIDENCE_THIEF")) {
+                    DialogueManager.AddOption("DALE_EVIDENCE_THIEF", id, "He stole the missing package.");
+                }
+
+                DialogueManager.AddOption("DOWNSIZING_RECOMMEND_HUB", id, "< Never mind.");
+            }
+        }
+
+        if(message == "DALE_EVIDENCE_LAZY") {
+            DialogueManager.Say("Lazy, really? If you say so.");
+            DialogueManager.AddOption("FIRE_DALE", id, "...", "What else?");
+
+            GameManager.GetQuest("DOWNSIZING").Flags.ModifyIntFlag("DALE_EVIDENCE", 1);
+            return;
+        }
+
+        if(message == "DALE_EVIDENCE_THIEF") {
+            DialogueManager.Say("He did? The motherfucker or...");
+            DialogueManager.AddOption("FIRE_DALE", id, "...", "What else?");
+
+            GameManager.GetQuest("DOWNSIZING").Flags.ModifyIntFlag("DALE_EVIDENCE", 1);
+            return;
+        }
+
+        #endregion
+
+        #region FIRING SAMMY
+
+        if(message == "FIRE_SAMMY") {
+            if(GameManager.GetQuest("DOWNSIZING").Flags.CheckIntFlag("SAMMY_EVIDENCE") >= 2) {
+                DialogueManager.Say("Well, that's all I need. I can't say I'm surprised, Sammy didn't always play nice.");
+                GameManager.GetQuest("DOWNSIZING").Flags.SetStringFlag("RECOMMENDATION", "SAMMY");
+                GameManager.GetQuest("DOWNSIZING").State = QuestState.Complete;
+                DialogueManager.AddOption("OPEN", id, "...");
+            } 
+            else {
+                if(DialogueManager.CheckArg(args, 0) != null) {
+                    DialogueManager.Say(DialogueManager.CheckArg(args, 0));
+                }
+                else {
+                    DialogueManager.Say("Oh, really?");
+                }
+
+                if(GameManager.GetQuest("DOWNSIZING").Flags.CheckFlag("SAMMY_EVIDENCE_PACKAGE")) {
+                    DialogueManager.AddOption("SAMMY_EVIDENCE_PACKAGE", id, "She hid the missing package.");
+                }
+
+                if(GameManager.GetQuest("DOWNSIZING").Flags.CheckFlag("SAMMY_EVIDENCE_SABOTAGE")) {
+                    DialogueManager.AddOption("SAMMY_EVIDENCE_SABOTAGE", id, "Sammy tried to frame Dale.");
+                }
+
+                DialogueManager.AddOption("DOWNSIZING_RECOMMEND_HUB", id, "< Never mind.");
+            }
+        }
+
+        if(message == "SAMMY_EVIDENCE_PACKAGE") {
+            DialogueManager.Say("Hid the package? Damn!!");
+            DialogueManager.AddOption("FIRE_SAMMY", id, "...", "What else?");
+
+            GameManager.GetQuest("DOWNSIZING").Flags.ModifyIntFlag("SAMMY_EVIDENCE", 1);
+            return;
+        }
+
+        if(message == "SAMMY_EVIDENCE_SABOTAGE") {
+            DialogueManager.Say("That's nasty...");
+            DialogueManager.AddOption("FIRE_SAMMY", id, "...", "What else?");
+
+            GameManager.GetQuest("DOWNSIZING").Flags.ModifyIntFlag("SAMMY_EVIDENCE", 1);
+            return;
+        }
+
+        #endregion
+
+        #region FIRING HANK
+
+        if(message == "FIRE_HANK") {
+            if(GameManager.GetQuest("DOWNSIZING").Flags.CheckIntFlag("HANK_EVIDENCE") >= 2) {
+                DialogueManager.Say("Well, that's all I need. I knew he was a weirdo, but I didn't know all that.");
+                GameManager.GetQuest("DOWNSIZING").Flags.SetStringFlag("RECOMMENDATION", "HANK");
+                GameManager.GetQuest("DOWNSIZING").State = QuestState.Complete;
+                DialogueManager.AddOption("OPEN", id, "...");
+            } 
+            else {
+                if(DialogueManager.CheckArg(args, 0) != null) {
+                    DialogueManager.Say(DialogueManager.CheckArg(args, 0));
+                }
+                else {
+                    DialogueManager.Say("Oh, really?");
+                }
+
+                if(GameManager.GetQuest("DOWNSIZING").Flags.CheckFlag("HANK_EVIDENCE_LABELS")) {
+                    DialogueManager.AddOption("HANK_EVIDENCE_LABELS", id, "He mixed up the labels.");
+                }
+
+                if(GameManager.GetQuest("DOWNSIZING").Flags.CheckFlag("HANK_DRUG_DEALER")) {
+                    DialogueManager.AddOption("HANK_DRUG_DEALER", id, "Hank is a drug dealer.");
+                }
+
+                DialogueManager.AddOption("DOWNSIZING_RECOMMEND_HUB", id, "< Never mind.");
+            }
+        }
+
+        if(message == "HANK_EVIDENCE_LABELS") {
+            DialogueManager.Say("Hid the package? Damn!!");
+            DialogueManager.AddOption("FIRE_HANK", id, "...", "What else?");
+
+            GameManager.GetQuest("DOWNSIZING").Flags.ModifyIntFlag("HANK_EVIDENCE", 1);
+            return;
+        }
+
+        if(message == "HANK_DRUG_DEALER") {
+            DialogueManager.Say("That's nasty...");
+            DialogueManager.AddOption("FIRE_HANK", id, "...", "What else?");
+
+            GameManager.GetQuest("DOWNSIZING").Flags.ModifyIntFlag("HANK_EVIDENCE", 1);
             return;
         }
 

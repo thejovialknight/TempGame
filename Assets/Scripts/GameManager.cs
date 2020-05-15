@@ -563,25 +563,16 @@ public class GameManager : MonoBehaviour
 
     #region Game Management
 
-    // CAN PROBABLY BE REPLACED BY A SIMPLE 'if(GetQuest(id) != null)'
-    public static bool CheckQuestStarted(string id) {
-        Quest quest = GetQuest(id);
-        if(quest != null) {
-            return true;
-        }
-        return false;
-    }
-
     public static void StartQuest(string id) {
         Quest quest = new Quest(id, QuestState.InProgress);
-        if(GetQuest(id) == null) {
+        if(GetQuest(id).State == QuestState.Inactive) {
             Job.quests.Add(quest);
         }
     }
 
     public static void RejectQuest(string id)
     {
-        if (GetQuest(id) == null)
+        if (GetQuest(id).State == QuestState.Inactive)
         {
             Quest quest = new Quest(id, QuestState.Rejected);
             Job.quests.Add(quest);
@@ -594,7 +585,7 @@ public class GameManager : MonoBehaviour
 
     public static void EndQuest(string id, bool isSuccess) {
         Quest quest = GetQuest(id);
-        if(quest != null) {
+        if(GetQuest(id).State == QuestState.Inactive) {
             if(isSuccess) 
                 quest.State = QuestState.Complete;
             else
@@ -608,7 +599,7 @@ public class GameManager : MonoBehaviour
                 return quest;
             }
         }
-        return null;
+        return new Quest(id, QuestState.Inactive);
     }
 
     public static void StartNewGame()

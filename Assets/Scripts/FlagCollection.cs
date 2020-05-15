@@ -76,6 +76,14 @@ public class FlagCollection
         stringFlags.Add(new StringFlag(id, value));
     }
 
+    public void ModifyIntFlag(string id, int addend) {
+        SetIntFlag(id, CheckIntFlag(id) + addend);
+    }
+
+    public void ModifyFloatFlag(string id, float addend) {
+        SetFloatFlag(id, CheckFloatFlag(id) + addend);
+    }
+
     public bool CheckFlag(string id)
     {
         bool flagExists = false;
