@@ -11,8 +11,10 @@ public class Dale : NPC
         jobTitle = "Front Counter";
     }
 
+    /*
     public override void HandleDialogue(string message, string[] args)
     {
+
         if(message == "OPEN")
         {
             DialogueManager.Say("Hey.");
@@ -105,7 +107,9 @@ public class Dale : NPC
 
         #endregion
 
-    }
+        */
+
+    /*
 
     #region Dialogue Methods
 
@@ -116,6 +120,8 @@ public class Dale : NPC
     }
 
     #endregion
+
+    */
 
     public override void OnCutscene(string message) {
         base.OnCutscene(message);

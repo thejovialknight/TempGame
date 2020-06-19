@@ -11,6 +11,7 @@ public class Arlene : NPC
         jobTitle = "General Manager";
     }
 
+    /*
     public override void HandleDialogue(string message, params string[] args)
     {
         if(message == "OPEN")
@@ -457,9 +458,10 @@ public class Arlene : NPC
         DialogueManager.AddOption("INQUIRE_SPYING", id, "You want me to spy on my colleagues?");
     }
 
-    #endregion
+    */
 
     public override void OnCutscene(string message) {
         base.OnCutscene(message);
     }
+
 }

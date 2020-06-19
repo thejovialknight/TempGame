@@ -19,7 +19,6 @@ public class NPC : MonoBehaviour, IInteractable
         GameManager.OnProgressDay += OnProgressDay;
         GameManager.OnProgressTime += OnProgressTime;
 
-        MessageEventManager.OnDialogue += OnDialogue;
         MessageEventManager.OnCutscene += OnCutscene;
         MessageEventManager.OnJobRegister += OnJobRegister;
     }
@@ -30,10 +29,13 @@ public class NPC : MonoBehaviour, IInteractable
         GameManager.OnResume -= OnResume;
         GameManager.OnProgressDay -= OnProgressDay;
         GameManager.OnProgressTime -= OnProgressTime;
-
-        MessageEventManager.OnDialogue -= OnDialogue;
+        
         MessageEventManager.OnCutscene += OnCutscene;
         MessageEventManager.OnJobRegister -= OnJobRegister;
+    }
+
+    public virtual void OnCutscene() {
+        
     }
 
     public void LoadData(NPCData dataToLoad) {
@@ -100,25 +102,6 @@ public class NPC : MonoBehaviour, IInteractable
     }
 
     public virtual void OnProgressTime(int time) {
-
-    }
-
-    public void OnDialogue(string id, string message, params string[] args)
-    {
-        if(id != this.id) {
-            return;
-        }
-
-        if (message == "CLOSE")
-        {
-            DialogueManager.Close();
-            return;
-        }
-
-        HandleDialogue(message, args);
-    }
-
-    public virtual void HandleDialogue(string message, string[] args) {
 
     }
 

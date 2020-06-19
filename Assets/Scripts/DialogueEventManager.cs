@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class DialogueEventManager : MonoBehaviour
 {
-    public delegate void MessageEvent(string msg);
+    public delegate void MessageEvent(DialogueNode node);
 
     public static event MessageEvent OnSayEvent;
-    public static void RaiseOnSay(string msg)
+    public static void RaiseOnSay(DialogueNode node)
     {
         if (OnSayEvent != null)
         {
-            OnSayEvent(msg);
+            OnSayEvent(node);
         }
     }
 
-    public delegate void OptionEvent(string id, string msg);
+    public delegate void OptionEvent(DialogueResponse response);
     public static event OptionEvent OnAddOptionEvent;
-    public static void RaiseOnAddOption(string id, string msg)
+    public static void RaiseOnAddOption(DialogueResponse response)
     {
         if (OnAddOptionEvent != null)
         {
-            OnAddOptionEvent(id, msg);
+            OnAddOptionEvent(response);
         }
     }
 }

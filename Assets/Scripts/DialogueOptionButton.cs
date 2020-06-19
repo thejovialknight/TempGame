@@ -6,23 +6,23 @@ using TMPro;
 
 public class DialogueOptionButton : MonoBehaviour
 {
-    public DialogueOption option;
+    public DialogueResponse response;
 
     public TextMeshProUGUI buttonText;
 
-    public void Init(DialogueOption option)
+    public void Init(DialogueResponse response)
     {
-        this.option = option;
-        buttonText.text = option.message;
+        this.response = response;
+        buttonText.text = response.text.Evaluate();
     }
 
-    public delegate void DialogueOptionEvent(DialogueOption dialogueOption);
+    public delegate void DialogueOptionEvent(DialogueResponse dialogueResponse);
     public static event DialogueOptionEvent OnDialoguePressed;
-    public void RaiseOnDialoguePressed()
+    public void RaiseOnDialoguePressed(DialogueResponse dialogueResponse)
     {
         if (OnDialoguePressed != null)
         {
-            OnDialoguePressed(option);
+            OnDialoguePressed(dialogueResponse);
         }
     }
 }

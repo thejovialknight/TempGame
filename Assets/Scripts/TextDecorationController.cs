@@ -36,6 +36,7 @@ public class TextDecorationController : MonoBehaviour, IInteractable
 
     void OnDialogue(string id, string message, params string[] args)
     {
+        /*
         if(id != this.id) {
             return;
         }
@@ -47,5 +48,6 @@ public class TextDecorationController : MonoBehaviour, IInteractable
         else if(message == "END") {
             DialogueManager.Close();
         }
+        */
     }
 }

@@ -22,11 +22,11 @@ public class DialogueManager : MonoBehaviour
     public Transform panel;
     public TextMeshProUGUI dialogueText;
     public AudioClip characterAudio;
-    public Transform optionsScrollListTransform;
-    public Transform optionsContentTransform;
-    public GameObject optionButtonPrefab;
+    public Transform responsesScrollListTransform;
+    public Transform responsesContentTransform;
+    public GameObject responseButtonPrefab;
 
-    public List<DialogueOption> dialogueOptions = new List<DialogueOption>();
+    public List<DialogueResponse> dialogueResponses = new List<DialogueResponse>();
 
     public static DialogueManager instance;
 
@@ -53,7 +53,7 @@ public class DialogueManager : MonoBehaviour
         desiredOptionsPos = -desiredPanelSize + 5f;
 
         desiredOptionsSize = 0f;
-        foreach (Transform child in optionsContentTransform)
+        foreach (Transform child in responsesContentTransform)
         {
             desiredOptionsSize += 21;
         }
@@ -62,16 +62,16 @@ public class DialogueManager : MonoBehaviour
         desiredPanelSize += desiredOptionsSize;
     }
 
-    void OnDialoguePressed(DialogueOption option)
+    void OnDialoguePressed(DialogueResponse response)
     {
-        MessageEventManager.Dialogue(option.receiverID, option.nodeID, option.args);
+        MessageEventManager.Dialogue(response.receiverID, option.nodeID, option.args);
     }
 
     public static void Close()
     {
         DialogueManager.instance.dialogue = "";
         DialogueManager.instance.dialogueText.text = "";
-        ClearOptions();
+        ClearResponses();
         DialogueManager.instance.panel.gameObject.SetActive(false);
         GameManager.Resume();
         DialogueManager.instance.desiredPanelSize = 0f;
@@ -88,7 +88,7 @@ public class DialogueManager : MonoBehaviour
             GameManager.Pause(true, true);
         }
         DialogueManager.instance.characterCount = 0;
-        ClearOptions();
+        ClearResponses();
         DialogueManager.instance.dialogue = msg;
     }
 
@@ -102,28 +102,18 @@ public class DialogueManager : MonoBehaviour
         GotoNode(nodeID, receiverID, new string[0]);
     }
 
-    public static void AddOption(DialogueOption option)
+    public static void AddResponse(DialogueResponse response)
     {
-        DialogueManager.instance.dialogueOptions.Add(option);
-        GameObject optionButton = GameObject.Instantiate(DialogueManager.instance.optionButtonPrefab, DialogueManager.instance.optionsContentTransform);
-        optionButton.GetComponent<DialogueOptionButton>().Init(option);
+        DialogueManager.instance.dialogueResponses.Add(response);
+        GameObject responseButton = GameObject.Instantiate(DialogueManager.instance.responseButtonPrefab, DialogueManager.instance.responsesContentTransform);
+        responseButton.GetComponent<DialogueOptionButton>().Init(response);
     }
 
-    public static void AddOption(string nodeID, string receiverID, string message, params string[] args)
+    public static void ClearResponses()
     {
-        AddOption(new DialogueOption(nodeID, receiverID, message, args));
-    }
-
-    public static void AddOption(string nodeID, string receiverID, string message)
-    {
-        AddOption(new DialogueOption(nodeID, receiverID, message, new string[0]));
-    }
-
-    public static void ClearOptions()
-    {
-        foreach (Transform child in DialogueManager.instance.optionsContentTransform)
+        foreach (Transform child in DialogueManager.instance.responsesContentTransform)
         {
-            DialogueManager.instance.dialogueOptions.Clear();
+            DialogueManager.instance.dialogueResponses.Clear();
             GameObject.Destroy(child.gameObject);
         }
     }
@@ -164,7 +154,7 @@ public class DialogueManager : MonoBehaviour
         RectTransform panelRect = panel.GetComponent<RectTransform>();
         panelRect.sizeDelta = Vector2.Lerp(panelRect.sizeDelta, new Vector2(625f, desiredPanelSize), lerpSpeed * Time.deltaTime);
 
-        RectTransform optionsRect = optionsScrollListTransform.GetComponent<RectTransform>();
+        RectTransform optionsRect = responsesScrollListTransform.GetComponent<RectTransform>();
         optionsRect.anchoredPosition = Vector2.Lerp(optionsRect.anchoredPosition, new Vector2(0f, desiredOptionsPos), lerpSpeed * Time.deltaTime);
         optionsRect.sizeDelta = Vector2.Lerp(optionsRect.sizeDelta, new Vector2(592f, desiredOptionsSize), lerpSpeed * Time.deltaTime);
     }

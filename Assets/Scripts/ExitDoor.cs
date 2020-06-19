@@ -50,14 +50,16 @@ public class ExitDoor : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        /*
         if(other.CompareTag("Player"))
         {
             DialogueManager.Say("Exit Door:");
-            DialogueManager.AddOption(new DialogueOption("DAY", id, "End Day"));
-            DialogueManager.AddOption(new DialogueOption("JOB", id, "Leave Job"));
-            DialogueManager.AddOption(new DialogueOption("GAME", id, "Save and Quit"));
-            DialogueManager.AddOption(new DialogueOption("CANCEL", id, "[X] Return to Job"));
+            DialogueManager.AddResponse(new DialogueResponse("DAY", id, "End Day"));
+            DialogueManager.AddResponse(new DialogueResponse("JOB", id, "Leave Job"));
+            DialogueManager.AddResponse(new DialogueResponse("GAME", id, "Save and Quit"));
+            DialogueManager.AddResponse(new DialogueResponse("CANCEL", id, "[X] Return to Job"));
         }
+        */
     }
 
     IEnumerator MovePlayer(float length)

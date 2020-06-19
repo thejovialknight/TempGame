@@ -31,6 +31,8 @@ public class Hank : NPC
         
     }
 
+    /*
+
     public override void HandleDialogue(string message, string[] args)
     {
         if (message == "OPEN")
@@ -202,6 +204,8 @@ public class Hank : NPC
         #endregion
 
     }
+
+    */
 
     public override void OnCutscene(string message) {
         base.OnCutscene(message);
